@@ -16,6 +16,45 @@ The project expects the following data directories (not included in repo):
 - `data/categorized/`: Stores categorized transaction data
 - `data/output/`: Contains processed output files
 
+### Expected Data Format
+
+#### Input Files (data/to_categorize/)
+CSV files with the following columns:
+- `Date`: Transaction date (format: YYYY-MM-DD)
+- `Description`: Transaction description text
+- `Amount`: Transaction amount (numeric)
+- `Appears On Your Statement As`: How the transaction appears on your statement (optional)
+
+Example:
+```
+Date,Description,Amount,Appears On Your Statement As
+2023-01-15,AMAZON.COM,25.99,AMZN Mktp US
+2023-01-16,GROCERY STORE,52.47,SAFEWAY #1234
+```
+
+#### Categorized Files (data/categorized/)
+CSV files with the same columns as input files, plus:
+- `Category`: Transaction category
+
+Example:
+```
+Date,Description,Amount,Appears On Your Statement As,Category
+2023-01-15,AMAZON.COM,25.99,AMZN Mktp US,Shopping
+2023-01-16,GROCERY STORE,52.47,SAFEWAY #1234,Groceries
+```
+
+#### Output Files (data/output/)
+CSV files with the same columns as input files, plus:
+- `Category`: Predicted category
+- `Confidence`: Confidence score of prediction (0-1)
+
+Example:
+```
+Date,Description,Amount,Appears On Your Statement As,Category,Confidence
+2023-01-15,AMAZON.COM,25.99,AMZN Mktp US,Shopping,0.92
+2023-01-16,GROCERY STORE,52.47,SAFEWAY #1234,Groceries,0.87
+```
+
 ## Setup
 
 1. Clone the repository
