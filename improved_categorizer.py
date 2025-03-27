@@ -84,19 +84,7 @@ class FeaturePreparation:
             prep.pipeline = pickle.load(f)
         return prep
 
-def train_model(data_dir='data/categorized', test_size=0.2, random_state=42, update_merchants=False):
-    """
-    Train a model on categorized transaction data.
-    
-    Args:
-        data_dir: Directory containing categorized transaction data
-        test_size: Proportion of data to use for testing
-        random_state: Random seed for reproducibility
-        update_merchants: Whether to prompt for merchant category updates
-    
-    Returns:
-        Tuple of (model, feature_preparation_pipeline)
-    """
+def train_model(data_dir='data/categorized', test_size=0.2, random_state=42):
     # Find all CSV files in the data directory
     csv_files = glob.glob(os.path.join(data_dir, '*.csv'))
     
@@ -172,50 +160,7 @@ def train_model(data_dir='data/categorized', test_size=0.2, random_state=42, upd
     
     print("Model saved to improved_model.pkl")
     
-    # Check if user wants to update merchant categories
-    if update_merchants:
-        try:
-            update_merchant_categories(data)
-        except Exception as e:
-            print(f"Error updating merchant categories: {e}")
-    
     return model, feature_prep
-
-def update_merchant_categories(data):
-    """
-    Prompt user to update merchant categories based on model predictions
-    """
-    print("\nChecking for potential merchant category updates...")
-    
-    try:
-        # Import the module here to avoid circular imports
-        # and to make it optional for environments without user interaction
-        import update_merchants
-        
-        # Ask if user wants to update merchant categories
-        response = input("\nWould you like to update merchant categories based on training data? (y/n): ").strip().lower()
-        
-        if response == 'y':
-            print("Starting merchant category update process...")
-            update_merchants.interactive_update()
-        else:
-            print("Merchant category update skipped.")
-            
-            # Ask if user wants to run non-interactive update
-            response = input("Would you like to generate a merchant suggestion report without applying changes? (y/n): ").strip().lower()
-            if response == 'y':
-                output_file = "merchant_suggestions.csv"
-                suggestions = update_merchants.extract_merchant_suggestions()
-                if suggestions is not None and len(suggestions) > 0:
-                    suggestions.to_csv(output_file, index=False)
-                    print(f"Saved {len(suggestions)} merchant suggestions to {output_file}")
-                    print(f"You can review this file and apply changes manually later.")
-                    print(f"To apply these changes later, use: python update_merchants.py")
-    
-    except ImportError:
-        print("Update merchants module not available. Skipping merchant updates.")
-    except Exception as e:
-        print(f"Error during merchant update process: {e}")
 
 def categorize_transactions(input_dir='data/to_categorize', output_dir='data/output', model_file='improved_model.pkl', use_postprocessor=True):
     # Check if model exists
@@ -309,7 +254,7 @@ def categorize_transactions(input_dir='data/to_categorize', output_dir='data/out
 
 if __name__ == "__main__":
     # Train model
-    model, feature_prep = train_model(update_merchants=True)
+    model, feature_prep = train_model()
     
     # Categorize transactions
     if model is not None:

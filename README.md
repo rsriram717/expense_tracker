@@ -31,7 +31,6 @@ This system uses a combination of machine learning and rule-based approaches to 
 ├── merchant_postprocessor.py # Post-processing rules engine
 ├── categorize.py           # Command-line interface
 ├── manage_merchants.py     # Merchant pattern management tool
-├── update_merchants.py     # Tool to update merchants from training data
 └── improved_model.pkl      # Trained model file
 ```
 
@@ -67,16 +66,13 @@ Training data should be placed in `data/categorized/` with columns:
 ### Command-line Options
 
 ```
-usage: categorize.py [-h] [--train] [--update-merchants] [--input-dir INPUT_DIR]
-                    [--output-dir OUTPUT_DIR] [--model-file MODEL_FILE] [--skip-post]
-                    [--categorize-only] [--update-merchants-only]
+usage: categorize.py [-h] [--train] [--input-dir INPUT_DIR] [--output-dir OUTPUT_DIR] [--model-file MODEL_FILE] [--skip-post]
 
 Categorize financial transactions using ML and merchant rules
 
 options:
   -h, --help            show this help message and exit
   --train               Retrain the model before categorizing
-  --update-merchants    Prompt to update merchant patterns during training (implies --train)
   --input-dir INPUT_DIR
                         Directory containing transaction CSV files to categorize
   --output-dir OUTPUT_DIR
@@ -84,10 +80,6 @@ options:
   --model-file MODEL_FILE
                         Path to the model file
   --skip-post           Skip merchant post-processing
-  --categorize-only     Only categorize, without training (even if --train or 
-                        --update-merchants are specified)
-  --update-merchants-only
-                        Only update merchant patterns without training or categorizing
 ```
 
 ## Managing Merchant Rules
@@ -97,56 +89,9 @@ The merchant rules are stored in `data/merchants/merchant_categories.csv` with c
 - `category`: Category to assign when pattern matches
 - `confidence`: Confidence level (0.0-1.0) for the rule
 
-### Updating Merchant Patterns from Training Data
-
-You can update merchant patterns based on patterns found in your training data:
-
-```bash
-# Update as part of model training
-python categorize.py --train --update-merchants
-
-# Only update merchant patterns without training or categorizing
-python categorize.py --update-merchants-only
-
-# Run the merchant updater directly
-python update_merchants.py
-```
-
-The merchant updater will:
-1. Analyze your categorized transactions
-2. Identify common merchant patterns
-3. Suggest new patterns or updates to existing ones
-4. Let you interactively review and approve each suggestion
-
-It will only suggest patterns with high confidence (consistent categorization) and will never automatically update merchant patterns without your approval.
-
-### Command-line Options for update_merchants.py
-
-```
-usage: update_merchants.py [-h] [--data-dir DATA_DIR] [--merchant-file MERCHANT_FILE]
-                          [--confidence CONFIDENCE] [--min-occurrences MIN_OCCURRENCES]
-                          [--batch-size BATCH_SIZE] [--non-interactive] [--output OUTPUT]
-
-Update merchant categories based on model predictions
-
-options:
-  -h, --help            show this help message and exit
-  --data-dir DATA_DIR   Directory containing categorized transaction data
-  --merchant-file MERCHANT_FILE
-                        Merchant categories file
-  --confidence CONFIDENCE
-                        Minimum confidence threshold for suggestions (0.0-1.0)
-  --min-occurrences MIN_OCCURRENCES
-                        Minimum number of occurrences for a merchant pattern
-  --batch-size BATCH_SIZE
-                        Number of suggestions to review at one time
-  --non-interactive     Generate a report file without interactive review
-  --output OUTPUT       Output file for non-interactive mode
-```
-
 ### Using the Merchant Management Tool
 
-You can also manually manage merchant patterns using the `manage_merchants.py` tool:
+You can manage merchant patterns using the `manage_merchants.py` tool:
 
 ```bash
 # List all merchant patterns
@@ -197,4 +142,4 @@ To improve categorization accuracy:
 1. Add more labeled training data to `data/categorized/`
 2. Add specific merchant patterns for frequently encountered transactions
 3. Review low-confidence predictions and correct them
-4. Run `python categorize.py --train --update-merchants` to retrain with new data and update merchant patterns 
+4. Run `python categorize.py --train` to retrain with new data 
