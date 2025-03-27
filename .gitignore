@@ -1,0 +1,40 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Project specific
+*.pkl
+data/output/
+data/to_categorize/
+data/model_history/
+data/categorized/
+models/holdout/
+
+# Model files and evaluation results
+*.pkl
+*.csv
+*.json
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Logs
+*.log 
