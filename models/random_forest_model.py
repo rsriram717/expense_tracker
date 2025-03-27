@@ -23,11 +23,16 @@ class RandomForestCategorizer(BaseTransactionCategorizer):
         
     def prepare_features(self, df: pd.DataFrame) -> pd.DataFrame:
         """Prepare features from transaction data."""
-        # Combine text features
-        text_features = self.tfidf.fit_transform(df['description'])
+        # Combine text features (description and extended details)
+        text_features = df.apply(
+            lambda row: f"{row['Description']} {row['Extended Details']}", 
+            axis=1
+        )
+        text_features = self.tfidf.fit_transform(text_features)
         
         # Prepare numeric features
-        numeric_features = df[['amount']].copy()
+        numeric_features = df[['Amount']].copy()
+        numeric_features['Amount'] = numeric_features['Amount'].abs()  # Use absolute value
         numeric_features = self.scaler.fit_transform(numeric_features)
         
         # Combine features

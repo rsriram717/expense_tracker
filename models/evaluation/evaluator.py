@@ -22,8 +22,10 @@ class ModelEvaluator:
             data,
             test_size=holdout_size,
             random_state=42,
-            stratify=data['category']
+            stratify=data['Category']
         )
+        # Create the holdout directory if it doesn't exist
+        Path(self.holdout_path).parent.mkdir(parents=True, exist_ok=True)
         holdout_data.to_csv(self.holdout_path, index=False)
         
     def load_holdout_set(self) -> pd.DataFrame:
@@ -36,8 +38,8 @@ class ModelEvaluator:
         holdout_data = self.load_holdout_set()
         
         # Prepare features and labels
-        X = holdout_data[['description', 'amount']]
-        y_true = holdout_data['category']
+        X = holdout_data[['Description', 'Amount', 'Extended Details']]
+        y_true = holdout_data['Category']
         
         # Get predictions
         y_pred, confidence_scores = model.predict(X)
@@ -59,14 +61,21 @@ class ModelEvaluator:
             per_category_metrics[category] = {
                 'precision': float(cat_precision),
                 'recall': float(cat_recall),
-                'f1': float(cat_f1)
+                'f1': float(cat_f1),
+                'support': int(np.sum(y_true == category))
             }
         
         # Calculate confidence statistics
         confidence_stats = {
             'mean_confidence': float(np.mean(confidence_scores)),
             'std_confidence': float(np.std(confidence_scores)),
-            'low_confidence_count': int(np.sum(confidence_scores < 0.7))
+            'low_confidence_count': int(np.sum(confidence_scores < 0.7)),
+            'confidence_distribution': {
+                'very_low': int(np.sum(confidence_scores < 0.3)),
+                'low': int(np.sum((confidence_scores >= 0.3) & (confidence_scores < 0.7))),
+                'medium': int(np.sum((confidence_scores >= 0.7) & (confidence_scores < 0.9))),
+                'high': int(np.sum(confidence_scores >= 0.9))
+            }
         }
         
         # Prepare results
@@ -82,7 +91,12 @@ class ModelEvaluator:
                 'per_category': per_category_metrics,
                 'confidence': confidence_stats
             },
-            'confusion_matrix': conf_matrix.tolist()
+            'confusion_matrix': conf_matrix.tolist(),
+            'dataset_info': {
+                'holdout_size': len(holdout_data),
+                'num_categories': len(categories),
+                'category_distribution': holdout_data['Category'].value_counts().to_dict()
+            }
         }
         
         # Save results
@@ -115,7 +129,8 @@ class ModelEvaluator:
                     'recall': results['metrics']['recall'],
                     'f1': results['metrics']['f1'],
                     'mean_confidence': results['metrics']['confidence']['mean_confidence'],
-                    'low_confidence_count': results['metrics']['confidence']['low_confidence_count']
+                    'low_confidence_count': results['metrics']['confidence']['low_confidence_count'],
+                    'holdout_size': results['dataset_info']['holdout_size']
                 })
         
         return pd.DataFrame(history_data).sort_values('timestamp', ascending=False) 
