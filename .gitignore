@@ -1,0 +1,25 @@
+# Data directories
+data/
+*.csv
+
+# Cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Model files
+*.pkl
+
+# Images/Visualizations
+*.png
+
+# Reports
+*.txt
+
+# Misc
+.DS_Store
+.env
+.venv
+env/
+venv/
+ENV/ 
