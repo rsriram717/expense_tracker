@@ -15,6 +15,7 @@ __pycache__/
 
 # Reports
 *.txt
+!requirements.txt
 
 # Misc
 .DS_Store
