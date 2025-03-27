@@ -21,31 +21,46 @@ class RandomForestCategorizer(BaseTransactionCategorizer):
         self.tfidf = TfidfVectorizer(max_features=1000)
         self.scaler = StandardScaler()
         
-    def prepare_features(self, df: pd.DataFrame) -> pd.DataFrame:
-        """Prepare features from transaction data."""
+    def prepare_features(self, df: pd.DataFrame, training: bool = True) -> pd.DataFrame:
+        """Prepare features from transaction data.
+        
+        Args:
+            df: DataFrame containing transaction data
+            training: Whether this is for training (fit_transform) or prediction (transform)
+        """
         # Combine text features (description and extended details)
         text_features = df.apply(
             lambda row: f"{row['Description']} {row['Extended Details']}", 
             axis=1
         )
-        text_features = self.tfidf.fit_transform(text_features)
+        
+        # Transform text features
+        if training:
+            text_features = self.tfidf.fit_transform(text_features)
+        else:
+            text_features = self.tfidf.transform(text_features)
         
         # Prepare numeric features
         numeric_features = df[['Amount']].copy()
         numeric_features['Amount'] = numeric_features['Amount'].abs()  # Use absolute value
-        numeric_features = self.scaler.fit_transform(numeric_features)
+        
+        # Transform numeric features
+        if training:
+            numeric_features = self.scaler.fit_transform(numeric_features)
+        else:
+            numeric_features = self.scaler.transform(numeric_features)
         
         # Combine features
         return np.hstack([text_features.toarray(), numeric_features])
     
     def train(self, X: pd.DataFrame, y: pd.Series) -> None:
         """Train the model on the given data."""
-        X_features = self.prepare_features(X)
+        X_features = self.prepare_features(X, training=True)
         self.model.fit(X_features, y)
     
     def predict(self, X: pd.DataFrame) -> Tuple[np.ndarray, np.ndarray]:
         """Predict categories and confidence scores."""
-        X_features = self.prepare_features(X)
+        X_features = self.prepare_features(X, training=False)
         predictions = self.model.predict(X_features)
         probabilities = self.model.predict_proba(X_features)
         confidence_scores = np.max(probabilities, axis=1)
