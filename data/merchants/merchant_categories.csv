@@ -1,0 +1,82 @@
+merchant_pattern,category,confidence
+UBER TRIP,Transportation,1.0
+LYFT,Transportation,1.0
+AMAZON.COM,Misc,0.95
+AMZN MKTP,Misc,0.95
+KINDLE SVCS,Subscriptions,0.95
+NETFLIX,Entertainment,1.0
+SPOTIFY,Entertainment,1.0
+HULU,Entertainment,1.0
+DISNEY+,Entertainment,1.0
+NYTimes.COM,Subscriptions,0.95
+HOTEL,Travel-Lodging,0.95
+MARRIOTT,Travel-Lodging,1.0
+HILTON,Travel-Lodging,1.0
+HYATT,Travel-Lodging,1.0
+MILLENNIUM HOTEL,Travel-Lodging,0.95
+FLIGHT,Travel-Airline,0.95
+AIRLINE FEE,Travel-Airline,0.95
+UNITED AIRLINES,Travel-Airline,1.0
+DELTA AIRLINES,Travel-Airline,1.0
+AMERICAN AIRLINES,Travel-Airline,1.0
+LUFTHANSA,Travel-Airline,1.0
+SOUTHWEST AIR,Travel-Airline,1.0
+STARBUCKS,Food & Drink,0.95
+MCDONALD'S,Food & Drink,0.95
+RESTAURANT,Food & Drink,0.9
+CAFE,Food & Drink,0.9
+GROCERY STORE,Groceries,0.95
+SUPERMARKET,Groceries,0.95
+SAFEWAY,Groceries,0.95
+TRADER JOE'S,Groceries,0.95
+WHOLE FOODS,Groceries,0.95
+WALMART,Groceries,0.9
+TARGET STORE,Misc,0.8
+COSTCO,Groceries,0.9
+BMW SERVICE,Transportation,0.95
+TOYOTA SERVICE,Transportation,0.95
+HONDA SERVICE,Transportation,0.95
+FORD SERVICE,Transportation,0.95
+AUTO REPAIR,Transportation,0.9
+CAR WASH,Transportation,0.9
+JIFFY LUBE,Transportation,0.95
+GAS STATION,Transportation,0.9
+SHELL OIL,Transportation,0.9
+EXXON MOBIL,Transportation,0.9
+MOBILE PAYMENT,Misc,0.7
+ATM WITHDRAWAL,Misc,0.9
+VENMO PAYMENT,Misc,0.9
+PAYPAL,Misc,0.9
+ZELLE PAYMENT,Misc,0.9
+XFINITY,Home,0.95
+COMCAST,Home,0.95
+AT&T WIRELESS,Phone,0.95
+VERIZON WIRELESS,Phone,0.95
+T-MOBILE,Phone,0.95
+SPRINT,Phone,0.95
+TRACFONE SERVICE,Phone,0.95
+ELECTRICITY BILL,Home,0.95
+WATER BILL,Home,0.95
+GAS BILL,Home,0.95
+RENT PAYMENT,Home,0.95
+MORTGAGE PAYMENT,Home,0.95
+INSURANCE PREMIUM,Home,0.9
+DOCTOR VISIT,Medical,0.95
+HOSPITAL,Medical,0.95
+MEDICAL CLINIC,Medical,0.95
+PHARMACY,Medical,0.95
+CVS PHARMACY,Medical,0.95
+WALGREENS,Medical,0.95
+MODERN INTIMACY,Medical,1.0
+OPENAI CHATGPT,Subscriptions,0.95
+ADOBE SYSTEMS,Subscriptions,0.95
+GITHUB SUBSCRIPTION,Subscriptions,0.95
+MICROSOFT SUBSCRIPTION,Subscriptions,0.95
+GOOGLE PAYMENT,Subscriptions,0.9
+APPLE STORE,Misc,0.9
+YMCA,Entertainment,0.9
+FITNESS GYM,Entertainment,0.9
+WINE & SPIRITS,Food & Drink,0.9
+LIQUOR STORE,Food & Drink,0.9
+PELOTON MEMBERSHIP,Home,0.9
+CHIPOTLE,Food & Drink,0.95
