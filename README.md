@@ -1,145 +1,148 @@
-# Financial Transaction Categorizer
-
-A machine learning system for automatically categorizing financial transactions with post-processing rules for common merchants.
+# Transaction Categorizer
 
 ## Overview
 
-This system uses a combination of machine learning and rule-based approaches to categorize financial transactions. It works by:
-
-1. Training a machine learning model on labeled transaction data
-2. Using the model to predict categories for new transactions
-3. Applying post-processing rules based on merchant patterns to correct common transactions
-
-## Features
-
-- Random Forest classification with text and amount features
-- Merchant pattern matching for reliable categorization of known vendors
-- Confidence scores for each prediction
-- Detailed statistics and reporting
-- Support for incremental training with new data
+Transaction Categorizer is a Streamlit-based web application that helps users categorize financial transactions. The app uses machine learning to automatically assign categories to transactions based on their descriptions and other metadata, while also allowing users to manually review and edit these categorizations.
 
 ## Directory Structure
 
 ```
-.
+finance/
 ├── data/
-│   ├── categorized/        # Training data with labeled transactions
-│   ├── to_categorize/      # New transactions to be categorized
-│   ├── output/             # Categorized transaction results
-│   └── merchants/          # Merchant pattern rules
-├── improved_categorizer.py # Core ML categorization engine
-├── merchant_postprocessor.py # Post-processing rules engine
-├── categorize.py           # Command-line interface
-├── manage_merchants.py     # Merchant pattern management tool
-└── improved_model.pkl      # Trained model file
+│   ├── categorized/        # Training data with known categories
+│   ├── to_categorize/      # Files that need categorization
+│   └── output/             # Results of categorization
+├── review_transactions.py  # Main Streamlit application
+└── improved_categorizer.py # ML model for categorization
 ```
 
-## Usage
+## Data Flow
 
-### Categorizing Transactions
+1. **Input**: Transaction data in CSV format placed in `data/to_categorize/`
+2. **Training**: Model trains on data in `data/categorized/`
+3. **Processing**: Model categorizes transactions in the input files
+4. **Output**: Categorized data saved to `data/output/`
+5. **Review**: Users review and edit categorizations in the UI
+6. **Feedback**: Manually verified categorizations can be added to training data
 
-To categorize new transactions:
+## Core Functionality
 
-```bash
-python categorize.py
-```
+### Data Loading and Preparation
 
-This will:
-1. Look for CSV files in `data/to_categorize/`
-2. Apply the ML model from `improved_model.pkl`
-3. Apply merchant post-processing rules from `data/merchants/merchant_categories.csv`
-4. Save categorized results to `data/output/`
+- The app loads transaction files from the `data/to_categorize/` directory
+- Column names are normalized to a consistent format
+- "MOBILE PAYMENT - THANK YOU" transactions are filtered out
+- Missing columns (category, confidence) are added if they don't exist
 
-### Training the Model
+### Categorization
 
-To retrain the model with new data:
+- The categorization process uses the `improved_categorizer.py` module
+- Two main functions are exposed:
+  - `train_model()`: Trains on data in the `data/categorized/` directory
+  - `categorize_transactions()`: Applies the model to files in `data/to_categorize/`
+- Results are saved with a prefix of `improved_categorized_` in the `data/output/` directory
+- Categories include: Food & Drink, Transportation, Entertainment, Groceries, Shopping, Travel-Airline, Travel-Lodging, Travel-Other, Clothes, Subscriptions, Home, Pets, Beauty, Professional Services, Medical, and Misc
 
-```bash
-python categorize.py --train
-```
+### User Interface
 
-Training data should be placed in `data/categorized/` with columns:
-- `Description`: Transaction description
-- `Amount`: Transaction amount
-- `Category`: The correct category (for training data)
+The application has two main tabs:
 
-### Command-line Options
+#### Review Transactions Tab
+- File selector for choosing which transaction file to review
+- Data editor for viewing and editing categorizations
+- Two action buttons:
+  - **Save Changes**: Saves edits to the output directory
+  - **Submit to Training Data**: Copies categorized data to the training directory
 
-```
-usage: categorize.py [-h] [--train] [--input-dir INPUT_DIR] [--output-dir OUTPUT_DIR] [--model-file MODEL_FILE] [--skip-post]
+#### Analytics Tab
+- Visual analytics of categorized transactions
+- Charts include:
+  - Category distribution (pie chart)
+  - Monthly spending by category (stacked bar chart)
+  - Model confidence distribution (histogram)
 
-Categorize financial transactions using ML and merchant rules
+### Session State Management
 
-options:
-  -h, --help            show this help message and exit
-  --train               Retrain the model before categorizing
-  --input-dir INPUT_DIR
-                        Directory containing transaction CSV files to categorize
-  --output-dir OUTPUT_DIR
-                        Directory where categorized files will be saved
-  --model-file MODEL_FILE
-                        Path to the model file
-  --skip-post           Skip merchant post-processing
-```
+The app uses Streamlit's session state to manage:
+- Currently selected output file (`output_file`)
+- Whether categorization has been run (`categorization_run`)
+- Whether to reload categorized data (`reload_categorized`)
 
-## Managing Merchant Rules
+## Workflow
 
-The merchant rules are stored in `data/merchants/merchant_categories.csv` with columns:
-- `merchant_pattern`: Text pattern to match in the transaction description
-- `category`: Category to assign when pattern matches
-- `confidence`: Confidence level (0.0-1.0) for the rule
+1. **Initial Load**: The app loads uncategorized transaction data
+2. **Run Categorization**: User clicks the "Run Categorization" button to apply the ML model
+3. **Review**: After categorization, results are loaded into the UI for review
+4. **Edit**: User can manually adjust categories as needed
+5. **Save**: Changes can be saved to the output directory
+6. **Submit**: Finalized categorizations can be submitted to the training data for model improvement
 
-### Using the Merchant Management Tool
+## Key Design Decisions
 
-You can manage merchant patterns using the `manage_merchants.py` tool:
+### Separation of Input and Output
+- The app maintains clear separation between input files and categorized output
+- Each time the app loads, it starts with uncategorized data by default
+- Categorized data is only loaded immediately after running categorization
 
-```bash
-# List all merchant patterns
-python manage_merchants.py list
+### Consistent Data Format
+- Column names are normalized to lowercase for consistent internal processing
+- Date columns are converted to datetime format for proper sorting and analytics
+- Standard categories are enforced through a dropdown in the UI
 
-# List patterns for a specific category
-python manage_merchants.py list --category "Food & Drink"
+### User Control
+- The app gives users final control over categorization
+- ML categorization serves as a starting point, not final authority
+- Manual edits can be saved and used to improve future model performance
 
-# Add a new merchant pattern
-python manage_merchants.py add --pattern "CHIPOTLE" --category "Food & Drink" --confidence 0.95
+## Technical Implementation Notes
 
-# Remove a merchant pattern
-python manage_merchants.py remove --pattern "CHIPOTLE"
+### Dependencies
+- Streamlit: UI framework
+- Pandas: Data manipulation
+- Plotly Express: Data visualization
+- Pathlib: File path management
 
-# List all categories
-python manage_merchants.py categories
+### Data Editor
+- Uses Streamlit's `st.data_editor` for interactive editing
+- Custom column configurations for different data types
+- Required category selection enforced through UI
 
-# Export merchant patterns to a CSV file
-python manage_merchants.py export --output "backup_merchants.csv"
+### Analytics
+- Data visualization powered by Plotly Express
+- Aggregated views of spending patterns
+- Model confidence metrics to evaluate categorization quality
 
-# Import merchant patterns from a CSV file
-python manage_merchants.py import --input "backup_merchants.csv"
-```
+## Future Enhancements
 
-### Using the MerchantPostProcessor Class
+Potential areas for improvement:
+- Multiple category support (primary/secondary categories)
+- Filter and search capabilities within the UI
+- Export functionality for categorized data
+- Historical trend analysis
+- User-defined categories
+- Bulk recategorization tools
 
-You can also use the `MerchantPostProcessor` class directly in your Python code:
+## Getting Started
 
-```python
-from merchant_postprocessor import MerchantPostProcessor
+### Installation
 
-processor = MerchantPostProcessor()
+1. Clone this repository
+2. Install required packages:
+   ```
+   pip install streamlit pandas plotly
+   ```
 
-# Add a new merchant pattern
-processor.add_merchant_pattern("CHIPOTLE", "Food & Drink", 0.95)
+### Running the App
 
-# Remove a merchant pattern
-processor.remove_merchant_pattern("CHIPOTLE")
+1. Navigate to the project directory
+2. Launch the app:
+   ```
+   streamlit run review_transactions.py
+   ```
+3. The app will open in your default web browser
 
-# Process transactions with merchant rules
-updated_df = processor.process_transactions(transactions_df)
-```
+### Adding Your Transactions
 
-## Improving the System
-
-To improve categorization accuracy:
-
-1. Add more labeled training data to `data/categorized/`
-2. Add specific merchant patterns for frequently encountered transactions
-3. Review low-confidence predictions and correct them
-4. Run `python categorize.py --train` to retrain with new data 
+1. Place your transaction CSV files in the `data/to_categorize/` directory
+2. Files should have columns for date, description, amount, and optionally extended details
+3. Launch the app and select your file from the dropdown 
