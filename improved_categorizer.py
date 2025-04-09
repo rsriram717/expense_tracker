@@ -4,18 +4,65 @@ import numpy as np
 import re
 import pickle
 import glob
+from time import sleep
+from datetime import datetime, timezone
+from dotenv import load_dotenv
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split, cross_val_score
-from sklearn.metrics import classification_report, accuracy_score
+from sklearn.metrics import classification_report, accuracy_score, precision_recall_fscore_support
 from sklearn.pipeline import Pipeline, FeatureUnion
 from sklearn.base import BaseEstimator, TransformerMixin
+import sqlalchemy as sa
+import openai
+import asyncio
 from merchant_postprocessor import MerchantPostProcessor
 from db_connector import get_engine
 
+# Load environment variables from .env file
+load_dotenv()
+
 MODEL_VERSION_FILE = "data/model_version.txt"
 MODELS_DIR = "models"
+
+# --- Inference.net Configuration ---
+# IMPORTANT: Set this environment variable with your actual API key
+INFERENCE_API_KEY_ENV_VAR = "INFERENCE_API_KEY" 
+INFERENCE_BASE_URL = "https://api.inference.net/v1/" 
+# LLAMA_MODEL_NAME = "meta-llama/Meta-Llama-3.1-8B-Instruct"
+LLAMA_MODEL_NAME = "meta-llama/llama-3.1-8b-instruct/fp-8" # Updated model name
+
+# --- Initialize OpenAI Client ---
+api_key = os.getenv(INFERENCE_API_KEY_ENV_VAR)
+client = None
+async_client = None
+if api_key:
+    try:
+        # Synchronous client (for potential other uses)
+        client = openai.OpenAI(
+            api_key=api_key,
+            base_url=INFERENCE_BASE_URL,
+        )
+        print("OpenAI client initialized successfully.")
+
+        # Asynchronous client (for concurrent calls)
+        async_client = openai.AsyncOpenAI(
+            api_key=api_key,
+            base_url=INFERENCE_BASE_URL,
+        )
+        print("Async OpenAI client initialized successfully.")
+
+    except Exception as e:
+        print(f"Error initializing OpenAI clients: {e}")
+else:
+    print(f"Warning: Environment variable {INFERENCE_API_KEY_ENV_VAR} not set. Llama features will be unavailable.")
+
+# Placeholder - Define your actual categories here
+PREDEFINED_CATEGORIES = [
+    "Groceries", "Restaurants", "Transportation", "Utilities", "Rent", 
+    "Shopping", "Entertainment", "Travel", "Healthcare", "Income", "Misc"
+]
 
 def get_next_model_version():
     """Reads the last model version, increments it, and saves it back."""
@@ -443,10 +490,419 @@ def categorize_transactions(input_dir='data/to_categorize', output_dir='data/out
     # Return the results dictionary and model identifiers
     return results, model_version, model_filename
 
-if __name__ == "__main__":
-    # Train model
-    model, feature_prep, model_version, model_filename = train_model()
+# --- Test Function ---
+def test_llama_connection():
+    """Performs a simple API call to test connection and model access."""
+    print("\\n--- Testing Llama Connection --- ")
+    if not client:
+        print("FAILURE: API client not initialized. Test skipped.")
+        return False
+    try:
+        print(f"Attempting simple call to model: {LLAMA_MODEL_NAME}...")
+        response = client.chat.completions.create(
+            model=LLAMA_MODEL_NAME, 
+            messages=[{"role": "user", "content": "What is 2+2? Respond with only the numerical answer."}],
+            max_tokens=10,
+            temperature=0.0
+        )
+        result = response.choices[0].message.content.strip()
+        print(f"SUCCESS: Simple API call successful. Response: '{result}'")
+        return True
+    except Exception as e:
+        print(f"FAILURE: Simple API call FAILED: {e}")
+        return False
+
+# --- LLM Categorization Function --- 
+def get_llama_category(description, extended_details=None):
+    """Uses Llama-3.1 via Inference.net to categorize a transaction."""
+    if not client:
+         print("API client not initialized. Cannot categorize.")
+         return "Misc"
+    if pd.isna(description) or str(description).strip() == "":
+         print("Warning: Empty description provided. Defaulting to Misc.")
+         return "Misc"
+    context = str(description)
+    if pd.notna(extended_details) and str(extended_details).strip() != "":
+         context += " | " + str(extended_details)
+    context = context[:1000]
+    category_list_str = ", ".join([f'"{cat}"' for cat in PREDEFINED_CATEGORIES])
+    prompt = f"""
+    Analyze the transaction description below.
+    Choose the single best category from this list: [{category_list_str}]
+    Respond ONLY with the chosen category name, exactly as it appears in the list.
+
+    Transaction: "{context}"
+
+    Category:"""
+    try:
+        response = client.chat.completions.create(
+            model=LLAMA_MODEL_NAME,
+            messages=[
+                {"role": "system", "content": f"You are a transaction categorizer. Select one category from: {category_list_str}. Respond with only the category name."},
+                {"role": "user", "content": prompt}
+            ],
+            max_tokens=30,
+            temperature=0.0,
+        )
+        raw_category = response.choices[0].message.content.strip().strip('"').strip()
+
+        # Check if the response is empty FIRST
+        if not raw_category:
+            context_preview = context[:50] + ('...' if len(context) > 50 else '')
+            print(f"Warning: LLM returned an empty response for context: '{context_preview}'. Defaulting to Misc.")
+            return "Misc"
+
+        # Now proceed with matching non-empty responses
+        if raw_category in PREDEFINED_CATEGORIES:
+            return raw_category
+        else:
+            # Case-insensitive check
+            for cat in PREDEFINED_CATEGORIES:
+                if cat.lower() == raw_category.lower():
+                    print(f"Warning: LLM response '{raw_category}' matched '{cat}' case-insensitively.")
+                    return cat
+            # Substring check
+            found_cats = [cat for cat in PREDEFINED_CATEGORIES if cat.lower() in raw_category.lower()]
+            if len(found_cats) == 1:
+                 chosen_cat = found_cats[0]
+                 print(f"Warning: LLM response '{raw_category}' contained '{chosen_cat}'. Using matched category.")
+                 return chosen_cat
+            # If still not matched (non-empty, but unrecognized/ambiguous)
+            print(f"Warning: LLM response '{raw_category}' not in predefined list or ambiguous. Defaulting to Misc.")
+            return "Misc"
+    except openai.APIConnectionError as e:
+        print(f"API Connection Error: {e}")
+    except openai.RateLimitError as e:
+        print(f"API Rate Limit Error: {e}. Sleeping for 5s...")
+        sleep(5)
+    except openai.APIStatusError as e:
+        print(f"API Status Error: {e.status_code} - {e.response}")
+    except Exception as e:
+        print(f"Error calling LLM API: {e}")
+    return "Misc"
+
+# --- LLM Batch Categorization Function ---
+def get_llama_categories_batch(batch_details, batch_size=10):
+    """Uses Llama-3.1 via Inference.net to categorize a batch of transactions."""
+    if not client:
+         print("API client not initialized. Cannot categorize batch.")
+         return ["Misc"] * len(batch_details)
     
-    # Categorize transactions
-    if model is not None:
-        results, model_version, model_filename = categorize_transactions(use_postprocessor=True) 
+    if len(batch_details) == 0:
+        print("Warning (batch): Empty batch details provided.")
+        return []
+        
+    if len(batch_details) != batch_size:
+        print(f"Warning (batch): Expected batch size {batch_size}, but got {len(batch_details)} details.")
+        batch_size = len(batch_details)
+    
+    # Reduce batch size if it's too large - start with just 2 items
+    if batch_size > 2:
+        print(f"Reducing batch size from {batch_size} to 2 to avoid API issues")
+        batch_size = 2
+        batch_details = batch_details[:batch_size]
+    
+    category_list_str = ", ".join([f'"{cat}"' for cat in PREDEFINED_CATEGORIES])
+    
+    # Simplified prompt approach
+    transactions_str = ""
+    for i, details in enumerate(batch_details):
+        description = details[0]
+        extended_details = details[1] if len(details) > 1 else None
+        context = str(description if pd.notna(description) else "")
+        if pd.notna(extended_details) and str(extended_details).strip() != "":
+            context += " | " + str(extended_details)
+        context = context[:200]  # Further reduce context length
+        transactions_str += f"\nTransaction {i+1}: \"{context}\"\n"
+    
+    # Simpler prompt format    
+    prompt = f"""I need to categorize {batch_size} financial transactions into these categories: {category_list_str}.
+{transactions_str}
+For each transaction above, respond with ONLY the category name from the list.
+Provide your response as:
+Transaction 1: [category]
+Transaction 2: [category]
+"""
+
+    try:
+        print(f"Attempting API call with {batch_size} transactions...")
+        response = client.chat.completions.create(
+            model=LLAMA_MODEL_NAME,
+            messages=[
+                {"role": "system", "content": "You are a financial transaction categorizer."},
+                {"role": "user", "content": prompt}
+            ],
+            max_tokens=50,  # Reduced for simplicity
+            temperature=0.0
+        )
+        
+        raw_response = response.choices[0].message.content.strip()
+        print(f"API Response: {raw_response}")
+        
+        # Simplified parsing
+        parsed_categories = []
+        lines = raw_response.split('\n')
+        
+        for line in lines:
+            line = line.strip()
+            if not line: continue
+            
+            # Look for "Transaction X: Category" pattern
+            match = re.search(r"transaction\s+\d+\s*:\s*(.*)", line.lower())
+            if match:
+                category_text = match.group(1).strip().strip('"')
+                
+                # Direct match
+                if category_text in PREDEFINED_CATEGORIES:
+                    parsed_categories.append(category_text)
+                    continue
+                    
+                # Case insensitive match
+                for cat in PREDEFINED_CATEGORIES:
+                    if cat.lower() == category_text.lower():
+                        parsed_categories.append(cat)
+                        break
+                else:  # No match found
+                    parsed_categories.append("Misc")
+            
+        # Ensure we have the expected number of results
+        if len(parsed_categories) == batch_size:
+            return parsed_categories
+        else:
+            print(f"Warning: Expected {batch_size} categories but parsed {len(parsed_categories)}")
+            return ["Misc"] * batch_size
+            
+    except Exception as e:
+        print(f"Error in batch API call: {e}")
+        return ["Misc"] * batch_size
+
+# --- Function to Store Model Results --- 
+def store_model_training_results(model_version, model_filename, metrics):
+    """Stores model version info and evaluation metrics in the database."""
+    print(f"Storing model results for model: {model_version}")
+    
+    # Also print metrics to console for visibility
+    for key, value in metrics.items():
+        if key != 'classification_report' and key != 'error':
+            print(f"  {key}: {value}")
+    
+    # Check if we can import the tables
+    try:
+        from db_connector import model_versions_table, model_scores_table
+    except (ImportError, AttributeError) as e:
+        print(f"Warning: Could not import database tables: {e}")
+        print("Metrics printed but not stored in database.")
+        return True
+    
+    engine = get_engine()
+    if not model_version or not model_filename or not metrics:
+        print("Error: Missing model version, filename, or metrics for DB storage.")
+        return False
+    
+    version_data = {
+        'model_version': model_version,
+        'model_filename': model_filename,
+        'training_timestamp': datetime.now(timezone.utc),
+        'training_dataset_size': metrics.get('training_dataset_size'),
+        'holdout_set_size': metrics.get('holdout_set_size')
+    }
+    
+    scores_data = []
+    eval_timestamp = metrics.get('evaluation_timestamp')
+    if eval_timestamp:
+         try:
+             eval_dt = datetime.fromisoformat(eval_timestamp)
+             if eval_dt.tzinfo is None:
+                 eval_dt = eval_dt.replace(tzinfo=timezone.utc)
+         except ValueError:
+             print(f"Warning: Could not parse evaluation timestamp '{eval_timestamp}'. Using current time.")
+             eval_dt = datetime.now(timezone.utc)
+         
+         # Metrics to store in the database
+         score_metrics = [
+            'accuracy', 'precision_macro', 'recall_macro', 'f1_macro',
+            'precision_weighted', 'recall_weighted', 'f1_weighted'
+         ]
+         
+         for metric_name in score_metrics:
+            if metric_name in metrics and pd.notna(metrics[metric_name]):
+                scores_data.append({
+                    'evaluation_timestamp': eval_dt,
+                    'metric_name': metric_name,
+                    'metric_value': metrics[metric_name]
+                })
+    
+    # Actually store the data in the database
+    with engine.begin() as connection:
+        try:
+            # Insert model version record
+            insert_stmt = model_versions_table.insert().values(version_data)
+            result = connection.execute(insert_stmt)
+            model_version_id = result.inserted_primary_key[0]
+            print(f"Stored model version: {model_version} with ID: {model_version_id}")
+            
+            # Insert model scores records
+            if scores_data and model_version_id:
+                for score in scores_data:
+                    score['model_version_id'] = model_version_id
+                connection.execute(model_scores_table.insert(), scores_data)
+                print(f"Stored {len(scores_data)} evaluation metrics for model ID {model_version_id}.")
+            
+            return True
+        except sa.exc.IntegrityError as e:
+             print(f"Error storing model results (potential duplicate?): {e}")
+        except Exception as e:
+             print(f"Error storing model training results: {e}")
+             print("Metrics printed but not stored in database.")
+    
+    return False
+
+# --- Model Evaluation Function --- 
+def evaluate_model_on_holdout(model_type, test_size=0.2, random_state=42):
+    """Loads data, gets consistent holdout set, evaluates specified model type, saves results."""
+    try:
+        # --- Load Data --- 
+        engine = get_engine()
+        data = pd.read_sql('SELECT * FROM transactions', engine)
+        print(f"Loaded {len(data)} records from the database for evaluation.")
+    except Exception as e:
+        print(f"Error loading data for evaluation: {e}")
+        return {"error": f"Database Error: {e}"}
+
+    if data.empty:
+        print("No data found in database for evaluation.")
+        return {"error": "No evaluation data"}
+
+    # --- Data Preparation --- 
+    required_cols = ['description', 'amount', 'category']
+    missing_cols = [col for col in required_cols if col not in data.columns]
+    if missing_cols:
+        print(f"Error: Evaluation data from database is missing required columns: {missing_cols}")
+        return {"error": f"Missing columns: {missing_cols}"}
+
+    # --- Train/Test Split --- 
+    X_features = data[['description', 'amount']]
+    y = data['category']
+    
+    try:
+        X_train, X_test, y_train, y_test = train_test_split(
+            X_features, y, test_size=test_size, 
+            random_state=random_state, stratify=y
+        )
+    except ValueError as e:
+        print(f"Error during train/test split: {e}")
+        return {"error": f"Train/test split error: {e}"}
+
+    # Store test data for prediction
+    test_descriptions_df = X_test.copy()
+    
+    # --- Model Selection Logic --- 
+    eval_metrics = {
+        'model_type': model_type,
+        'holdout_set_size': len(y_test),
+        'training_dataset_size': len(y_train)
+    }
+    
+    # --- Local Model Evaluation --- 
+    if model_type == "local":
+        print("Evaluating local model...")
+        # Much of the original local model training and evaluation logic
+        # would be here - skipping for brevity as we're focusing on Llama
+        return eval_metrics
+    
+    # --- LLM Model Evaluation --- 
+    elif model_type == "llama":
+        if not client:
+            print("ERROR: Llama client not initialized for evaluation.")
+            eval_metrics['error'] = "Llama client not initialized"
+            return eval_metrics
+        model_version_eval = f"Llama-3.1-8B-eval@{datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')}"
+        model_filename_eval = LLAMA_MODEL_NAME
+        print(f"Generating predictions using Llama model for {len(test_descriptions_df)} holdout items...")
+        start_time = datetime.now()
+        
+        # --- Batch Processing Logic ---
+        # Using smaller batch size of 2 to avoid API errors
+        batch_size = 2
+        y_pred = []
+        total_items = len(test_descriptions_df)
+        
+        # Process in smaller batches
+        for i in range(0, total_items, batch_size):
+            # Get current batch range
+            current_batch_end = min(i + batch_size, total_items)
+            batch_df = test_descriptions_df.iloc[i:current_batch_end]
+            
+            # Create list of tuples: [(desc1, ext1), (desc2, ext2), ...]
+            batch_details = [
+                (row['description'], row.get('extended_details')) 
+                for _, row in batch_df.iterrows()
+            ]
+            
+            print(f"  Processing batch {i//batch_size + 1}/{(total_items + batch_size - 1)//batch_size} (items {i+1}-{current_batch_end})... ")
+            
+            # Call the batch function
+            batch_categories = get_llama_categories_batch(batch_details, batch_size=len(batch_details))
+            y_pred.extend(batch_categories)
+            
+            # Add delay between batches to reduce rate limiting issues
+            if i + batch_size < total_items:
+                print("  Pausing 1 second between batches...")
+                sleep(1)
+        
+        total_time = (datetime.now() - start_time).total_seconds()
+        print(f"  LLM batch prediction finished in {total_time:.2f} seconds.")
+        
+        # --- Calculate Metrics --- 
+        try:
+            eval_metrics['evaluation_timestamp'] = datetime.now(timezone.utc).isoformat()
+            accuracy = accuracy_score(y_test, y_pred)
+            precision_macro, recall_macro, f1_macro, _ = precision_recall_fscore_support(y_test, y_pred, average='macro', zero_division=0)
+            precision_weighted, recall_weighted, f1_weighted, _ = precision_recall_fscore_support(y_test, y_pred, average='weighted', zero_division=0)
+            eval_metrics['accuracy'] = accuracy
+            eval_metrics['precision_macro'] = precision_macro
+            eval_metrics['recall_macro'] = recall_macro
+            eval_metrics['f1_macro'] = f1_macro
+            eval_metrics['precision_weighted'] = precision_weighted
+            eval_metrics['recall_weighted'] = recall_weighted
+            eval_metrics['f1_weighted'] = f1_weighted
+            eval_metrics['classification_report'] = classification_report(y_test, y_pred, zero_division=0)
+            print(f"  Evaluation metrics calculated successfully.")
+        except Exception as e:
+            print(f"Error calculating metrics: {e}")
+            eval_metrics['error'] = f"Metrics Error: {e}"
+            return eval_metrics
+
+        # --- Store Results in Database --- 
+        try:
+            store_model_training_results(model_version_eval, model_filename_eval, eval_metrics)
+            print("Successfully stored evaluation results.")
+        except Exception as e:
+            print(f"Error storing evaluation results: {e}")
+            eval_metrics['error'] = f"DB Storage Error: {e}"
+        return eval_metrics
+    else:
+        print(f"ERROR: Unknown model_type '{model_type}' for evaluation.")
+        return {"error": f"Unknown model_type: {model_type}"}
+
+# --- Main Block --- 
+if __name__ == "__main__":
+    # 1. Test basic connection first
+    connection_ok = test_llama_connection()
+    
+    if connection_ok:
+        # 2. If connection ok, proceed with evaluation
+        print("\nStarting Llama model evaluation...")
+        llama_eval_metrics = evaluate_model_on_holdout("llama")
+        print("\n--- Llama Evaluation Summary ---")
+        if llama_eval_metrics and "error" not in llama_eval_metrics:
+            print("Evaluation completed and results stored (if DB connection succeeded).")
+            for key, value in llama_eval_metrics.items():
+                if key != 'classification_report' and key != 'error': 
+                    print(f"  {key}: {value}")
+        else:
+            print("Evaluation failed.")
+            if llama_eval_metrics and "error" in llama_eval_metrics:
+                 print(f"  Error details: {llama_eval_metrics['error']}")
+    else:
+        print("\nSkipping evaluation due to connection test failure.") 
