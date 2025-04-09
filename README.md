@@ -1,148 +1,99 @@
-# Transaction Categorizer
+# Financial Transaction Categorizer
 
-## Overview
+A tool for automatically categorizing financial transactions using machine learning (RandomForest) and large language models (Llama).
 
-Transaction Categorizer is a Streamlit-based web application that helps users categorize financial transactions. The app uses machine learning to automatically assign categories to transactions based on their descriptions and other metadata, while also allowing users to manually review and edit these categorizations.
+## Features
 
-## Directory Structure
+- Automatic categorization of financial transactions from CSV files
+- Multiple categorization methods:
+  - Machine Learning (Random Forest model)
+  - Large Language Model (Llama 3.1)
+  - Hybrid approach that combines ML and LLM
+  - Merchant pattern matching for known merchants
+- Batch processing for efficient categorization
+- Model training and evaluation
+- SQLite database for storing categorized transactions
+- Command-line interface
 
-```
-finance/
-├── data/
-│   ├── categorized/        # Training data with known categories
-│   ├── to_categorize/      # Files that need categorization
-│   └── output/             # Results of categorization
-├── review_transactions.py  # Main Streamlit application
-└── improved_categorizer.py # ML model for categorization
-```
-
-## Data Flow
-
-1. **Input**: Transaction data in CSV format placed in `data/to_categorize/`
-2. **Training**: Model trains on data in `data/categorized/`
-3. **Processing**: Model categorizes transactions in the input files
-4. **Output**: Categorized data saved to `data/output/`
-5. **Review**: Users review and edit categorizations in the UI
-6. **Feedback**: Manually verified categorizations can be added to training data
-
-## Core Functionality
-
-### Data Loading and Preparation
-
-- The app loads transaction files from the `data/to_categorize/` directory
-- Column names are normalized to a consistent format
-- "MOBILE PAYMENT - THANK YOU" transactions are filtered out
-- Missing columns (category, confidence) are added if they don't exist
-
-### Categorization
-
-- The categorization process uses the `improved_categorizer.py` module
-- Two main functions are exposed:
-  - `train_model()`: Trains on data in the `data/categorized/` directory
-  - `categorize_transactions()`: Applies the model to files in `data/to_categorize/`
-- Results are saved with a prefix of `improved_categorized_` in the `data/output/` directory
-- Categories include: Food & Drink, Transportation, Entertainment, Groceries, Shopping, Travel-Airline, Travel-Lodging, Travel-Other, Clothes, Subscriptions, Home, Pets, Beauty, Professional Services, Medical, and Misc
-
-### User Interface
-
-The application has two main tabs:
-
-#### Review Transactions Tab
-- File selector for choosing which transaction file to review
-- Data editor for viewing and editing categorizations
-- Two action buttons:
-  - **Save Changes**: Saves edits to the output directory
-  - **Submit to Training Data**: Copies categorized data to the training directory
-
-#### Analytics Tab
-- Visual analytics of categorized transactions
-- Charts include:
-  - Category distribution (pie chart)
-  - Monthly spending by category (stacked bar chart)
-  - Model confidence distribution (histogram)
-
-### Session State Management
-
-The app uses Streamlit's session state to manage:
-- Currently selected output file (`output_file`)
-- Whether categorization has been run (`categorization_run`)
-- Whether to reload categorized data (`reload_categorized`)
-
-## Workflow
-
-1. **Initial Load**: The app loads uncategorized transaction data
-2. **Run Categorization**: User clicks the "Run Categorization" button to apply the ML model
-3. **Review**: After categorization, results are loaded into the UI for review
-4. **Edit**: User can manually adjust categories as needed
-5. **Save**: Changes can be saved to the output directory
-6. **Submit**: Finalized categorizations can be submitted to the training data for model improvement
-
-## Key Design Decisions
-
-### Separation of Input and Output
-- The app maintains clear separation between input files and categorized output
-- Each time the app loads, it starts with uncategorized data by default
-- Categorized data is only loaded immediately after running categorization
-
-### Consistent Data Format
-- Column names are normalized to lowercase for consistent internal processing
-- Date columns are converted to datetime format for proper sorting and analytics
-- Standard categories are enforced through a dropdown in the UI
-
-### User Control
-- The app gives users final control over categorization
-- ML categorization serves as a starting point, not final authority
-- Manual edits can be saved and used to improve future model performance
-
-## Technical Implementation Notes
-
-### Dependencies
-- Streamlit: UI framework
-- Pandas: Data manipulation
-- Plotly Express: Data visualization
-- Pathlib: File path management
-
-### Data Editor
-- Uses Streamlit's `st.data_editor` for interactive editing
-- Custom column configurations for different data types
-- Required category selection enforced through UI
-
-### Analytics
-- Data visualization powered by Plotly Express
-- Aggregated views of spending patterns
-- Model confidence metrics to evaluate categorization quality
-
-## Future Enhancements
-
-Potential areas for improvement:
-- Multiple category support (primary/secondary categories)
-- Filter and search capabilities within the UI
-- Export functionality for categorized data
-- Historical trend analysis
-- User-defined categories
-- Bulk recategorization tools
-
-## Getting Started
-
-### Installation
+## Installation
 
 1. Clone this repository
-2. Install required packages:
+2. Install dependencies:
    ```
-   pip install streamlit pandas plotly
+   pip install -r requirements.txt
    ```
+3. Create a `.env` file based on `.env.sample` and add your Inference.net API key
 
-### Running the App
+## Usage
 
-1. Navigate to the project directory
-2. Launch the app:
-   ```
-   streamlit run review_transactions.py
-   ```
-3. The app will open in your default web browser
+### Categorize Transactions
 
-### Adding Your Transactions
+Place CSV files with transactions in the `data/to_categorize` directory, then run:
 
-1. Place your transaction CSV files in the `data/to_categorize/` directory
-2. Files should have columns for date, description, amount, and optionally extended details
-3. Launch the app and select your file from the dropdown 
+```
+python categorize.py
+```
+
+The categorized files will be saved in the `data/output` directory.
+
+### Command Line Options
+
+```
+python categorize.py --help
+```
+
+Options:
+- `--train`: Train a new model before categorizing
+- `--input-dir PATH`: Custom input directory
+- `--output-dir PATH`: Custom output directory
+- `--skip-post`: Skip merchant post-processing
+- `--force-local`: Force using local model even if LLM is available
+
+### Train a New Model
+
+To train a new model from the database:
+
+```
+python -m model_training
+```
+
+## Project Structure
+
+```
+.
+├── config.py                  # Configuration settings
+├── transaction_categorizer.py # Main transaction categorization logic
+├── llm_service.py             # LLM service for transaction categorization
+├── model_training.py          # ML model training functionality
+├── merchant_postprocessor.py  # Post-processing for merchant matching
+├── db_connector.py            # Database connection and schema
+├── categorize.py              # Command-line interface
+├── data/
+│   ├── to_categorize/         # Input directory for transactions
+│   ├── output/                # Output directory for categorized transactions
+│   ├── merchants/             # Merchant patterns for post-processing
+│   └── transactions.db        # SQLite database for storing transactions
+├── models/                    # Trained models
+└── tests/                     # Unit tests
+```
+
+## How It Works
+
+The tool uses a hybrid approach to categorize transactions:
+
+1. First, it tries to match the merchant to a known pattern in the merchant cache
+2. If not found, it uses a Random Forest model to predict the category
+3. If the RF model has low confidence, it uses an LLM (Llama) for prediction
+4. Finally, post-processing is applied to improve accuracy
+
+## Development
+
+### Running Tests
+
+```
+python -m unittest discover tests
+```
+
+## License
+
+MIT 

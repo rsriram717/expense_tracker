@@ -9,10 +9,8 @@ def get_engine(db_path=DB_PATH):
     """Returns a SQLAlchemy engine for the database."""
     return create_engine(db_path)
 
-def initialize_db(engine):
-    """Creates all defined tables if they don't exist."""
-    metadata = MetaData()
-    transactions = Table('transactions',
+metadata = MetaData()
+transactions_table = Table('transactions',
                        metadata,
                        Column('id', Integer, primary_key=True, autoincrement=True),
                        Column('transaction_date', Date, nullable=False),
@@ -28,8 +26,12 @@ def initialize_db(engine):
                        Column('source_file', Text, nullable=False),
                        Column('timestamp', DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
                        )
+
+def initialize_db(engine):
+    """Creates all defined tables if they don't exist."""
     try:
-        metadata.create_all(engine)
+        # Only create the main transactions table here
+        transactions_table.create(engine, checkfirst=True)
         print("Database tables checked/created successfully.")
     except Exception as e:
         print(f"Error initializing database tables: {e}")
@@ -55,7 +57,8 @@ def store_finalized_transactions(df):
          if col not in df_to_store.columns:
              df_to_store[col] = None
         
-    db_cols = [c.name for c in transactions_table.columns]
+    # Use the globally defined transactions_table
+    db_cols = [c.name for c in transactions_table.columns if c.name != 'id'] # Exclude primary key for insertion
     df_to_store = df_to_store[[col for col in db_cols if col in df_to_store.columns]]
 
     try:
@@ -96,7 +99,7 @@ def create_tables():
     metadata.create_all(engine)
 
 # Call create_tables when the module is imported
-create_tables()
+# create_tables() # Keep this commented out for now
 
 # Initialize the database when this module is imported
 if __name__ == "__main__":

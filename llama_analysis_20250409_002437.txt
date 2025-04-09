@@ -1,0 +1,21 @@
+===== Llama Model Performance Analysis =====
+Overall Llama Accuracy: 16.57%
+
+Most common confusions:
+  Food & Drink -> Restaurants: 21 times
+  Food & Drink -> Misc: 18 times
+  Transportation -> Misc: 11 times
+  Home -> Misc: 7 times
+  Misc -> Shopping: 7 times
+  Groceries -> Shopping: 6 times
+  Food & Drink -> Entertainment: 5 times
+  Home -> Groceries: 4 times
+  Subscriptions -> Entertainment: 4 times
+  Food & Drink -> Groceries: 3 times
+
+Recommendations:
+  1. Fine-tune with domain-specific examples
+  2. Ensure category alignment between models
+  3. Try single transaction processing
+  4. Provide clearer examples in the prompt
+  5. Include more transaction context

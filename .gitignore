@@ -60,4 +60,7 @@ logs/
 data/transactions.db
 
 # Model Version Tracker
-data/model_version.txt 
+data/model_version.txt
+
+# LLM Prompts (contains sensitive transaction data)
+llm_prompts.py 
