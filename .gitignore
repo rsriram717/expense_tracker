@@ -26,7 +26,7 @@ data/to_categorize/
 data/categorized/
 data/model_history/
 data/*.xlsx
-
+data/*.xls
 # Model directories
 models/
 
@@ -54,4 +54,10 @@ ENV/
 
 # Logs
 logs/
-*.log 
+*.log
+
+# Database
+data/transactions.db
+
+# Model Version Tracker
+data/model_version.txt 
