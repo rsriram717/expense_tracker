@@ -20,6 +20,14 @@ import asyncio
 from merchant_postprocessor import MerchantPostProcessor
 from db_connector import get_engine
 import time
+from llm_prompts import (
+    SYSTEM_PROMPT,
+    CONNECTION_TEST_PROMPT,
+    generate_categorization_prompt,
+    generate_single_transaction_prompt,
+    generate_improved_prompt,
+    parse_batch_response
+)
 
 # Load environment variables from .env file
 load_dotenv()
@@ -64,6 +72,15 @@ PREDEFINED_CATEGORIES = [
     "Groceries", "Restaurants", "Transportation", "Utilities", "Rent", 
     "Shopping", "Entertainment", "Travel", "Healthcare", "Income", "Misc"
 ]
+
+# Import prompts from the separate file
+try:
+    import llm_prompts
+    USING_EXTERNAL_PROMPTS = True
+except ImportError:
+    # Fall back to embedded prompts if the file is not available
+    USING_EXTERNAL_PROMPTS = False
+    print("Warning: llm_prompts.py not found, using embedded prompts")
 
 def get_next_model_version():
     """Reads the last model version, increments it, and saves it back."""
@@ -489,24 +506,41 @@ def process_file_with_local_model(file_to_process, output_file, model, processor
 
 # --- Test Function ---
 def test_llama_connection():
-    """Performs a simple API call to test connection and model access."""
-    print("\\n--- Testing Llama Connection --- ")
+    """Test connection to Llama API"""
     if not client:
-        print("FAILURE: API client not initialized. Test skipped.")
+        print("OpenAI client not initialized. Check your API key.")
         return False
+    
     try:
-        print(f"Attempting simple call to model: {LLAMA_MODEL_NAME}...")
+        print("Testing connection to Llama API...")
+        start_time = time.time()
+        
+        # Use the connection test prompt from llm_prompts
+        prompt = CONNECTION_TEST_PROMPT
+        
+        # Call the API
         response = client.chat.completions.create(
-            model=LLAMA_MODEL_NAME, 
-            messages=[{"role": "user", "content": "What is 2+2? Respond with only the numerical answer."}],
-            max_tokens=10,
+            model=LLAMA_MODEL_NAME,
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": prompt}
+            ],
+            max_tokens=5,
             temperature=0.0
         )
-        result = response.choices[0].message.content.strip()
-        print(f"SUCCESS: Simple API call successful. Response: '{result}'")
-        return True
+        
+        # Check response
+        answer = response.choices[0].message.content.strip()
+        elapsed_time = time.time() - start_time
+        
+        if answer == "4":
+            print(f"Connection successful! Response time: {elapsed_time:.2f} seconds")
+            return True
+        else:
+            print(f"Connection test failed. Unexpected response: '{answer}'")
+            return False
     except Exception as e:
-        print(f"FAILURE: Simple API call FAILED: {e}")
+        print(f"Error testing connection to Llama API: {e}")
         return False
 
 # --- LLM Categorization Function --- 
@@ -518,24 +552,33 @@ def get_llama_category(description, extended_details=None):
     if pd.isna(description) or str(description).strip() == "":
          print("Warning: Empty description provided. Defaulting to Misc.")
          return "Misc"
-    context = str(description)
-    if pd.notna(extended_details) and str(extended_details).strip() != "":
-         context += " | " + str(extended_details)
-    context = context[:1000]
-    category_list_str = ", ".join([f'"{cat}"' for cat in PREDEFINED_CATEGORIES])
-    prompt = f"""
-    Analyze the transaction description below.
-    Choose the single best category from this list: [{category_list_str}]
-    Respond ONLY with the chosen category name, exactly as it appears in the list.
-
-    Transaction: "{context}"
-
-    Category:"""
+    
     try:
+        # Use the external prompt generator if available
+        if USING_EXTERNAL_PROMPTS:
+            prompt = llm_prompts.generate_single_transaction_prompt(description, extended_details, PREDEFINED_CATEGORIES)
+            system_prompt = llm_prompts.SYSTEM_PROMPT
+        else:
+            # Fall back to embedded prompt format
+            context = str(description)
+            if pd.notna(extended_details) and str(extended_details).strip() != "":
+                context += " | " + str(extended_details)
+            context = context[:1000]
+            category_list_str = ", ".join([f'"{cat}"' for cat in PREDEFINED_CATEGORIES])
+            prompt = f"""
+            Analyze the transaction description below.
+            Choose the single best category from this list: [{category_list_str}]
+            Respond ONLY with the chosen category name, exactly as it appears in the list.
+
+            Transaction: "{context}"
+
+            Category:"""
+            system_prompt = f"You are a transaction categorizer. Select one category from: {category_list_str}. Respond with only the category name."
+            
         response = client.chat.completions.create(
             model=LLAMA_MODEL_NAME,
             messages=[
-                {"role": "system", "content": f"You are a transaction categorizer. Select one category from: {category_list_str}. Respond with only the category name."},
+                {"role": "system", "content": system_prompt},
                 {"role": "user", "content": prompt}
             ],
             max_tokens=30,
@@ -545,8 +588,7 @@ def get_llama_category(description, extended_details=None):
 
         # Check if the response is empty FIRST
         if not raw_category:
-            context_preview = context[:50] + ('...' if len(context) > 50 else '')
-            print(f"Warning: LLM returned an empty response for context: '{context_preview}'. Defaulting to Misc.")
+            print(f"Warning: LLM returned an empty response for description: '{description}'. Defaulting to Misc.")
             return "Misc"
 
         # Now proceed with matching non-empty responses
@@ -579,125 +621,80 @@ def get_llama_category(description, extended_details=None):
     return "Misc"
 
 # --- LLM Batch Categorization Function ---
-def get_llama_categories_batch(batch_details, batch_size=10):
-    """Uses Llama-3.1 via Inference.net to categorize a batch of transactions."""
+def get_llama_categories_batch(transactions, batch_size=10, max_retries=3):
+    """Get categories for a batch of transactions from Llama
+    
+    Args:
+        transactions: List of tuples containing (description, amount) or (description, amount, extended_details)
+        batch_size: Number of transactions to process in each batch
+        max_retries: Maximum number of retries for failed API calls
+        
+    Returns:
+        List of category predictions in the same order as input transactions
+    """
     if not client:
-         print("API client not initialized. Cannot categorize batch.")
-         return ["Misc"] * len(batch_details)
+        print("API client not initialized. Check your API key.")
+        return ["Misc"] * len(transactions)
     
-    if len(batch_details) == 0:
-        print("Warning (batch): Empty batch details provided.")
-        return []
-        
-    if len(batch_details) != batch_size:
-        print(f"Warning (batch): Expected batch size {batch_size}, but got {len(batch_details)} details.")
-        batch_size = len(batch_details)
+    all_predictions = []
     
-    # No longer reducing batch size
-    # Use the actual provided batch size
-    
-    category_list_str = ", ".join([f'"{cat}"' for cat in PREDEFINED_CATEGORIES])
-    
-    # Improved prompt approach for handling larger batches
-    transactions_str = ""
-    for i, details in enumerate(batch_details):
-        description = details[0]
-        extended_details = details[1] if len(details) > 1 else None
-        context = str(description if pd.notna(description) else "")
-        if pd.notna(extended_details) and str(extended_details).strip() != "":
-            context += " | " + str(extended_details)
-        context = context[:150]  # Further reduce context length to fit more transactions
-        transactions_str += f"\nTransaction {i+1}: \"{context}\"\n"
-    
-    # Clearer instruction format for larger batches    
-    prompt = f"""I need to categorize {batch_size} financial transactions into these categories: {category_list_str}.
-{transactions_str}
-For each transaction above, respond with ONLY the category name from the list.
-Provide your response in this exact format, with one transaction per line:
-Transaction 1: [category]
-Transaction 2: [category]
-...and so on until Transaction {batch_size}.
-Be precise and concise. Do not include any additional text.
-"""
-
-    try:
-        print(f"Attempting API call with {batch_size} transactions...")
+    # Create batches
+    for i in range(0, len(transactions), batch_size):
+        batch_end = min(i + batch_size, len(transactions))
+        batch = transactions[i:batch_end]
+        batch_details = []
         
-        # Adjusted max_tokens based on batch size
-        # Larger batches need more tokens for response
-        max_tokens = min(30 + (batch_size * 10), 1000)
+        # Extract description and extended details from each transaction
+        for t in batch:
+            description = t[0]
+            extended_details = t[2] if len(t) > 2 else None
+            batch_details.append((description, extended_details))
         
-        response = client.chat.completions.create(
-            model=LLAMA_MODEL_NAME,
-            messages=[
-                {"role": "system", "content": "You are a financial transaction categorizer. Your task is to categorize each transaction with exactly one category from the provided list. Respond with only the category names in the specified format."},
-                {"role": "user", "content": prompt}
-            ],
-            max_tokens=max_tokens,
-            temperature=0.0
-        )
+        # Generate prompt using function from llm_prompts module
+        prompt = generate_categorization_prompt(batch_details)
         
-        raw_response = response.choices[0].message.content.strip()
-        print(f"API Response received successfully for batch of {batch_size}")
+        # Track retries
+        retry_count = 0
+        success = False
         
-        # More robust parsing for larger batches
-        parsed_categories = []
-        lines = raw_response.split('\n')
-        
-        # Create a mapping of transaction numbers to their responses
-        transaction_categories = {}
-        
-        for line in lines:
-            line = line.strip()
-            if not line: 
-                continue
-            
-            # Look for "Transaction X: Category" pattern
-            match = re.search(r"transaction\s+(\d+)\s*:\s*(.*)", line.lower())
-            if match:
-                transaction_num = int(match.group(1))
-                category_text = match.group(2).strip().strip('"').strip("'").strip("[]")
+        while not success and retry_count < max_retries:
+            try:
+                # Call the API
+                response = client.chat.completions.create(
+                    model=LLAMA_MODEL_NAME,
+                    messages=[
+                        {"role": "system", "content": SYSTEM_PROMPT},
+                        {"role": "user", "content": prompt}
+                    ],
+                    max_tokens=500,
+                    temperature=0.0
+                )
                 
-                if 1 <= transaction_num <= batch_size:
-                    transaction_categories[transaction_num] = category_text
+                raw_response = response.choices[0].message.content.strip()
+                
+                # Parse response using function from llm_prompts module
+                predictions = parse_batch_response(raw_response, len(batch))
+                
+                # Add to results
+                all_predictions.extend(predictions)
+                success = True
+                
+            except Exception as e:
+                retry_count += 1
+                print(f"Error with API call (attempt {retry_count}/{max_retries}): {e}")
+                if retry_count < max_retries:
+                    delay = 2 ** retry_count  # Exponential backoff
+                    print(f"Retrying in {delay} seconds...")
+                    time.sleep(delay)
+                else:
+                    print("Max retries reached. Using 'Misc' for failed transactions.")
+                    all_predictions.extend(["Misc"] * len(batch))
         
-        # Process the mapped categories in correct order
-        for i in range(1, batch_size + 1):
-            if i in transaction_categories:
-                category_text = transaction_categories[i]
-                
-                # Direct match
-                if category_text in PREDEFINED_CATEGORIES:
-                    parsed_categories.append(category_text)
-                    continue
-                    
-                # Case insensitive match
-                matched = False
-                for cat in PREDEFINED_CATEGORIES:
-                    if cat.lower() == category_text.lower():
-                        parsed_categories.append(cat)
-                        matched = True
-                        break
-                
-                if not matched:
-                    parsed_categories.append("Misc")
-            else:
-                # Missing transaction in response
-                parsed_categories.append("Misc")
-            
-        # Ensure we have the expected number of results
-        if len(parsed_categories) == batch_size:
-            return parsed_categories
-        else:
-            print(f"Warning: Expected {batch_size} categories but parsed {len(parsed_categories)}")
-            # Fill in any missing categories
-            if len(parsed_categories) < batch_size:
-                parsed_categories.extend(["Misc"] * (batch_size - len(parsed_categories)))
-            return parsed_categories[:batch_size]
-            
-    except Exception as e:
-        print(f"Error in batch API call: {e}")
-        return ["Misc"] * batch_size
+        # Add a delay between batches to avoid rate limiting
+        if batch_end < len(transactions):
+            time.sleep(1)
+    
+    return all_predictions
 
 # --- Function to Store Model Results --- 
 def store_model_training_results(model_version, model_filename, metrics):
