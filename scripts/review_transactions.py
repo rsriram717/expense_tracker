@@ -69,7 +69,9 @@ def init_session_state():
         'original_categorized_df': None, # DF loaded after categorization (internal lowercase cols)
         'categorization_run_for_file': None, # Track which input file was categorized
         'data_saved_to_output': False, # Track if 'Save Changes' was clicked
-        'output_file_path': None # Path to the temp output CSV
+        'output_file_path': None, # Path to the temp output CSV
+        'selected_model': 'local', # Default selected model type
+        'available_models': ['local', 'llama', 'hybrid'] # Available model types
     }
     for key, value in defaults.items():
         if key not in st.session_state:
@@ -84,6 +86,28 @@ categories = [
     "Clothes", "Subscriptions", "Home", "Pets", "Beauty",
     "Professional Services", "Medical", "Misc"
 ]
+
+# Find available models
+def find_available_models():
+    models = []
+    # Check if local RF model is available
+    local_model_path = find_latest_model_file()
+    if local_model_path:
+        models.append(("Random Forest", "local"))
+    
+    # Check if Llama API is available
+    try:
+        from improved_categorizer import client
+        if client is not None:
+            models.append(("Llama 3.1", "llama"))
+    except:
+        pass
+    
+    # Add hybrid model if both are available
+    if len(models) > 1:
+        models.append(("Hybrid (RF+Llama)", "hybrid"))
+    
+    return models
 
 # Helper Functions
 def load_and_prepare_input_df(file_path):
@@ -155,6 +179,27 @@ def format_df_for_display(df):
 
 # Sidebar for controls
 with st.sidebar:
+    st.header("Available Models")
+    
+    # Find available models and display them
+    available_models = find_available_models()
+    model_names = [name for name, _ in available_models]
+    model_types = [model_type for _, model_type in available_models]
+    
+    if not available_models:
+        st.warning("No models available. Please train a model or set up Llama API key.")
+    else:
+        selected_model_index = st.radio(
+            "Select Model for Categorization:",
+            options=model_names,
+            index=0 if model_names else 0
+        )
+        
+        # Update the selected model in session state
+        selected_index = model_names.index(selected_model_index)
+        st.session_state.selected_model = model_types[selected_index]
+    
+    st.divider()
     st.header("Training (Local RandomForest)")
     if st.button("💪 Train New RF Model Version"):
         with st.spinner("Training RandomForest model..."):
@@ -177,53 +222,6 @@ with st.sidebar:
                 st.error(f"Error during RF model training: {str(e)}")
                 st.exception(e)
 
-    st.divider()
-    st.header("Categorization")
-    
-    # --- Model Selection --- 
-    model_options = ["Local RandomForest", "Llama 3.1 (API)"]
-    # Check if local model exists for default selection
-    local_model_exists = find_latest_model_file() is not None
-    default_index = 0 if local_model_exists else 1 # Default to Llama if no local model
-    selected_model_display = st.radio(
-         "Choose categorization model:", 
-         model_options,
-         index=default_index,
-         key="model_select"
-    )
-    
-    # Map display name to internal type used by categorize_transactions
-    model_type_arg = "local" if selected_model_display == "Local RandomForest" else "llama"
-    
-    # Disable button if selected model isn't available
-    run_disabled = (model_type_arg == "local" and not local_model_exists) or \
-                   (model_type_arg == "llama" and client is None) # Assuming client check in improved_categorizer
-                   
-    if run_disabled and model_type_arg == "local":
-        st.warning("No trained local model found. Please train one first.")
-    if run_disabled and model_type_arg == "llama":
-        st.warning(f"Llama API client not initialized. Set {INFERENCE_API_KEY_ENV_VAR} env var.")
-        
-    if st.button("🔄 Run Categorization", type="primary", disabled=run_disabled):
-        with st.spinner(f"Categorizing transactions using {selected_model_display}..."):
-            try:
-                # Pass the selected model type
-                results_dict, model_ver, model_fname = categorize_transactions(model_type=model_type_arg)
-                
-                if results_dict is not None:
-                    st.session_state.categorization_results = results_dict
-                    st.session_state.current_model_version = model_ver
-                    st.session_state.current_model_filename = model_fname
-                    st.session_state.categorization_run_for_file = st.session_state.selected_input_file.name if st.session_state.selected_input_file else None
-                    st.session_state.data_saved_to_output = False
-                    st.success(f"Categorization complete using {model_fname}!")
-                    st.experimental_rerun()
-                else:
-                    st.error(f"Categorization failed using {selected_model_display}. Check logs.")
-            except Exception as e:
-                st.error(f"Error during {selected_model_display} categorization: {str(e)}")
-                st.exception(e)
-                
     st.divider()
     st.header("Evaluation")
     if st.button("📊 Evaluate Models on Holdout Set"):
@@ -266,15 +264,60 @@ with tab1:
         transaction_files = sorted(list(input_path.glob("*.csv")), key=os.path.getmtime, reverse=True)
         
         # File selector using filenames
-        selected_filename = st.selectbox(
-            "Select Input Transaction File",
-            options=[f.name for f in transaction_files]
-        )
+        col1, col2 = st.columns([3, 1])
+        with col1:
+            selected_filename = st.selectbox(
+                "Select Input Transaction File",
+                options=[f.name for f in transaction_files]
+            )
         
         if selected_filename:
             selected_file_path = input_path / selected_filename
             st.session_state.selected_input_file = selected_file_path
             st.session_state.output_file_path = output_path / f"improved_categorized_{selected_filename}"
+            
+            # Add a "Load without categories" button
+            with col2:
+                if st.button("🔄 Load without categories"):
+                    internal_df = load_and_prepare_input_df(selected_file_path)
+                    # Clear any existing categories
+                    if internal_df is not None and 'category' in internal_df.columns:
+                        internal_df['category'] = None
+                    if internal_df is not None and 'confidence' in internal_df.columns:
+                        internal_df['confidence'] = None
+                    st.session_state.original_categorized_df = internal_df.copy() if internal_df is not None else None
+                    st.experimental_rerun()
+
+            # Add button to run categorization with the selected model
+            model_col1, model_col2 = st.columns([3, 1])
+            with model_col1:
+                st.write(f"Selected Model: {next((name for name, model_type in available_models if model_type == st.session_state.selected_model), 'None')}")
+            with model_col2:
+                if st.button("🔄 Run Categorization", type="primary"):
+                    with st.spinner(f"Categorizing transactions using selected model..."):
+                        try:
+                            # Pass the selected model type
+                            results_dict, model_ver, model_fname = categorize_transactions(
+                                input_dir=str(input_path), 
+                                output_dir=str(output_path),
+                                model_type=st.session_state.selected_model
+                            )
+                            
+                            if results_dict is not None and selected_filename in results_dict:
+                                st.session_state.categorization_results = results_dict
+                                st.session_state.current_model_version = model_ver
+                                st.session_state.current_model_filename = model_fname
+                                st.session_state.categorization_run_for_file = selected_filename
+                                st.session_state.data_saved_to_output = False
+                                st.success(f"Categorization complete using {model_fname}!")
+                                # Keep only the selected file's results to save memory
+                                st.session_state.original_categorized_df = results_dict[selected_filename].copy()
+                                st.experimental_rerun()
+                            else:
+                                st.error(f"Categorization failed or file not found in results. Check logs.")
+                        except Exception as e:
+                            st.error(f"Error during categorization: {str(e)}")
+                            st.exception(e)
 
             # Decide which DataFrame to load: 
             # 1. Freshly categorized result (if run just now for this file)?
@@ -285,10 +328,9 @@ with tab1:
             internal_df = None # Keep the df with internal column names
 
             # Condition 1: Categorization just run for THIS file
-            if st.session_state.categorization_run_for_file == selected_filename and selected_filename in st.session_state.categorization_results:
+            if st.session_state.categorization_run_for_file == selected_filename and st.session_state.original_categorized_df is not None:
                 st.info(f"Displaying results from categorization run with {st.session_state.current_model_filename}")
-                internal_df = st.session_state.categorization_results[selected_filename].copy()
-                st.session_state.original_categorized_df = internal_df.copy() # Store the state right after model run
+                internal_df = st.session_state.original_categorized_df.copy()
                 st.session_state.categorization_run_for_file = None # Reset flag 
             
             # Condition 2: Load from saved output CSV if it exists and wasn't just categorized
@@ -397,6 +439,7 @@ with tab1:
                                  merge_keys = ['description', 'amount', 'transaction_date'] 
                                  # Handle cases where keys might not exist in both
                                  valid_merge_keys = [k for k in merge_keys if k in final_internal_df.columns and k in original_df.columns]
+                                 
                                  if not valid_merge_keys:
                                      st.warning("Cannot reliably compare changes; assuming all are manual.")
                                      final_internal_df['is_manually_categorized'] = True
