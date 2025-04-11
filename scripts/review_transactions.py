@@ -128,14 +128,30 @@ def load_and_prepare_input_df(file_path):
             st.error(f"Input file {file_path.name} missing required columns: {required}. Available: {list(df.columns)}")
             return None
             
-        # Convert date column if exists
+        # Convert date column if exists - Improved to handle multiple formats
         if 'date' in df.columns:
-            df['transaction_date'] = pd.to_datetime(df['date'], errors='coerce')
-            # Keep original date if conversion fails for some rows
-            df['transaction_date'] = df['transaction_date'].fillna(df['date'])
+            # Try with a specific format first, then fall back to automatic detection
+            try:
+                # Try specific date format for M/D/YYYY
+                df['transaction_date'] = pd.to_datetime(df['date'], format='%m/%d/%Y', errors='coerce')
+            except:
+                # Fall back to general parsing with coercion for any errors
+                df['transaction_date'] = pd.to_datetime(df['date'], errors='coerce')
+                
+            # For any dates that failed conversion, keep as string
+            mask = df['transaction_date'].isna()
+            if mask.any():
+                st.warning(f"Some dates could not be parsed in {file_path.name}. Keeping original values for those.")
+                df.loc[mask, 'transaction_date'] = df.loc[mask, 'date']
+                
             df = df.drop(columns=['date']) # Use transaction_date internally
+            
         elif 'transaction_date' in df.columns:
-             df['transaction_date'] = pd.to_datetime(df['transaction_date'], errors='coerce')
+            # Same improved approach for transaction_date column
+            try:
+                df['transaction_date'] = pd.to_datetime(df['transaction_date'], format='%m/%d/%Y', errors='coerce')
+            except:
+                df['transaction_date'] = pd.to_datetime(df['transaction_date'], errors='coerce')
         else:
             st.warning(f"Input file {file_path.name} missing a 'date' or 'transaction_date' column.")
             # Optionally create a default date or handle it downstream
