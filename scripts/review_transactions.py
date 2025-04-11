@@ -97,15 +97,15 @@ def find_available_models():
     
     # Check if Llama API is available
     try:
-        from improved_categorizer import client
-        if client is not None:
+        from improved_categorizer import llm_available
+        if llm_available:
             models.append(("Llama 3.1", "llama"))
-    except:
-        pass
-    
-    # Add hybrid model if both are available
-    if len(models) > 1:
-        models.append(("Hybrid (RF+Llama)", "hybrid"))
+            
+            # Add hybrid model if both RF and Llama are available
+            if local_model_path:
+                models.append(("Hybrid (RF+Llama)", "hybrid"))
+    except Exception as e:
+        print(f"Error checking LLM availability: {e}")
     
     return models
 

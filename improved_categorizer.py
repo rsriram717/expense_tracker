@@ -18,7 +18,7 @@ import pickle
 
 from transaction_categorizer import TransactionCategorizer
 from model_training import train_model as train_rf_model
-from model_training import find_latest_model_file as find_latest_rf_file
+from model_training import find_latest_model_file
 from llm_service import client, get_llama_category, get_llama_categories_batch, test_llama_connection
 from config import (
     MODELS_DIR, 
@@ -27,6 +27,10 @@ from config import (
     PREDEFINED_CATEGORIES,
     INFERENCE_API_KEY_ENV_VAR
 )
+
+# Export client for other modules
+__all__ = ['train_model', 'categorize_transactions', 'find_latest_model_file', 
+           'evaluate_model_on_holdout', 'client', 'llm_available']
 
 # Global LLM client check
 llm_available = False
