@@ -19,7 +19,9 @@ from config import (
     RF_CONFIDENCE_THRESHOLD,
     PREDEFINED_CATEGORIES
 )
-import model_training
+# Import necessary classes from model_training for loading the model artifact
+from model_training import FeaturePreparation, TextFeatures, NumericFeatures
+import model_training # Keep the existing import if needed elsewhere
 from llm_service import (
     test_llama_connection,
     process_file_with_llama,
@@ -51,6 +53,9 @@ class TransactionCategorizer:
         
     def _load_model(self):
         """Load the latest model file"""
+        # Explicitly import necessary classes right before loading
+        # This helps resolve issues when loading joblib files from different entry points
+        from model_training import FeaturePreparation, TextFeatures, NumericFeatures
         try:
             # model_data = load_model() # Old call
             model_data = model_training.load_model() # New explicit call
@@ -212,13 +217,14 @@ class TransactionCategorizer:
         print(f"Loaded {len(df)} merchant mappings from {filename}")
         return True
 
-def categorize_transactions(input_dir=TO_CATEGORIZE_DIR, output_dir=OUTPUT_DIR, use_postprocessor=True):
+def categorize_transactions(input_dir=TO_CATEGORIZE_DIR, output_dir=OUTPUT_DIR, use_postprocessor=True, force_local=False):
     """Categorize all transaction files in the input directory
     
     Args:
         input_dir: Directory containing transaction CSV files
         output_dir: Directory where categorized files will be saved
         use_postprocessor: Whether to use merchant post-processing
+        force_local: If True, force using the local hybrid model even if LLM is available
         
     Returns:
         bool: True if at least one file was processed successfully
@@ -258,7 +264,8 @@ def categorize_transactions(input_dir=TO_CATEGORIZE_DIR, output_dir=OUTPUT_DIR, 
     successful_count = 0
     
     # Determine if we should use LLM instead of local model
-    use_llm = categorizer.llm_available
+    # Use LLM only if it's available AND force_local is False
+    use_llm = categorizer.llm_available and not force_local
     
     for file_path in files_to_process:
         base_name = os.path.basename(file_path)
@@ -306,19 +313,17 @@ def process_file_with_local_model(file_path: str, output_path: str, categorizer:
             data['source'] = ''
             
         # Count how many transactions we'll process
-        mask = data['category'].isna() | (data['category'] == '')
+        mask = pd.Series([True] * len(data), index=data.index)
         uncategorized_count = mask.sum()
-        already_categorized_count = len(data) - uncategorized_count
+        already_categorized_count = 0
         
         if uncategorized_count == 0:
-            print(f"  All {len(data)} transactions already have categories. Nothing to do.")
+            print(f"  Input file {file_path} is empty. Nothing to do.")
             return True
             
-        print(f"  Found {uncategorized_count} transactions without categories (out of {len(data)} total)")
-        if already_categorized_count > 0:
-            print(f"  Preserving {already_categorized_count} existing categorizations")
-            
-        # Process each uncategorized transaction
+        print(f"  Processing all {uncategorized_count} transactions from {file_path}...")
+        
+        # Process each transaction
         start_time = time.time()
         
         for idx in data[mask].index:
@@ -333,14 +338,25 @@ def process_file_with_local_model(file_path: str, output_path: str, categorizer:
             data.loc[idx, 'category'] = result['category']
             data.loc[idx, 'confidence'] = result['confidence']
             data.loc[idx, 'source'] = result['source']
+            # Add the detailed prediction columns, handling potential None values
+            data.loc[idx, 'rf_prediction'] = result.get('rf_prediction') # String or None is ok
+            data.loc[idx, 'rf_confidence'] = result.get('rf_confidence', np.nan) # Assign NaN if missing
+            data.loc[idx, 'llm_prediction'] = result.get('llm_prediction') # String or None is ok
             
         # Apply post-processing if requested
         if processor:
             print("  Applying merchant post-processing...")
             data = processor.process_transactions(data)
         
+        # Ensure all columns exist before saving, adding them with NaN if necessary
+        output_cols = list(data.columns) # Start with existing columns
+        for col in ['rf_prediction', 'rf_confidence', 'llm_prediction']:
+            if col not in output_cols:
+                output_cols.append(col)
+                data[col] = np.nan # Add column with NaN if it wasn't created (e.g., no uncategorized rows)
+        
         # Save categorized data
-        data.to_csv(output_path, index=False)
+        data[output_cols].to_csv(output_path, index=False)
         
         elapsed_time = time.time() - start_time
         transactions_per_second = uncategorized_count / elapsed_time if elapsed_time > 0 else 0

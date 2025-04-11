@@ -72,8 +72,19 @@ python -m model_training
 │   ├── to_categorize/         # Input directory for transactions
 │   ├── output/                # Output directory for categorized transactions
 │   ├── merchants/             # Merchant patterns for post-processing
+│   ├── model_comparisons/     # Model comparison results
 │   └── transactions.db        # SQLite database for storing transactions
 ├── models/                    # Trained models
+├── scripts/                   # Utility scripts
+│   ├── dashboard.py           # UI dashboard for transaction management
+│   ├── review_transactions.py # Tool for reviewing transactions
+│   ├── manage_merchants.py    # Tool for managing merchant patterns
+│   ├── fine_tune_llama.py     # Script for fine-tuning LLM
+│   └── ...
+├── analysis/                  # Analysis files and reports
+│   ├── model_comparison_analysis.md # Analysis of model comparisons
+│   ├── compare_models.py      # Script for comparing models
+│   └── ...
 └── tests/                     # Unit tests
 ```
 

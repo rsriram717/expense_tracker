@@ -12,88 +12,14 @@ import re
 import joblib
 import glob
 from datetime import datetime, timezone
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, accuracy_score, precision_recall_fscore_support
-from sklearn.pipeline import Pipeline, FeatureUnion
-from sklearn.base import BaseEstimator, TransformerMixin
 from typing import Dict, Any
 
 from config import MODEL_VERSION_FILE, MODELS_DIR
 from db_connector import get_engine, model_versions_table, model_scores_table
-
-# --- Model Feature Processing Classes ---
-
-# Function to preprocess text
-def preprocess_text(text):
-    if pd.isna(text):
-        return ""
-    # Convert to lowercase and remove special characters
-    text = str(text).lower()
-    text = re.sub(r'[^a-zA-Z0-9\s]', ' ', text)
-    return text
-
-# Custom transformer for text features
-class TextFeatures(BaseEstimator, TransformerMixin):
-    def __init__(self):
-        self.vectorizer = TfidfVectorizer(
-            preprocessor=preprocess_text,
-            ngram_range=(1, 2),
-            max_features=500
-        )
-        
-    def fit(self, X, y=None):
-        # Ensure Description exists and handle NaNs
-        if 'Description' not in X.columns:
-            raise ValueError("Input DataFrame must contain a 'Description' column.")
-        self.vectorizer.fit(X['Description'].fillna(''))
-        return self
-    
-    def transform(self, X):
-        if 'Description' not in X.columns:
-            raise ValueError("Input DataFrame must contain a 'Description' column.")
-        return self.vectorizer.transform(X['Description'].fillna(''))
-
-# Custom transformer for numeric features
-class NumericFeatures(BaseEstimator, TransformerMixin):
-    def __init__(self):
-        self.scaler = StandardScaler()
-        
-    def fit(self, X, y=None):
-        # Ensure Amount exists
-        if 'Amount' not in X.columns:
-            raise ValueError("Input DataFrame must contain an 'Amount' column.")
-        amounts = self._extract_amounts(X)
-        self.scaler.fit(amounts.reshape(-1, 1))
-        return self
-    
-    def transform(self, X):
-        if 'Amount' not in X.columns:
-            raise ValueError("Input DataFrame must contain an 'Amount' column.")
-        amounts = self._extract_amounts(X)
-        return self.scaler.transform(amounts.reshape(-1, 1))
-    
-    def _extract_amounts(self, X):
-        # Convert to numeric and handle any errors
-        return np.array(pd.to_numeric(X['Amount'].fillna(0), errors='coerce').fillna(0))
-
-# Class to prepare all features in one step
-class FeaturePreparation:
-    def __init__(self):
-        self.pipeline = Pipeline([
-            ('features', FeatureUnion([
-                ('text', TextFeatures()),
-                ('numeric', NumericFeatures())
-            ]))
-        ])
-        
-    def fit_transform(self, X, y=None):
-        return self.pipeline.fit_transform(X, y)
-    
-    def transform(self, X):
-        return self.pipeline.transform(X)
+from feature_utils import FeaturePreparation, TextFeatures, NumericFeatures, preprocess_text
 
 def get_next_model_version():
     """Reads the last model version, increments it, and saves it back."""
@@ -216,9 +142,33 @@ def train_model(test_size=0.2, random_state=42):
              X_train, y_train = X, y
              X_test, y_test = X, y # Evaluate on training data
         else:
-             X_train, X_test, y_train, y_test = train_test_split(
-                X, y, test_size=test_size, random_state=random_state, stratify=y
+             # Get the original indices before splitting
+             original_indices = data.index
+             X_train, X_test, y_train, y_test, train_indices, test_indices = train_test_split(
+                X, y, original_indices, # Include indices in the split
+                test_size=test_size,
+                random_state=random_state,
+                stratify=y
              )
+             # Use test_indices to get the original holdout data
+             holdout_data = data.loc[test_indices] # Corrected: Use test_indices here
+             print(f"Holdout set size: {len(holdout_data)} records.")
+
+             # --- Save Holdout Set ---
+             holdout_filename = os.path.join('data', 'holdout_set.csv')
+             try:
+                 # Ensure the 'data' directory exists
+                 os.makedirs('data', exist_ok=True)
+                 # Select only the columns needed for re-categorization + ground truth
+                 cols_to_save = ['transaction_date', 'description', 'amount', 'category', 'extended_details', 'statement_description', 'source_file']
+                 # Filter holdout_data to only include columns that actually exist in it
+                 existing_cols_to_save = [col for col in cols_to_save if col in holdout_data.columns]
+                 holdout_data[existing_cols_to_save].to_csv(holdout_filename, index=False)
+                 print(f"Holdout set saved to {holdout_filename}")
+             except Exception as e:
+                 print(f"Error saving holdout set to {holdout_filename}: {e}")
+             # --- End Save Holdout Set ---
+
     except ValueError as e:
         # Common issue if a category has only one sample
         print(f"Error during train/test split (potentially due to low sample count per category): {e}")
@@ -262,6 +212,7 @@ def train_model(test_size=0.2, random_state=42):
     os.makedirs(MODELS_DIR, exist_ok=True)
 
     # Save model and feature preparation pipeline together
+    # Ensure classes are in scope for joblib saving
     model_data = {
         'model': model,
         'feature_prep': feature_prep,

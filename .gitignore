@@ -64,3 +64,21 @@ data/model_version.txt
 
 # LLM Prompts (contains sensitive transaction data)
 llm_prompts.py 
+
+# Analysis results
+data/model_comparisons/
+data/*_holdout_*.csv
+data/*_results.csv
+data/*_analysis.txt
+data/confidence_analysis.txt
+data/model_comparison_detailed.txt
+
+# Large model files
+improved_model.pkl
+*.joblib
+
+# Holdout set (contains personal transaction data)
+data/holdout_set.csv
+
+# Fine-tuning data
+data/llama_finetune_train_data.jsonl 

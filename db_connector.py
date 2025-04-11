@@ -101,8 +101,32 @@ def create_tables():
 # Call create_tables when the module is imported
 # create_tables() # Keep this commented out for now
 
+def clear_model_data():
+    """Deletes all data from model_versions and model_scores tables."""
+    engine = get_engine()
+    with engine.begin() as connection:
+        try:
+            # Delete scores first due to foreign key constraint
+            delete_scores = model_scores_table.delete()
+            result_scores = connection.execute(delete_scores)
+            print(f"Deleted {result_scores.rowcount} rows from model_scores.")
+            
+            # Delete versions
+            delete_versions = model_versions_table.delete()
+            result_versions = connection.execute(delete_versions)
+            print(f"Deleted {result_versions.rowcount} rows from model_versions.")
+            
+            print("Model data cleared successfully.")
+        except Exception as e:
+            print(f"Error clearing model data: {e}")
+            # Transaction rolls back automatically
+
 # Initialize the database when this module is imported
 if __name__ == "__main__":
     print("Initializing database from db_connector...")
     db_engine = get_engine()
-    initialize_db(db_engine) 
+    initialize_db(db_engine)
+    
+    # Example usage for clearing data (uncomment to run)
+    # print("\nClearing model version and score data...")
+    # clear_model_data() 

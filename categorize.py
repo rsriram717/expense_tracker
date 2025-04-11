@@ -59,7 +59,8 @@ def main():
     result = categorize_transactions(
         input_dir=args.input_dir,
         output_dir=args.output_dir,
-        use_postprocessor=(not args.skip_post)
+        use_postprocessor=(not args.skip_post),
+        force_local=args.force_local
     )
     
     if result:
