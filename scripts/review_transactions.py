@@ -179,6 +179,13 @@ def load_and_prepare_input_df(file_path):
 def format_df_for_display(df):
     """Formats the DataFrame for st.data_editor (Title Case columns)."""
     df_display = df.copy()
+    
+    # Ensure transaction_date is properly converted to datetime if it exists
+    if 'transaction_date' in df_display.columns:
+        # First, convert any string dates to proper datetime objects
+        if df_display['transaction_date'].dtype == 'object':
+            df_display['transaction_date'] = pd.to_datetime(df_display['transaction_date'], errors='coerce')
+    
     # Rename internal columns to display-friendly names
     rename_map = {
         'transaction_date': 'Date',
@@ -393,7 +400,7 @@ with tab1:
                     st.session_state.current_display_df,
                     key=f"editor_{selected_filename}", # Unique key per file
                     column_config={
-                        "Date": st.column_config.DateColumn("Date", format="YYYY-MM-DD"),
+                        "Date": st.column_config.TextColumn("Date", width="medium") if st.session_state.current_display_df["Date"].dtype == 'object' else st.column_config.DateColumn("Date", format="YYYY-MM-DD"),
                         "Description": st.column_config.TextColumn("Description", width="medium"),
                         "Amount": st.column_config.NumberColumn("Amount", format="$%.2f"),
                         "Extended Details": st.column_config.TextColumn("Ext. Details", width="medium"),
