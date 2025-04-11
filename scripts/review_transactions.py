@@ -3,8 +3,13 @@ import pandas as pd
 import plotly.express as px
 from pathlib import Path
 import os
+import sys
 import numpy as np
 from datetime import datetime
+
+# Add the parent directory to sys.path to enable imports
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from improved_categorizer import train_model, categorize_transactions, find_latest_model_file, evaluate_model_on_holdout
 from db_connector import store_finalized_transactions, initialize_db, get_engine, store_model_training_results
 
