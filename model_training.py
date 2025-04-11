@@ -19,9 +19,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, accuracy_score, precision_recall_fscore_support
 from sklearn.pipeline import Pipeline, FeatureUnion
 from sklearn.base import BaseEstimator, TransformerMixin
+from typing import Dict, Any
 
 from config import MODEL_VERSION_FILE, MODELS_DIR
-from db_connector import get_engine
+from db_connector import get_engine, model_versions_table, model_scores_table
 
 # --- Model Feature Processing Classes ---
 
@@ -314,83 +315,106 @@ def load_model(model_filename=None):
         print(f"Error loading model: {repr(e)}") # Reverted to simpler exception printing
         return None
 
-def store_model_training_results(model_version, model_filename, metrics):
-    """Stores model version info and evaluation metrics in the database."""
-    print(f"Storing model results for model: {model_version}")
-    
-    # Also print metrics to console for visibility
-    for key, value in metrics.items():
-        if key != 'classification_report' and key != 'error':
-            print(f"  {key}: {value}")
-    
-    # Check if we can import the tables
-    try:
-        from db_connector import model_versions_table, model_scores_table
-    except (ImportError, AttributeError) as e:
-        print(f"Warning: Could not import database tables: {e}")
-        print("Metrics printed but not stored in database.")
-        return True
-    
+def store_evaluation_results(metrics: Dict[str, Any], model_info: Dict[str, Any], holdout_size: int):
+    """Stores model evaluation results (from any model type) in the database."""
+    model_version = metrics.get('model_name', 'unknown_model')
+    model_filename = model_info.get('model_filename', 'N/A') # Get filename from model_info if available
+    print(f"Storing evaluation results for model: {model_version}")
+
+    # Print key metrics to console for visibility
+    print(f"  Accuracy: {metrics.get('accuracy', 'N/A'):.4f}")
+    print(f"  F1 (Weighted): {metrics.get('f1_weighted', 'N/A'):.4f}")
+    print(f"  Avg Confidence: {metrics.get('avg_confidence', 'N/A'):.4f}")
+
     engine = get_engine()
-    if not model_version or not model_filename or not metrics:
-        print("Error: Missing model version, filename, or metrics for DB storage.")
+    if not model_version or not metrics:
+        print("Error: Missing model version or metrics for DB storage.")
         return False
-    
+
+    # Prepare version data
     version_data = {
         'model_version': model_version,
         'model_filename': model_filename,
-        'training_timestamp': datetime.now(timezone.utc),
-        'training_dataset_size': metrics.get('training_dataset_size'),
-        'holdout_set_size': metrics.get('holdout_set_size')
+        # Use evaluation timestamp as the primary timestamp for this record
+        'training_timestamp': datetime.fromisoformat(metrics['evaluation_timestamp']) if 'evaluation_timestamp' in metrics else datetime.now(timezone.utc),
+        'training_dataset_size': None, # We don't know training size from evaluation context
+        'holdout_set_size': holdout_size
     }
-    
+
+    # Prepare scores data
     scores_data = []
-    eval_timestamp = metrics.get('evaluation_timestamp')
-    if eval_timestamp:
-         try:
-             eval_dt = datetime.fromisoformat(eval_timestamp)
-             if eval_dt.tzinfo is None:
-                 eval_dt = eval_dt.replace(tzinfo=timezone.utc)
-         except ValueError:
-             print(f"Warning: Could not parse evaluation timestamp '{eval_timestamp}'. Using current time.")
-             eval_dt = datetime.now(timezone.utc)
-         
-         # Metrics to store in the database
-         score_metrics = [
-            'accuracy', 'precision_macro', 'recall_macro', 'f1_macro',
-            'precision_weighted', 'recall_weighted', 'f1_weighted'
-         ]
-         
-         for metric_name in score_metrics:
-            if metric_name in metrics and pd.notna(metrics[metric_name]):
-                scores_data.append({
-                    'evaluation_timestamp': eval_dt,
-                    'metric_name': metric_name,
-                    'metric_value': metrics[metric_name]
-                })
-    
-    # Actually store the data in the database
+    eval_timestamp = datetime.fromisoformat(metrics['evaluation_timestamp'])
+
+    # Metrics to store in the database (match keys from evaluate_model metrics dict)
+    score_metrics_keys = [
+        'accuracy', 'precision_weighted', 'recall_weighted', 'f1_weighted',
+        'avg_confidence', 'std_confidence'
+    ]
+
+    for metric_name in score_metrics_keys:
+        if metric_name in metrics and pd.notna(metrics[metric_name]):
+            scores_data.append({
+                # 'model_version_id' will be added after inserting the version
+                'evaluation_timestamp': eval_timestamp,
+                'metric_name': metric_name,
+                'metric_value': metrics[metric_name]
+            })
+
+    # Add processing time as a metric
+    if 'processing_time_seconds' in metrics and pd.notna(metrics['processing_time_seconds']):
+         scores_data.append({
+                'evaluation_timestamp': eval_timestamp,
+                'metric_name': 'processing_time_seconds',
+                'metric_value': metrics['processing_time_seconds']
+            })
+
+    if not scores_data:
+        print("Warning: No valid metrics found to store in model_scores.")
+        # Decide if you still want to store the version record
+        # return False # Option: Abort if no scores
+
+    # Use a transaction to insert version and scores
     with engine.begin() as connection:
         try:
-            # Insert model version record
-            insert_stmt = model_versions_table.insert().values(version_data)
-            result = connection.execute(insert_stmt)
-            model_version_id = result.inserted_primary_key[0]
-            print(f"Stored model version: {model_version} with ID: {model_version_id}")
-            
-            # Insert model scores records
+            # Check if model_version already exists
+            select_stmt = model_versions_table.select().where(model_versions_table.c.model_version == model_version)
+            existing_version = connection.execute(select_stmt).fetchone()
+
+            if existing_version:
+                model_version_id = existing_version.id
+                print(f"Model version '{model_version}' already exists with ID: {model_version_id}. Updating scores.")
+                # Optional: Update timestamp or other fields if desired
+                # update_stmt = model_versions_table.update().where(model_versions_table.c.id == model_version_id).values(last_evaluated=eval_timestamp)
+                # connection.execute(update_stmt)
+
+                # Delete old scores for this model version ID before inserting new ones
+                delete_scores_stmt = model_scores_table.delete().where(model_scores_table.c.model_version_id == model_version_id)
+                connection.execute(delete_scores_stmt)
+                print(f"Deleted old scores for model version ID {model_version_id}.")
+
+            else:
+                # Insert new model version record
+                insert_stmt = model_versions_table.insert().values(version_data)
+                result = connection.execute(insert_stmt)
+                model_version_id = result.inserted_primary_key[0]
+                print(f"Stored new model version: {model_version} with ID: {model_version_id}")
+
+            # Insert new model scores records
             if scores_data and model_version_id:
                 for score in scores_data:
                     score['model_version_id'] = model_version_id
                 connection.execute(model_scores_table.insert(), scores_data)
                 print(f"Stored {len(scores_data)} evaluation metrics for model ID {model_version_id}.")
-            
-            return True
+            else:
+                 print(f"No new scores were stored for model ID {model_version_id}.")
+
+            return True # Indicate success
+
         except Exception as e:
-             print(f"Error storing model training results: {e}")
-             print("Metrics printed but not stored in database.")
-    
-    return False
+            print(f"Database Error storing evaluation results: {e}")
+            print("Evaluation metrics NOT stored in database.")
+            # Transaction automatically rolls back on exception with engine.begin()
+            return False # Indicate failure
 
 if __name__ == "__main__":
     print("ML Model Training")

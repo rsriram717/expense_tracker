@@ -1,0 +1,881 @@
+id,transaction_date,description,amount,extended_details,statement_description,true_category,is_manually_categorized,confidence,model_version,model_filename,source_file,timestamp,home,card_type,rf_category,rf_confidence,rf_correct,llama_category,llama_correct
+483,2024-09-14,AplPay HYATT REG LKERENTON              WA,9.93,"5654       5654             98056
+RESTAURANT
+AplPay HYATT REG LKE WSHGTN F&B SEAR
+RENTON
+WA
+RESTAURANT
+5654             98056",AplPay HYATT REG LKERENTON              WA,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.2585721124854464,True,Travel-Lodging,False
+405,2024-08-03,AplPay JEWEL OSCO 00NAPERVILLE          IL,6.26,"00590047    800-898-4027
+AplPay JEWEL OSCO 0059 0059
+NAPERVILLE
+IL
+Description : GROCERIES/SUNDRIES Price : 0.00
+800-898-4027",AplPay JEWEL OSCO 00NAPERVILLE          IL,Groceries,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Groceries,0.6834655310914407,True,Groceries,True
+191,2024-07-26,AplPay HUNTINGTON BACHICAGO             IL,6.43,".0199917220 312-288-3191
+AplPay HUNTINGTON BANK PAVILI HUNTINGTON B
+CHICAGO
+IL
+312-288-3191",AplPay HUNTINGTON BACHICAGO             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.2165283073977083,True,Misc,False
+39,2024-06-22,FAMILY PRIDE LAUNDRYLOMBARD             IL,0.25,"6309324700
+FAMILY PRIDE LAUNDRY ULTR
+LOMBARD
+IL
+6309324700",FAMILY PRIDE LAUNDRYLOMBARD             IL,Home,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Home,0.5124270582108467,True,Home,True
+805,2024-11-04,PETSCREENING SERVICEMOORESVILLE         NC,30.0,"NT_R9R6LEEF +18646417387
+PETSCREENING SERVICE
+MOORESVILLE
+NC
++18646417387",PETSCREENING SERVICEMOORESVILLE         NC,Dante,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Home,Platinum,Food & Drink,0.1511680137105007,False,Dante,True
+141,2024-05-22,AplPay PHILZ COFFEE Chicago             IL,6.9,"BKzTc3Wo7kp squareup.com/receipts
+AplPay PHILZ COFFEE
+Chicago
+IL
+squareup.com/receipts",AplPay PHILZ COFFEE Chicago             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.21459961344352926,True,Food & Drink,True
+482,2024-09-14,AplPay HYATT REG LKERENTON              WA,4.96,"5712       5712             98056
+RESTAURANT
+AplPay HYATT REG LKE WSHGTN F&B SEAR
+RENTON
+WA
+RESTAURANT
+5712             98056",AplPay HYATT REG LKERENTON              WA,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.25408725363463863,True,Food & Drink,True
+808,2024-11-01,DUNKIN #357738 Q35 3BOLINGBROOK         IL,14.17,"24011149311 630-783-9505
+DUNKIN #357738 Q35 3577
+BOLINGBROOK
+IL
+Description : FAST FOOD RESTAURAN Price : 0.00
+630-783-9505",DUNKIN #357738 Q35 3BOLINGBROOK         IL,Food & Drink,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Food & Drink,0.18008702183115802,True,Food & Drink,True
+304,2024-07-05,AplPay UBER EATS    help.uber.com       CA,1.31,"2FD1XD4Q    8005928996
+AplPay UBER EATS
+help.uber.com
+CA
+8005928996",AplPay UBER EATS    help.uber.com       CA,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.5163691784599564,True,Food & Drink,True
+606,2024-10-07,AplPay MANGO MALAGA MALAGA              ES,66.32,"35086       FAMILY CLOTHING
+AplPay MANGO MALAGA MAN T 11992 334668936
+MALAGA
+ES
+FAMILY CLOTHINGForeign Spend Amount: 60.08 EURO Commission Amount:  Currency Exchange Rate: null",AplPay MANGO MALAGA MALAGA              ES,Clothes,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Clothes,0.22676404515352036,True,Clothes,True
+68,2024-06-13,AplPay PANERA BREAD CHICAGO             IL,10.24,"465421      FAST FOOD RESTAURANT
+AplPay PANERA BREAD #609200
+CHICAGO
+IL
+FAST FOOD RESTAURANT",AplPay PANERA BREAD CHICAGO             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.2586605871382547,True,Food & Drink,True
+72,2024-06-12,AplPay CVS PHARMACY CHICAGO             IL,21.49,"10085934   8007467287
+PHARMACIES
+AplPay CVS PHARMACY
+CHICAGO
+IL
+PHARMACIES
+8007467287",AplPay CVS PHARMACY CHICAGO             IL,Misc,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Misc,0.7856573744418851,True,Medical,False
+434,2024-09-22,AplPay THE SPOKE & BChicago             IL,52.47,"J8YGShvZTWG squareup.com/receipts
+AplPay THE SPOKE & BIRD - SOUTH LOOP
+Chicago
+IL
+squareup.com/receipts",AplPay THE SPOKE & BChicago             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Clothes,0.14509141537382506,False,Food & Drink,True
+125,2024-05-28,AplPay FAMILY PRIDE LOMBARD             IL,2.5,"6309324700
+AplPay FAMILY PRIDE LAUNDRY ULTR
+LOMBARD
+IL
+6309324700",AplPay FAMILY PRIDE LOMBARD             IL,Home,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Home,0.9655634396283282,True,Home,True
+475,2024-09-16,UBER EATS           help.uber.com       CA,3.0,"54KTYD8T    8005928996
+UBER EATS
+help.uber.com
+CA
+8005928996",UBER EATS           help.uber.com       CA,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.5135993677013512,True,Food & Drink,True
+633,2024-10-02,AplPay FAMILY PRIDE LOMBARD             IL,0.25,"6309324700
+AplPay FAMILY PRIDE LAUNDRY ULTR
+LOMBARD
+IL
+6309324700",AplPay FAMILY PRIDE LOMBARD             IL,Home,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Home,0.8423798835213033,True,Home,True
+29,2024-06-23,AplPay LYFT         855-280-0278        CA,15.48,"NT_QLCSEOOD1961839891630699194104
+1961839891630699150
+AplPay LYFT
+855-280-0278
+CA
+1961839891630699150
+1961839891630699194104",AplPay LYFT         855-280-0278        CA,Transportation,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Transportation,0.8882157587059,True,Transportation,True
+706,2024-05-25,LYFT                855-280-0278        CA,21.99,"NT_QAPBKDTP1951527531847513094104
+1951527531847513014
+LYFT
+855-280-0278
+CA
+1951527531847513014
+1951527531847513094104",LYFT                855-280-0278        CA,Transportation,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Transportation,0.9342590930324408,True,Transportation,True
+577,2024-10-21,AplPay PURE GREEN GOChicago             IL,28.38,"hepD10bfAEH squareup.com/receipts
+AplPay PURE GREEN GOLD COAST
+Chicago
+IL
+squareup.com/receipts",AplPay PURE GREEN GOChicago             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.19858823104984105,True,Food & Drink,True
+831,2024-10-14,AplPay HERTZ TOLL 38NORFOLK             VA,28.38,"R/A# 386959521   8774114300
+AplPay HERTZ TOLL 386959521
+NORFOLK
+VA
+",AplPay HERTZ TOLL 38NORFOLK             VA,Transportation,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Home,Platinum,Food & Drink,0.15931648500075524,False,Transportation,True
+152,2024-05-19,CHURRO FACTORY 0000 CHICAGO             IL,1.85,"10300178    773-844-5428
+CHURRO FACTORY 0000
+CHICAGO
+IL
+Description : FOOD/BEVERAGE Price : 0.00
+773-844-5428",CHURRO FACTORY 0000 CHICAGO             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.2293575197916171,True,Food & Drink,True
+259,2024-07-13,PHARMACIE DE LA PL DPARIS,4.69,"04817900000 0147001808
+PHARMACIE DE LA PL DE LA REPUBLI
+PARIS
+0147001808Foreign Spend Amount: 4.30 EURO Commission Amount:  Currency Exchange Rate: null",PHARMACIE DE LA PL DPARIS,Misc,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.156336079287742,False,Medical,False
+214,2024-07-21,UBER TRIP           HTTPS://HELP.UBER.COCA,15.61,"18XDDMJX   EMTUZ4KC
+UBER TRIP
+HTTPS://HELP.UBER.COM
+CA
+EMTUZ4KCForeign Spend Amount: 14.33 EURO Commission Amount:  Currency Exchange Rate: null",UBER TRIP           HTTPS://HELP.UBER.COCA,Transportation,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Transportation,0.5762037571938851,True,Transportation,True
+756,2024-09-25,PELOTON* MEMBERSHIP NEW YORK CITY       NY,44.0,"NT_QUM5RTCJ +18666799129
+PELOTON* MEMBERSHIP
+NEW YORK CITY
+NY
++18666799129",PELOTON* MEMBERSHIP NEW YORK CITY       NY,Home,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Home,Platinum,Home,0.4553496102945958,True,Subscriptions,False
+156,2024-05-18,AplPay WAG!* PET CARSAN FRANCISCO       CA,13.84,"NT_Q8E05G2S +16284004283
+AplPay WAG!* PET CARE
+SAN FRANCISCO
+CA
++16284004283",AplPay WAG!* PET CARSAN FRANCISCO       CA,Dante,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Dante,0.19605491394563918,True,Dante,True
+464,2024-09-17,AplPay CVS PHARMACY CHICAGO             IL,3.12,"10097232   8007467287
+PHARMACIES
+AplPay CVS PHARMACY
+CHICAGO
+IL
+PHARMACIES
+8007467287",AplPay CVS PHARMACY CHICAGO             IL,Misc,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Misc,0.709958204517946,True,Medical,False
+399,2024-08-05,JUST SALAD 0000     NEW YORK            NY,6.0,"11398851    212-244-1111
+JUST SALAD 0000
+NEW YORK
+NY
+Description : FAST FOOD RESTAURAN Price : 0.00
+212-244-1111",JUST SALAD 0000     NEW YORK            NY,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.5416396713809971,True,Food & Drink,True
+745,2024-07-07,UBER,8.99,"FRRW8X30   3S4HKULE         60610
+Uber Trip
+help.uber.com
+CA
+3S4HKULE         60610",Uber Trip           help.uber.com       CA,Transportation,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Transportation,0.5123209137954329,True,Transportation,True
+735,2024-07-10,AplPay JC LICHT - 13CHICAGO             IL,-11.0,"99999994193 3127876887
+AplPay JC LICHT - 1300 - ACE GOL 000000004
+CHICAGO
+IL
+3127876887",AplPay JC LICHT - 13CHICAGO             IL,Home,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Home,0.18375549484563422,True,Transportation,False
+830,2024-10-15,AplPay NORDSTROM    NAPERVILLE          IL,129.2,"70012900    8002855800
+AplPay NORDSTROM
+NAPERVILLE
+IL
+Description : DEPT.   STORES Price : 1.292
+8002855800",AplPay NORDSTROM    NAPERVILLE          IL,Clothes,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Clothes,0.21527079047566836,True,Shopping,False
+630,2024-10-03,AplPay FAMILY PRIDE LOMBARD             IL,2.5,"6309324700
+AplPay FAMILY PRIDE LAUNDRY ULTR
+LOMBARD
+IL
+6309324700",AplPay FAMILY PRIDE LOMBARD             IL,Home,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Home,0.9655634396283282,True,Home,True
+407,2024-08-03,STARBUCKS STORE 1117NAPERVILLE          IL,12.51,"C3D6CA4B92C FAST FOOD RESTAURANT
+STARBUCKS STORE 1117
+NAPERVILLE
+IL
+FAST FOOD RESTAURANT",STARBUCKS STORE 1117NAPERVILLE          IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.18580456139738236,True,Food & Drink,True
+618,2024-10-05,AplPay SNCB/NMBS BRUBRUSSEL,23.84,"8164134645  PASSENGER RAILWAY
+AplPay SNCB/NMBS BRUSSEL CENTRALE NATIONAL
+BRUSSEL
+PASSENGER RAILWAYForeign Spend Amount: 21.60 EURO Commission Amount:  Currency Exchange Rate: null",AplPay SNCB/NMBS BRUBRUSSEL,Transportation,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.16522727363148718,False,Transportation,True
+709,2024-05-24,LYFT                855-280-0278        CA,8.03,"NT_QAYBMDDV1951255861539815894104
+1951255861539815802
+LYFT
+855-280-0278
+CA
+1951255861539815802
+1951255861539815894104",LYFT                855-280-0278        CA,Transportation,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Transportation,0.9342590930324408,True,Transportation,True
+91,2024-06-07,"TST* TABLE, DONKEY ACHICAGO             IL",73.18,"21105174160 RESTAURANT
+TST* TABLE, DONKEY AND ST 00139181
+CHICAGO
+IL
+RESTAURANT","TST* TABLE, DONKEY ACHICAGO             IL",Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.3583991865543784,True,Food & Drink,True
+412,2024-08-02,AplPay CVS PHARMACY CHICAGO             IL,18.94,"10069009    8007467287
+AplPay CVS PHARMACY
+CHICAGO
+IL
+Description : PHARMACIES Price : 0.1894
+8007467287",AplPay CVS PHARMACY CHICAGO             IL,Misc,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Misc,0.7856573744418851,True,Medical,False
+404,2024-08-03,AplPay JEWEL OSCO 00NAPERVILLE          IL,5.59,"00590054    800-898-4027
+AplPay JEWEL OSCO 0059 0059
+NAPERVILLE
+IL
+Description : GROCERIES/SUNDRIES Price : 0.00
+800-898-4027",AplPay JEWEL OSCO 00NAPERVILLE          IL,Groceries,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Groceries,0.6834655310914407,True,Groceries,True
+261,2024-07-13,UBER ONE            help.uber.com       CA,9.99,"JW74PG23    8005928996
+UBER ONE
+help.uber.com
+CA
+8005928996",UBER ONE            help.uber.com       CA,Transportation,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Transportation,0.5047565049195333,True,Transportation,True
+272,2024-07-11,QUEST DIAGNOSTICS   800-888-8333        IL,10.63,"793261482   LAB TESTING
+QUEST DIAGNOSTICS
+800-888-8333
+IL
+LAB TESTING",QUEST DIAGNOSTICS   800-888-8333        IL,Medical,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.18027731543607806,False,Medical,True
+802,2024-08-02,AMAZON MARKEPLACE NA PA,22.04,"4LQQCX0LPWZ MERCHANDISE
+AMAZON MARKETPLACE NA PA
+AMZN.COM/BILL
+WA
+MERCHANDISE",AMAZON MARKETPLACE NAMZN.COM/BILL       WA,Misc,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Misc,0.18588360268588489,True,Shopping,False
+242,2024-07-16,MONOPRIX LECOURBE MOPARIS               FR,22.94,"00007576    FREEZER & LOCKER MEAT
+MONOPRIX LECOURBE MONOPING49
+PARIS
+FR
+FREEZER & LOCKER MEATForeign Spend Amount: 21.00 EURO Commission Amount:  Currency Exchange Rate: null",MONOPRIX LECOURBE MOPARIS               FR,Groceries,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.1459942834427041,False,Groceries,True
+461,2024-09-18,STARBUCKS           800-782-7282        WA,20.0,"14KDN0YGDQP GIFT CARD
+STARBUCKS
+800-782-7282
+WA
+GIFT CARD",STARBUCKS           800-782-7282        WA,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.2063180026449594,True,Food & Drink,True
+406,2024-08-03,AplPay JEWEL OSCO 00NAPERVILLE          IL,36.48,"00590003    800-898-4027
+AplPay JEWEL OSCO 0059 0059
+NAPERVILLE
+IL
+Description : GROCERIES/SUNDRIES Price : 0.00
+800-898-4027",AplPay JEWEL OSCO 00NAPERVILLE          IL,Groceries,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Groceries,0.6857812153057234,True,Groceries,True
+603,2024-10-08,AplPay UBER TRIP    HTTPS://HELP.UBER.COCA,1.03,"5FYXZK3D    8005928996
+AplPay UBER TRIP
+HTTPS://HELP.UBER.COM
+CA
+8005928996Foreign Spend Amount: 0.94 EURO Commission Amount:  Currency Exchange Rate: null",AplPay UBER TRIP    HTTPS://HELP.UBER.COCA,Transportation,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Transportation,0.5789051211662138,True,Transportation,True
+174,2024-07-29,STARBUCKS           800-782-7282        WA,20.0,"1P9KCBVBNQN GIFT CARD
+STARBUCKS
+800-782-7282
+WA
+GIFT CARD",STARBUCKS           800-782-7282        WA,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.2063180026449594,True,Food & Drink,True
+676,2024-06-15,PLAYITAGAINSP #10047NAPERVILLE          IL,53.08,"844072     USED MERCHANDISE
+PLAYITAGAINSP #10047
+NAPERVILLE
+IL
+USED MERCHANDISE",PLAYITAGAINSP #10047NAPERVILLE          IL,Misc,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Clothes,0.1597248739546361,False,Shopping,False
+296,2024-07-07,TACO & BURRITO EXPRECHICAGO             IL,19.58,"873574      RESTAURANT
+TACO & BURRITO EXPRESS
+CHICAGO
+IL
+RESTAURANT",TACO & BURRITO EXPRECHICAGO             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.18487805326541654,True,Food & Drink,True
+436,2024-09-22,LODGE TAVERN        CHICAGO             IL,20.0,"29532543    312-642-4406
+LODGE TAVERN
+CHICAGO
+IL
+",LODGE TAVERN        CHICAGO             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.18880998090908688,True,Food & Drink,True
+103,2024-06-02,TST* DISTRICT BREW YCHICAGO             IL,108.09,"99999994154 3122592960
+TST* DISTRICT BREW YARDS 300521576
+CHICAGO
+IL
+Description : BARS Price : 1.0809
+3122592960",TST* DISTRICT BREW YCHICAGO             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.35620629848211194,True,Food & Drink,True
+690,2024-06-03,AIRBNB * HMPCSFFDYA SAN FRANCISCO       CA,279.77,"03YHK6TV    4158005959
+AIRBNB * HMPCSFFDYA
+SAN FRANCISCO
+CA
+4158005959",AIRBNB * HMPCSFFDYA SAN FRANCISCO       CA,Travel-Lodging,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Home,Platinum,Travel-Lodging,0.22917787994067132,True,Travel-Lodging,True
+796,2024-08-12,OPENAI *CHATGPT SUBSSAN FRANCISCO       CA,20.0,"NT_QEQTXKD1 +14158799686
+OPENAI *CHATGPT SUBSCR
+SAN FRANCISCO
+CA
++14158799686",OPENAI *CHATGPT SUBSSAN FRANCISCO       CA,Subscriptions,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Subscriptions,0.6303124507537453,True,Subscriptions,True
+494,2024-09-10,JUST SALAD 0000     NEW YORK            NY,6.0,"11540926    212-244-1111
+JUST SALAD 0000
+NEW YORK
+NY
+Description : FAST FOOD RESTAURAN Price : 0.00
+212-244-1111",JUST SALAD 0000     NEW YORK            NY,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.5416396713809971,True,Food & Drink,True
+717,2024-07-25,MODERN INTIMACY     BEVERLY HILLS       CA,150.0,"NT_QXQWEB4W +18339535902
+MODERN INTIMACY
+BEVERLY HILLS
+CA
++18339535902",MODERN INTIMACY     BEVERLY HILLS       CA,Medical,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Medical,0.9643109817646842,True,Food & Drink,False
+271,2024-07-11,FADO CHICAGO 0000000CHICAGO             IL,12.06,"00000000099 4048488433
+FADO CHICAGO 000000003
+CHICAGO
+IL
+Description : RESTAURANTS Price : 0.1206
+4048488433",FADO CHICAGO 0000000CHICAGO             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.1704557014655684,True,Food & Drink,True
+167,2024-05-13,CTY CLERK STICKERS 0CHICAGO             IL,16.0,"99999994135 3127446861
+CTY CLERK STICKERS 000000027
+CHICAGO
+IL
+Description : GVMNT SCVS Price : 0.16
+3127446861",CTY CLERK STICKERS 0CHICAGO             IL,Misc,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.18487805326541654,False,Misc,True
+250,2024-07-14,AplPay MONOPRIX COMMPARIS               FR,45.69,"00000638    FREEZER & LOCKER MEAT
+AplPay MONOPRIX COMMERCE MONOPING49
+PARIS
+FR
+FREEZER & LOCKER MEATForeign Spend Amount: 41.87 EURO Commission Amount:  Currency Exchange Rate: null",AplPay MONOPRIX COMMPARIS               FR,Groceries,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Clothes,0.23749633155518832,False,Groceries,True
+433,2024-09-22,AplPay THE SPOKE & BChicago             IL,14.39,"PzctX3weQ9e squareup.com/receipts
+AplPay THE SPOKE & BIRD - SOUTH LOOP
+Chicago
+IL
+squareup.com/receipts",AplPay THE SPOKE & BChicago             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.1881637453390309,True,Food & Drink,True
+351,2024-08-24,AplPay PETSMART     BOLINGBROOK         IL,7.58,"12256710101 888-839-9638
+AplPay PETSMART
+BOLINGBROOK
+IL
+Description : PETS/SUPPLIES/ACC Price : 0.00
+888-839-9638",AplPay PETSMART     BOLINGBROOK         IL,Dante,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.18193992988127383,False,Dante,True
+729,2024-07-14,UBER TRIP           HTTPS://HELP.UBER.COCA,21.88,"CTE035ZP   YXEH4NVX
+UBER TRIP
+HTTPS://HELP.UBER.COM
+CA
+YXEH4NVXForeign Spend Amount: 20.05 EURO Commission Amount:  Currency Exchange Rate: null",UBER TRIP           HTTPS://HELP.UBER.COCA,Transportation,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Transportation,0.5762037571938851,True,Transportation,True
+403,2024-08-03,ANDY'S - BOLINGBROOKBOLINGBROOK         IL,16.25,"79800341    417-881-3500
+ANDY'S - BOLINGBROOK 2 0000
+BOLINGBROOK
+IL
+Description : FAST FOOD RESTAURAN Price : 0.00
+417-881-3500",ANDY'S - BOLINGBROOKBOLINGBROOK         IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.17910605335759308,True,Food & Drink,True
+75,2024-06-11,AplPay DUNKIN #34496CHICAGO             IL,6.71,"24111601475 312-765-9952
+AplPay DUNKIN #344965 Q35 3449
+CHICAGO
+IL
+Description : FAST FOOD RESTAURAN Price : 0.00
+312-765-9952",AplPay DUNKIN #34496CHICAGO             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.21670523004987655,True,Food & Drink,True
+315,2024-08-30,AplPay JEWEL OSCO 11CHESTERTON          IN,83.58,"11890001    800-898-4027
+AplPay JEWEL OSCO 1189 1189
+CHESTERTON
+IN
+Description : GROCERIES/SUNDRIES Price : 0.00
+800-898-4027",AplPay JEWEL OSCO 11CHESTERTON          IN,Groceries,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Groceries,0.5608260221552133,True,Groceries,True
+353,2024-08-24,SALERNO'S NAUTICAL PCHICAGO             IL,20.0,"73011544238 ROBERTSALERNO70@AOL.C
+ROBERTSALERNO70@AOL.COM
+SALERNO'S NAUTICAL PLAYPE 545500001217
+CHICAGO
+IL
+ROBERTSALERNO70@AOL.COM",SALERNO'S NAUTICAL PCHICAGO             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Dante,0.2678766587782672,False,Food & Drink,True
+718,2024-07-25,PELOTON* MEMBERSHIP NEW YORK CITY       NY,44.0,"NT_QXY4VZ3X +18666799129
+PELOTON* MEMBERSHIP
+NEW YORK CITY
+NY
++18666799129",PELOTON* MEMBERSHIP NEW YORK CITY       NY,Subscriptions,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Home,Platinum,Home,0.4553496102945958,False,Subscriptions,True
+495,2024-09-10,TUCKER PUPS PET RESOCHICAGO             IL,12.12,"373040      PET SHOP/FOOD/SUPPLY
+TUCKER PUPS PET RESO
+CHICAGO
+IL
+PET SHOP/FOOD/SUPPLY",TUCKER PUPS PET RESOCHICAGO             IL,Dante,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Dante,0.5149335891196699,True,Dante,True
+679,2024-06-14,LYFT                855-280-0278        CA,4.45,"NT_QI4LAR1C(NONE)           94104
+LYFT
+855-280-0278
+CA
+(NONE)
+(NONE)           94104",LYFT                855-280-0278        CA,Transportation,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Transportation,0.9342590930324408,True,Transportation,True
+309,2024-07-03,PY *LOU MALNATIS - SCHICAGO             IL,49.48,"1464567149  3127861000
+PY *LOU MALNATIS - SOUTH 000002988
+CHICAGO
+IL
+3127861000",PY *LOU MALNATIS - SCHICAGO             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Personal,0.19573706519838774,False,Food & Drink,True
+253,2024-07-13,ADU BROBBEY         ARGENTEUIL          FR,70.93,"TAXICAB & LIMOUSINE
+ADU BROBBEY
+ARGENTEUIL
+FR
+TAXICAB & LIMOUSINEForeign Spend Amount: 65.00 EURO Commission Amount:  Currency Exchange Rate: null",ADU BROBBEY         ARGENTEUIL          FR,Transportation,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Clothes,0.15348825329848104,False,Transportation,True
+49,2024-06-20,AplPay TST* BOURGEOICHICAGO             IL,5.79,"21105174172 RESTAURANT
+AplPay TST* BOURGEOIS PIG CAFE 00026856
+CHICAGO
+IL
+RESTAURANT",AplPay TST* BOURGEOICHICAGO             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.4321221167668823,True,Food & Drink,True
+832,2024-10-13,3CPAYMENT*ANANTARA VMARBELLA            ES,285.38,"07103878969 +34 952 88 91 50
+3CPAYMENT*ANANTARA VILLA PADIERNA 0000
+MARBELLA
+ES
++34 952 88 91 50Foreign Spend Amount: 260.50 EURO Commission Amount:  Currency Exchange Rate: null",3CPAYMENT*ANANTARA VMARBELLA            ES,Travel-Lodging,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Home,Platinum,Travel-Lodging,0.2224393332516461,True,Travel-Lodging,True
+136,2024-05-23,AplPay TST* BROWN BACHICAGO             IL,11.18,"21105174145 RESTAURANT
+AplPay TST* BROWN BAG SEAFOOD CO 00082488
+CHICAGO
+IL
+RESTAURANT",AplPay TST* BROWN BACHICAGO             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.4195024215504518,True,Food & Drink,True
+97,2024-06-03,AplPay WHOLEFDS GOC CHICAGO             IL,138.19,"0A3GVDORJ2E 1234567891
+AplPay WHOLEFDS GOC #10740 000010740
+CHICAGO
+IL
+Description : GROCERY STORES Price : 1.3819
+1234567891",AplPay WHOLEFDS GOC CHICAGO             IL,Groceries,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Groceries,0.22943709585027885,True,Groceries,True
+629,2024-10-03,AplPay FAMILY PRIDE LOMBARD             IL,2.0,"6309324700
+AplPay FAMILY PRIDE LAUNDRY ULTR
+LOMBARD
+IL
+6309324700",AplPay FAMILY PRIDE LOMBARD             IL,Home,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Home,0.9705046628579287,True,Dante,False
+460,2024-09-18,PARK CHICAGO MOBILE CHICAGO             IL,20.0,"0630805947  877-242-7901
+PARK CHICAGO MOBILE 0539
+CHICAGO
+IL
+Description : PARKING FEES Price : 0.00
+877-242-7901",PARK CHICAGO MOBILE CHICAGO             IL,Transportation,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Transportation,0.32897325076051315,True,Transportation,True
+362,2024-08-19,AplPay MARK VEND CO.NORTHBROOK          IL,1.85,"WT1h8fA1s5  888-561-4748
+AplPay MARK VEND CO. 0000
+NORTHBROOK
+IL
+Description : FAST FOOD RESTAURAN Price : 0.00
+888-561-4748",AplPay MARK VEND CO.NORTHBROOK          IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.2465248097233498,True,Food & Drink,True
+298,2024-07-06,AplPay DIVISION     Chicago             IL,8.18,"NKIVnbE4rOQ squareup.com/receipts
+AplPay DIVISION
+Chicago
+IL
+squareup.com/receipts",AplPay DIVISION     Chicago             IL,Groceries,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.2586605871382547,False,Shopping,False
+262,2024-07-12,CITYOFNAP LIBRARY   NAPERVILLE          IL,56.99,"839196      BOOKS & NEWSPAPERS
+CITYOFNAP LIBRARY
+NAPERVILLE
+IL
+BOOKS & NEWSPAPERS",CITYOFNAP LIBRARY   NAPERVILLE          IL,Misc,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Clothes,0.16180546558252842,False,Misc,True
+487,2024-09-13,AplPay 7-ELEVEN 2703TUKWILA             WA,17.71,"680020914 7 425-228-8000
+AplPay 7-ELEVEN 27030 00072703024
+TUKWILA
+WA
+Description : GAS/MSC97  68023024 Price : 0.1771
+425-228-8000",AplPay 7-ELEVEN 2703TUKWILA             WA,Groceries,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.17940356720656891,False,Transportation,False
+98,2024-06-02,AplPay CVS PHARMACY CHICAGO             IL,10.0,"10062891    8007467287
+AplPay CVS PHARMACY
+CHICAGO
+IL
+Description : PHARMACIES Price : 0.10
+8007467287",AplPay CVS PHARMACY CHICAGO             IL,Misc,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Misc,0.6557040469141229,True,Medical,False
+313,2024-08-31,CHEWY.COM           (800)672-4399       FL,86.28,"PMT-NKFN1VS PET SHOP/FOOD/SUPPLY
+CHEWY.COM
+(800)672-4399
+FL
+PET SHOP/FOOD/SUPPLY",CHEWY.COM           (800)672-4399       FL,Dante,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Dante,0.6184176231448827,True,Dante,True
+551,2024-10-28,AplPay QT 7010 OUTSIOKLAHOMA CITY       OK,20.9,"0701001GEK5 FUEL OUTSIDE
+AplPay QT 7010 OUTSIDE/QUIKTRIP 554207010
+OKLAHOMA CITY
+OK
+Description : QUIKTRIP Price : 0.209
+Description : TAX Price : 0.0329
+FUEL OUTSIDE",AplPay QT 7010 OUTSIOKLAHOMA CITY       OK,Transportation,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.1632949222726728,False,Transportation,True
+476,2024-09-16,UBER EATS           help.uber.com       CA,23.51,"PD0F28G6    8005928996
+UBER EATS
+help.uber.com
+CA
+8005928996",UBER EATS           help.uber.com       CA,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.5168090568539123,True,Food & Drink,True
+619,2024-10-05,AplPay TAXI MALAGA LMALAGA              ES,29.44,"2685        TAXICAB & LIMOUSINE
+AplPay TAXI MALAGA LIC.1091 141092064
+MALAGA
+ES
+TAXICAB & LIMOUSINEForeign Spend Amount: 26.67 EURO Commission Amount:  Currency Exchange Rate: null",AplPay TAXI MALAGA LMALAGA              ES,Transportation,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.16484886054488856,False,Transportation,True
+607,2024-10-07,AplPay TAXI 316 3568MARBELLA            ES,36.66,"7204        TAXICAB & LIMOUSINE
+AplPay TAXI 316 356832907
+MARBELLA
+ES
+TAXICAB & LIMOUSINEForeign Spend Amount: 33.21 EURO Commission Amount:  Currency Exchange Rate: null",AplPay TAXI 316 3568MARBELLA            ES,Transportation,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Clothes,0.1642725789950551,False,Transportation,True
+224,2024-07-19,AplPay MONOPRIX ANNEANNECY              FR,20.79,"00009624    FREEZER & LOCKER MEAT
+AplPay MONOPRIX ANNECY MONOPING49
+ANNECY
+FR
+FREEZER & LOCKER MEATForeign Spend Amount: 19.00 EURO Commission Amount:  Currency Exchange Rate: null",AplPay MONOPRIX ANNEANNECY              FR,Groceries,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.16527588455996584,False,Groceries,True
+19,2024-06-28,HUNTINGTON BANK PAVICHICAGO             IL,20.56,".0347017196 312-288-3191
+HUNTINGTON BANK PAVILI HUNTINGTON BANK
+CHICAGO
+IL
+312-288-3191",HUNTINGTON BANK PAVICHICAGO             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.18008702183115802,True,Misc,False
+573,2024-10-23,AplPay TST* SERENA'SCHICAGO             IL,11.15,"99999994297 7733524099
+AplPay TST* SERENA'S GRILL 300658765
+CHICAGO
+IL
+Description : RESTAURANTS Price : 0.1115
+7733524099",AplPay TST* SERENA'SCHICAGO             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.4205333370967068,True,Food & Drink,True
+543,2024-10-30,AplPay THE BOWERY BAQUEENS              NY,76.2,"865128      MISC/SPECIALTY RETAIL
+AplPay THE BOWERY BAY SHOPS
+QUEENS
+NY
+MISC/SPECIALTY RETAIL",AplPay THE BOWERY BAQUEENS              NY,Misc,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Clothes,0.251436678290379,False,Misc,True
+444,2024-09-21,AplPay PINIPICO BRAZChicago             IL,32.31,"TtKSjs9jZNi squareup.com/receipts
+AplPay PINIPICO BRAZILIAN CAFE
+Chicago
+IL
+squareup.com/receipts",AplPay PINIPICO BRAZChicago             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.19566695666753783,True,Food & Drink,True
+350,2024-08-24,AMC 9640 ONLINE*9640LEAWOOD             KS,25.74,"KQ93V7B1    888-440-4262
+AMC 9640 ONLINE*9640 AMC ONL
+LEAWOOD
+KS
+Description : 9640 AMC ONLINE Price : 0.00
+888-440-4262",AMC 9640 ONLINE*9640LEAWOOD             KS,Entertainment,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,,Gold,Entertainment,0.5859904488280206,True,Entertainment,True
+274,2024-07-10,AplPay JC LICHT - 13CHICAGO             IL,29.95,"99999994193C76676           60610
+AplPay JC LICHT - 1300 - ACE GOL 000000004
+CHICAGO
+IL
+C76676           60610",AplPay JC LICHT - 13CHICAGO             IL,Misc,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Home,0.17046075039476447,False,Misc,True
+119,2024-05-28,AplPay FAMILY PRIDE LOMBARD             IL,0.25,"6309324700
+AplPay FAMILY PRIDE LAUNDRY ULTR
+LOMBARD
+IL
+6309324700",AplPay FAMILY PRIDE LOMBARD             IL,Home,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Home,0.8423798835213033,True,Dante,False
+641,2024-10-01,AplPay FEDEX OFFICE CHICAGO             IL,1.55,"36238AG926636238AG9266      60610
+AplPay FEDEX OFFICE
+CHICAGO
+IL
+36238AG9266      60610",AplPay FEDEX OFFICE CHICAGO             IL,Misc,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.25148380157115247,False,Home,False
+37,2024-06-22,AplPay LYFT         855-280-0278        CA,13.99,"NT_QLEZYNLD1961526534275795394104
+1961526534275795334
+AplPay LYFT
+855-280-0278
+CA
+1961526534275795334
+1961526534275795394104",AplPay LYFT         855-280-0278        CA,Transportation,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Transportation,0.8882157587059,True,Transportation,True
+576,2024-10-22,AplPay TRADER JOE S CHICAGO             IL,124.2,"000052135426265993700
+AplPay TRADER JOE S #696 000000696
+CHICAGO
+IL
+6265993700",AplPay TRADER JOE S CHICAGO             IL,Groceries,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Groceries,0.8276772004173065,True,Groceries,True
+393,2024-08-07,LIBERTY BAGELS 5TH ANEW YORK            NY,12.02,"73011764221 KOCHO333@GMAIL.COM
+LIBERTY BAGELS 5TH AVENUE 620952870136
+NEW YORK
+NY
+KOCHO333@GMAIL.COM",LIBERTY BAGELS 5TH ANEW YORK            NY,Groceries,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.2368547465562606,False,Food & Drink,False
+109,2024-05-31,AplPay TST* LONE WOLCHICAGO             IL,11.06,"11Pqu6wLU00 3126009391
+AplPay TST* LONE WOLF TAVERN 300561124
+CHICAGO
+IL
+Description : BARS Price : 0.1106
+3126009391",AplPay TST* LONE WOLCHICAGO             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.43325212931024204,True,Food & Drink,True
+731,2024-07-12,UBER,46.97,"06GWY4SP   AP2Q65SR         60666
+Uber Trip
+help.uber.com
+CA
+AP2Q65SR         60666",Uber Trip           help.uber.com       CA,Transportation,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Transportation,0.4606860568062689,True,Transportation,True
+554,2024-10-27,AplPay CREST FOODS #EDMOND              OK,23.42,"000370590   4053308100
+AplPay CREST FOODS # 10 000000000833034
+EDMOND
+OK
+4053308100",AplPay CREST FOODS #EDMOND              OK,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.16978304086901397,True,Groceries,False
+775,2024-09-11,TRACFONE SERVICE    800-867-7183        FL,16.66,"48675406D0N AIRTIME SVCS
+TRACFONE SERVICE
+800-867-7183
+FL
+AIRTIME SVCS",TRACFONE SERVICE    800-867-7183        FL,Subscriptions,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Home,Platinum,Subscriptions,0.2943354112206983,True,Utilities,False
+645,2024-06-30,UBER,13.7,"KFH0ZK5S   UASUFC6W         60661
+Uber Trip
+help.uber.com
+CA
+UASUFC6W         60661",Uber Trip           help.uber.com       CA,Transportation,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Transportation,0.5123209137954329,True,Transportation,True
+553,2024-10-28,VTS MR TAXI VTS MR TCHICAGO             IL,11.0,"00912688507 TAXICAB & LIMOUSINE
+VTS MR TAXI VTS MR TAXI\370
+CHICAGO
+IL
+Description : CURB CHI TAXI Price : 0.00
+Description : 19:23 415 W Jackso Price : 0.00
+Description : 19:35 91 E Divisio Price : 0.00
+TAXICAB & LIMOUSINE",VTS MR TAXI VTS MR TCHICAGO             IL,Transportation,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.1631421412725804,False,Transportation,True
+711,2024-05-24,METRA MOBILE 0000000CHICAGO             IL,7.5,"00322166478 8776698368
+METRA MOBILE 000000001
+CHICAGO
+IL
+Description : REFER TO RECEIPT Price : 0.00
+8776698368",METRA MOBILE 0000000CHICAGO             IL,Transportation,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Transportation,0.22514418515851137,True,Transportation,True
+549,2024-10-29,CHINA DOLL 0000     CHICAGO             IL,17.88,"15500050    312-943-9300
+CHINA DOLL 0000
+CHICAGO
+IL
+Description : FAST FOOD RESTAURAN Price : 0.00
+312-943-9300",CHINA DOLL 0000     CHICAGO             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.24366810380820447,True,Food & Drink,True
+663,2024-06-21,AIRBNB * HMYNSH45ZS SAN FRANCISCO       CA,-144.3,"95FJ6DQD    4158005959
+AIRBNB * HMYNSH45ZS
+SAN FRANCISCO
+CA
+4158005959",AIRBNB * HMYNSH45ZS SAN FRANCISCO       CA,Travel-Lodging,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Home,Platinum,Travel-Lodging,0.2941574572057503,True,Travel-Lodging,True
+763,2024-09-18,UNITED AIRLINES     HOUSTON             TX,28.0,"26190768    WWW.UNITED.COM
+PASSENGER TICKET
+UNITED AIRLINES
+HOUSTON
+TX
+Carrier : UNITED AIRLINES
+Passenger Name : SRIRAM/RISHI
+Ticket Number : 01624215761000
+Departure Day : 09/18
+Additional Info : PASSENGER TICKET
+From : CHICAGO O'HARE INT
+To : NEW YORK LA GUARDI
+From : NEW YORK LA GUARDI
+To : CHICAGO O'HARE INT",UNITED AIRLINES     HOUSTON             TX,Travel-Airline,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Travel-Airline,0.952252243380721,True,Travel-Airline,True
+17,2024-06-28,CLUTTER             CULVER CITY         CA,91.0,"NT_QNZBEVYE 8008054023
+CLUTTER
+CULVER CITY
+CA
+8008054023",CLUTTER             CULVER CITY         CA,Transportation,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Home,0.5015645313493378,False,Misc,False
+750,2024-07-02,AplPay BR FACTORY USCHIGACO             IL,80.0,"862655     0000000000000000060602
+AplPay BR FACTORY US 4349
+CHIGACO
+IL
+0000000000000000060602",AplPay BR FACTORY USCHIGACO             IL,Clothes,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Clothes,0.2666312539222493,True,Shopping,False
+192,2024-07-26,JUST SALAD 0000     NEW YORK            NY,6.0,"11363296    212-244-1111
+JUST SALAD 0000
+NEW YORK
+NY
+Description : FAST FOOD RESTAURAN Price : 0.00
+212-244-1111",JUST SALAD 0000     NEW YORK            NY,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.5416396713809971,True,Food & Drink,True
+148,2024-05-20,AplPay FEDEX OFFICE CHICAGO             IL,0.43,"5522A3B28235522A3B2823      60611
+AplPay FEDEX OFFICE
+CHICAGO
+IL
+5522A3B2823      60611",AplPay FEDEX OFFICE CHICAGO             IL,Misc,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.248284755472855,False,Shopping,False
+65,2024-06-13,AplPay CAFECITO 0000CHICAGO             IL,54.48,"09300142    309-648-3683
+AplPay CAFECITO 0000
+CHICAGO
+IL
+Description : FOOD/BEVERAGE Price : 0.00
+309-648-3683",AplPay CAFECITO 0000CHICAGO             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Clothes,0.2062917952769009,False,Food & Drink,True
+107,2024-06-01,AplPay PETSMART     CHICAGO             IL,34.41,"1104753401  888-839-9638
+AplPay PETSMART
+CHICAGO
+IL
+Description : PETS/SUPPLIES/ACC Price : 0.00
+888-839-9638",AplPay PETSMART     CHICAGO             IL,Dante,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.17061159606538162,False,Dante,True
+500,2024-09-09,AplPay FAMILY PRIDE LOMBARD             IL,2.0,"6309324700
+AplPay FAMILY PRIDE LAUNDRY ULTR
+LOMBARD
+IL
+6309324700",AplPay FAMILY PRIDE LOMBARD             IL,Home,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Home,0.9705046628579287,True,Home,True
+364,2024-08-19,Chicago Marriott SchSchaumburg          IL,273.7,"4832        8472400100
+LODGING
+Chicago Marriott Schaumburg 1625061000
+Schaumburg
+IL
+",Chicago Marriott SchSchaumburg          IL,Travel-Lodging,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.16622030636312288,False,Travel-Lodging,True
+580,2024-10-20,AplPay DUNKIN #35214CHICAGO             IL,2.27,"24202216545 630-673-1181
+AplPay DUNKIN #352146 Q35 3521
+CHICAGO
+IL
+Description : FAST FOOD RESTAURAN Price : 0.00
+630-673-1181",AplPay DUNKIN #35214CHICAGO             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.22287647951939138,True,Food & Drink,True
+331,2024-08-25,AplPay CHIPOTLE ONLINEWPORT BEACH       CA,9.78,"156d9681304 949-524-4000
+AplPay CHIPOTLE ONLINE 0000
+NEWPORT BEACH
+CA
+Description : FAST FOOD RESTAURAN Price : 0.00
+949-524-4000",AplPay CHIPOTLE ONLINEWPORT BEACH       CA,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.22465349435694745,True,Food & Drink,True
+157,2024-05-18,AplPay WAG!* PET CARSAN FRANCISCO       CA,29.73,"NT_Q8BZ0MYP +16284004283
+AplPay WAG!* PET CARE
+SAN FRANCISCO
+CA
++16284004283",AplPay WAG!* PET CARSAN FRANCISCO       CA,Dante,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Dante,0.20507673380967448,True,Dante,True
+327,2024-08-27,THE ORIGINALS HAIR SCHICAGO             IL,25.0,"98800038    773-501-0804
+THE ORIGINALS HAIR SALON 0000
+CHICAGO
+IL
+Description : POOL/PATIO/SPA/SPLY Price : 0.00
+773-501-0804",THE ORIGINALS HAIR SCHICAGO             IL,Personal,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Personal,0.8334830596252274,True,Entertainment,False
+842,2024-10-01,LYFT                855-280-0278        CA,7.08,"NT_QWZNSZ8T(NONE)           94104
+LYFT
+855-280-0278
+CA
+(NONE)
+(NONE)           94104",LYFT                855-280-0278        CA,Transportation,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Transportation,0.9342590930324408,True,Transportation,True
+289,2024-07-08,STARBUCKS           800-782-7282        WA,5.48,"1BFEXTWYPDA FOOD&BEV
+STARBUCKS
+800-782-7282
+WA
+FOOD&BEV",STARBUCKS           800-782-7282        WA,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.20259507845723376,True,Food & Drink,True
+251,2024-07-14,AplPay RATP RATPING4PARIS               FR,4.69,"SBC20240714 RATP CONTROLE DES VEN
+RATP CONTROLE DES VENTES
+AplPay RATP RATPING49
+PARIS
+FR
+RATP CONTROLE DES VENTESForeign Spend Amount: 4.30 EURO Commission Amount:  Currency Exchange Rate: null",AplPay RATP RATPING4PARIS               FR,Transportation,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Transportation,0.15927199466018613,True,Transportation,True
+609,2024-10-07,LA TABERNA DEL PINTXMALAGA              ES,8.94,"041290      RESTAURANT
+LA TABERNA DEL PINTXO 329467088
+MALAGA
+ES
+RESTAURANTForeign Spend Amount: 8.10 EURO Commission Amount:  Currency Exchange Rate: null",LA TABERNA DEL PINTXMALAGA              ES,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.157668924516169,True,Food & Drink,True
+604,2024-10-08,AplPay UBER TRIP    HTTPS://HELP.UBER.COCA,22.96,"AY43B056    8005928996
+AplPay UBER TRIP
+HTTPS://HELP.UBER.COM
+CA
+8005928996Foreign Spend Amount: 20.90 EURO Commission Amount:  Currency Exchange Rate: null",AplPay UBER TRIP    HTTPS://HELP.UBER.COCA,Transportation,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Transportation,0.5852740576320383,True,Transportation,True
+797,2024-08-12,TRACFONE SERVICE    800-867-7183        FL,16.66,"472677111ZK AIRTIME SVCS
+TRACFONE SERVICE
+800-867-7183
+FL
+AIRTIME SVCS",TRACFONE SERVICE    800-867-7183        FL,Subscriptions,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Home,Platinum,Subscriptions,0.2943354112206983,True,Utilities,False
+686,2024-06-11,DIVVYBI*1 RIDE 0000 855-865-9553        CA,3.05,"02kCesVGXbF 855-865-9553
+DIVVYBI*1 RIDE 0000
+855-865-9553
+CA
+Description : CHARTER SERVICE Price : 0.00
+855-865-9553",DIVVYBI*1 RIDE 0000 855-865-9553        CA,Transportation,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Transportation,0.3386356451808641,True,Transportation,True
+757,2024-09-25,UBER,58.55,"CSBVXZN6   QVQQW5C5         60666
+Uber Trip
+help.uber.com
+CA
+QVQQW5C5         60666",Uber Trip           help.uber.com       CA,Transportation,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Transportation,0.4260043073209031,True,Transportation,True
+762,2024-09-18,ADOBE Adobe Systems SAN JOSE            CA,21.24,"553848906   ADOBE.LY/ENUS
+ADOBE Adobe Systems
+SAN JOSE
+CA
+Description : 0 Price : 0.1999
+ADOBE.LY/ENUS",ADOBE Adobe Systems SAN JOSE            CA,Subscriptions,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Subscriptions,0.7146892676509354,True,Subscriptions,True
+432,2024-09-22,AplPay THE SPOKE & BChicago             IL,6.69,"VIv8ios0WdC squareup.com/receipts
+AplPay THE SPOKE & BIRD - SOUTH LOOP
+Chicago
+IL
+squareup.com/receipts",AplPay THE SPOKE & BChicago             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.1874018106759487,True,Food & Drink,True
+632,2024-10-03,JUST SALAD 0000     NEW YORK            NY,6.0,"11641538    212-244-1111
+JUST SALAD 0000
+NEW YORK
+NY
+Description : FAST FOOD RESTAURAN Price : 0.00
+212-244-1111",JUST SALAD 0000     NEW YORK            NY,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.5416396713809971,True,Food & Drink,True
+360,2024-08-20,JUST SALAD 0000     NEW YORK            NY,6.0,"11459677    212-244-1111
+JUST SALAD 0000
+NEW YORK
+NY
+Description : FAST FOOD RESTAURAN Price : 0.00
+212-244-1111",JUST SALAD 0000     NEW YORK            NY,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.5416396713809971,True,Food & Drink,True
+781,2024-09-05,LYFT                855-280-0278        CA,5.21,"NT_QNFYSHHA(NONE)           94104
+LYFT
+855-280-0278
+CA
+(NONE)
+(NONE)           94104",LYFT                855-280-0278        CA,Transportation,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Transportation,0.9342590930324408,True,Transportation,True
+201,2024-07-23,UBER,10.96,"RC1A1JW6   TZZDMGSJ         60610
+Uber Trip
+help.uber.com
+CA
+TZZDMGSJ         60610",Uber Trip           help.uber.com       CA,Transportation,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Transportation,0.5123209137954329,True,Transportation,True
+782,2024-08-30,AMAZON MARKEPLACE NA PA,15.86,"4H57I8S1AZK MERCHANDISE
+AMAZON MARKETPLACE NA PA
+AMZN.COM/BILL
+WA
+MERCHANDISE",AMAZON MARKETPLACE NAMZN.COM/BILL       WA,Misc,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Misc,0.2752138672228653,True,Shopping,False
+638,2024-10-02,JUST SALAD 0000     NEW YORK            NY,6.0,"11636164    212-244-1111
+JUST SALAD 0000
+NEW YORK
+NY
+Description : FAST FOOD RESTAURAN Price : 0.00
+212-244-1111",JUST SALAD 0000     NEW YORK            NY,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.5416396713809971,True,Food & Drink,True
+670,2024-06-17,AMAZON PRIME*YK9VI60888-802-3080        WA,4.24,"2ZUO2HSKOA4 DIGITAL
+AMAZON PRIME*YK9VI60S3
+888-802-3080
+WA
+DIGITAL",AMAZON PRIME*YK9VI60888-802-3080        WA,Entertainment,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Entertainment,0.2878542744600233,True,Shopping,False
+16,2024-06-28,AplPay TST* BROWN BACHICAGO             IL,23.19,"21105174181 RESTAURANT
+AplPay TST* BROWN BAG SEAFOOD CO 00082488
+CHICAGO
+IL
+RESTAURANT",AplPay TST* BROWN BACHICAGO             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.4195024215504518,True,Food & Drink,True
+209,2024-07-21,AplPay 525310 SSPFRIROISSY              FR,4.69,"00008791    YOHAN SALAMA
+AplPay 525310 SSPFRING49
+ROISSY
+FR
+YOHAN SALAMAForeign Spend Amount: 4.30 EURO Commission Amount:  Currency Exchange Rate: null",AplPay 525310 SSPFRIROISSY              FR,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.17472802450022673,True,Travel-Airline,False
+753,2024-09-30,LYFT                855-280-0278        CA,2.27,"NT_QWC0GE4T(NONE)           94104
+LYFT
+855-280-0278
+CA
+(NONE)
+(NONE)           94104",LYFT                855-280-0278        CA,Transportation,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Transportation,0.933692760793638,True,Transportation,True
+615,2024-10-06,HOTEL LARIOS MALAGA MALAGA              ES,19.32,"017125      BAR/NIGHTCLUB
+HOTEL LARIOS MALAGA 097739783
+MALAGA
+ES
+BAR/NIGHTCLUBForeign Spend Amount: 17.50 EURO Commission Amount:  Currency Exchange Rate: null",HOTEL LARIOS MALAGA MALAGA              ES,Travel-Lodging,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.15525350428945364,False,Travel-Lodging,True
+374,2024-08-16,STARBUCKS           800-782-7282        WA,20.0,"120ONYFKE2F GIFT CARD
+STARBUCKS
+800-782-7282
+WA
+GIFT CARD",STARBUCKS           800-782-7282        WA,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.2063180026449594,True,Food & Drink,True
+784,2024-08-29,MODERN INTIMACY     BEVERLY HILLS       CA,225.0,"NT_QKXP4JE2 +18339535902
+MODERN INTIMACY
+BEVERLY HILLS
+CA
++18339535902",MODERN INTIMACY     BEVERLY HILLS       CA,Medical,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Medical,0.9543109817646842,True,Food & Drink,False
+829,2024-10-16,PETSMART            AURORA              IL,72.5,"11587310101 888-839-9638
+PETSMART
+AURORA
+IL
+Description : PETS/SUPPLIES/ACC Price : 0.00
+888-839-9638",PETSMART            AURORA              IL,Dante,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Home,Platinum,Clothes,0.15137870711135448,False,Dante,True
+754,2024-09-25,AplPay HERTZ CAR RENNORFOLK             VA,188.89,"R/A# 386959521   +18006544173
+AplPay HERTZ CAR RENTAL
+NORFOLK
+VA
+",AplPay HERTZ CAR RENNORFOLK             VA,Transportation,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Home,Platinum,Clothes,0.1503510253857621,False,Transportation,True
+21,2024-06-26,AplPay BLUE BOTTLE CChicago             IL,6.71,"7NsSwYgFzTg squareup.com/receipts
+AplPay BLUE BOTTLE COFFEE
+Chicago
+IL
+squareup.com/receipts",AplPay BLUE BOTTLE CChicago             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.18665316024175244,True,Food & Drink,True
+265,2024-07-11,AplPay BSC CAFE 2 LLCHICAGO             IL,20.88,"85189934193312-631-3970
+AplPay BSC CAFE 2 LLC
+CHICAGO
+IL
+312-631-3970",AplPay BSC CAFE 2 LLCHICAGO             IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.21781646157988477,True,Food & Drink,True
+814,2024-10-30,UNITED AIRLINES     HOUSTON             TX,8.0,"30582314    WWW.UNITED.COM
+WIFI
+UNITED AIRLINES
+HOUSTON
+TX
+Carrier : UNITED AIRLINES
+Passenger Name : SRIRAM    /WI-FI LTV-THAL
+Ticket Number : 01644454992692
+Departure Day : 10/30
+Additional Info : WIFI
+From : NEW YORK LA GUARDI
+To : CHICAGO O'HARE INT",UNITED AIRLINES     HOUSTON             TX,Travel-Airline,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Travel-Airline,0.952252243380721,True,Travel-Airline,True
+614,2024-10-06,"FLAMENCO MALAGA, S.LMALAGA              ES",40.84,"######KHqxH RESTAURANT
+FLAMENCO MALAGA, S.L.
+MALAGA
+ES
+RESTAURANTForeign Spend Amount: 37.00 EURO Commission Amount:  Currency Exchange Rate: null","FLAMENCO MALAGA, S.LMALAGA              ES",Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.13547897919277763,True,Food & Drink,True
+87,2024-06-08,AplPay MURPHY6734ATWSPRINGFIELD         IL,46.66,"00774601    800-843-4298
+AplPay MURPHY6734ATWALMART 0927
+SPRINGFIELD
+IL
+Description : GAS/SERVICES Price : 0.00
+800-843-4298",AplPay MURPHY6734ATWSPRINGFIELD         IL,Transportation,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Clothes,0.18829782071769274,False,Transportation,True
+838,2024-10-09,AMAZON MARKETPLACE PAMZN.COM/BILL       WA,58.2,"RI5LXHDJ876 AMZN.COM/BILL
+AMAZON MARKETPLACE PAYMENTS
+AMZN.COM/BILL
+WA
+AMZN.COM/BILL",AMAZON MARKETPLACE PAMZN.COM/BILL       WA,Misc,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Dante,0.18572392121811163,False,Shopping,False
+139,2024-05-23,TST* PLUSH KARAOKE LIRVINE              CA,18.42,"99999994144 9492229986
+TST* PLUSH KARAOKE LOUNGE 300579207
+IRVINE
+CA
+Description : BARS Price : 0.1842
+9492229986",TST* PLUSH KARAOKE LIRVINE              CA,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Food & Drink,0.25577015409953974,True,Entertainment,False
+839,2024-10-09,AMAZON SHOP WITH POINTS CREDIT,-58.2,"AMAZON SHOP WITH POINTS CREDIT
+",AMAZON SHOP WITH POINTS CREDIT,Misc,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Food & Drink,0.12841742722305907,False,Shopping,False
+321,2024-08-29,UNITED AIRLINES     HOUSTON             TX,412.94,"24191246    WWW.UNITED.COM
+PASSENGER TICKET
+UNITED AIRLINES
+HOUSTON
+TX
+Carrier : UNITED AIRLINES
+Passenger Name : BAMZAI/PALLAVI
+Ticket Number : 01624167734781
+Departure Day : 10/24
+Additional Info : PASSENGER TICKET
+From : CHICAGO O'HARE INT
+To : OKLAHOMA CITY WILL
+From : OKLAHOMA CITY WILL
+To : CHICAGO O'HARE INT",UNITED AIRLINES     HOUSTON             TX,Travel-Airline,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Travel-Airline,0.9893066152583707,True,Travel-Airline,True
+59,2024-06-15,AplPay TOP GOLF BAY DALLAS              TX,80.5,"41826718    214-341-9600
+AplPay TOP GOLF BAY RESERVATION 999
+DALLAS
+TX
+Description : AMUSEMENT & RECREAT Price : 0.00
+214-341-9600",AplPay TOP GOLF BAY DALLAS              TX,Entertainment,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Clothes,0.2606522736552748,False,Entertainment,True
+60,2024-06-15,AplPay TST* EVERDINENAPERVILLE          IL,9.03,"21105174168 RESTAURANT
+AplPay TST* EVERDINES GRILLED C 00133346
+NAPERVILLE
+IL
+RESTAURANT",AplPay TST* EVERDINENAPERVILLE          IL,Food & Drink,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Food & Drink,0.4321221167668823,True,Food & Drink,True
+51,2024-06-19,AplPay CVS PHARMACY CHICAGO             IL,3.05,"10150181    8007467287
+AplPay CVS PHARMACY
+CHICAGO
+IL
+Description : PHARMACIES Price : 0.0305
+8007467287",AplPay CVS PHARMACY CHICAGO             IL,Misc,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Home,Gold,Misc,0.709958204517946,True,Medical,False
+677,2024-06-15,UBER,20.93,"328SGAH1   GSIJ372F         60661
+Uber Trip
+help.uber.com
+CA
+GSIJ372F         60661",Uber Trip           help.uber.com       CA,Transportation,1,,,,categorized_platinum.csv,2025-04-09 03:38:04.524235,Personal,Platinum,Transportation,0.5123209137954329,True,Transportation,True
+583,2024-10-19,SPOTIFY USA         NEW YORK            NY,19.99,"P30CC7D336  CABLE & PAY TV
+SPOTIFY USA
+NEW YORK
+NY
+CABLE & PAY TV",SPOTIFY USA         NEW YORK            NY,Subscriptions,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Subscriptions,0.7724720755869301,True,Subscriptions,True
+130,2024-05-27,AplPay APPLE.COM/BILINTERNET CHARGE     CA,11.01,"MM25JDVHB5A RECORD STORE
+AplPay APPLE.COM/BILL
+INTERNET CHARGE
+CA
+RECORD STORE",AplPay APPLE.COM/BILINTERNET CHARGE     CA,Home,1,,,,categorized_gold.csv,2025-04-09 03:38:04.500260,Personal,Gold,Misc,0.42619793079258494,False,Shopping,False

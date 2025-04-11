@@ -1,0 +1,632 @@
+{"messages": [{"role": "user", "content": "UNITED AIRLINES     HOUSTON             TX"}, {"role": "assistant", "content": "Travel-Airline"}]}
+{"messages": [{"role": "user", "content": "DIVVYBI*2 RIDES 0000855-865-9553        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay WHOLEFDS GOC CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "NICHOLSON RANCH WINE707-938-8822        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "UNITED AIRLINES     HOUSTON             TX"}, {"role": "assistant", "content": "Travel-Airline"}]}
+{"messages": [{"role": "user", "content": "JUST SALAD 0000     NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "Chicago Q           Chicago             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "HYATT REG LKE WSHGTNRENTON              WA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "JUST SALAD 0000     NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "OPENAI *CHATGPT SUBSSAN FRANCISCO       CA"}, {"role": "assistant", "content": "Subscriptions"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "UNITED AIRLINES     HOUSTON             TX"}, {"role": "assistant", "content": "Travel-Airline"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "TST* PINCHED 0003337CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay LA COLOMBE - Chicago             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "JUST SALAD 0000     NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "HARPER & RYE 2210000SAN FRANCISCO       CA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay JEWEL OSCO 32CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "LINKEDIN PRE*P682222LNKD.IN/BILL        CA"}, {"role": "assistant", "content": "Subscriptions"}]}
+{"messages": [{"role": "user", "content": "AplPay FAMILY PRIDE LOMBARD             IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "AplPay DUNKIN #30639WILLOWBROOK         IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay UBER EATS    help.uber.com       CA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay APPLE.COM/BILINTERNET CHARGE     CA"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "DANELA HELADERIA CHIMALAGA              ES"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay RATP RATPING4PARIS               FR"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "FLAMENCO MALAGA 3529MALAGA              ES"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "WELLS AUTO SERVICE  CHICAGO             IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AMAZON MARKEPLACE NA PA"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "PARK CHICAGO MOBILE CHICAGO             IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "TST* OLIO - CHICAGO CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay INSOMNIA COOKCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "CVS PHARMACY        CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay TST* CAL'S ATCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay TUCKER PUPS PCHICAGO             IL"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "AplPay TST* JUST SALCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "CLARIDGE HOUSE FB 00CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "PELOTON* MEMBERSHIP NEW YORK CITY       NY"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "AMC 9640 ONLINE*9640LEAWOOD             KS"}, {"role": "assistant", "content": "Entertainment"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay JEWEL OSCO 32CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay SHELL SERVICENORTHLAKE           IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "WAL-MART SUPERCENTERNAPERVILLE          IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay TST* GOOSE ISCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AMAZON MARKEPLACE NA PA"}, {"role": "assistant", "content": "Entertainment"}]}
+{"messages": [{"role": "user", "content": "AplPay PRET A MANGERLYON                RH"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay AMC 2565 N MINAPERVILLE          IL"}, {"role": "assistant", "content": "Entertainment"}]}
+{"messages": [{"role": "user", "content": "UBER TRIP           HTTPS://HELP.UBER.COCA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "FAMILY PRIDE LAUNDRYLOMBARD             IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "MOGLI MARBELLA 35783MARBELLA            ES"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "SAMURAI MAMA        Brooklyn            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "TST* CANDLELITE CHICCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "UNITED AIRLINES     HOUSTON             TX"}, {"role": "assistant", "content": "Travel-Airline"}]}
+{"messages": [{"role": "user", "content": "AplPay UNITED AIRLINHOUSTON             TX"}, {"role": "assistant", "content": "Travel-Airline"}]}
+{"messages": [{"role": "user", "content": "AplPay TRADER JOE S CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "UNITED AIRLINES     HOUSTON             TX"}, {"role": "assistant", "content": "Travel-Airline"}]}
+{"messages": [{"role": "user", "content": "JUST SALAD 0000     NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "TST* LA JOSIE 000170CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "JUST SALAD 0000     NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "JUST SALAD 0000     NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "CHEWY.COM           (800)672-4399       FL"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "UBER TRIP           HTTPS://HELP.UBER.COCA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay FAMILY PRIDE LOMBARD             IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "JUST SALAD 0000     NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay TRADER JOE S CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "AplPay APPLE.COM/BILINTERNET CHARGE     CA"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "SHELL SERVICE STATIONORFOLK             VA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "JUST SALAD 0000     NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay 5GUYS 4020 QSCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay ALLYS CONVENICHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay DENNY'S      JOLIET              IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "EMBRACE PET INSURANCCLEVELAND           OH"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "AplPay HYATT REG LKERENTON              WA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "TST* THE GLOBE PUB 3CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "HAVANA GRILL - CHICACHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "TST* SABRI NIHARI RECHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay DAVID'S DELICNew Buffalo         MI"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "JUST SALAD 0000     NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay TST* ELEPHANTCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "TST* BEAUTY BAR 3005CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "JUST SALAD 0000     NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay APPLE.COM/BILINTERNET CHARGE     CA"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay NYCT PAYGO   NEW YORK            NY"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "TST* BROKEN ENGLISH CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "STUBHUB             SAN FRANCISCO       CA"}, {"role": "assistant", "content": "Entertainment"}]}
+{"messages": [{"role": "user", "content": "NYCT PAYGO          NEW YORK            NY"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "TARGET        008805SCHAUMBURG          IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay LS BENTLEYS PCHICAGO             IL"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "CLUTTER             CULVER CITY         CA"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "AplPay TRADER JOE S CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "TST* PARLA 300651632NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "SHELL SERVICE STATIOBOLINGBROOK         IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "TST* CAL'S AT CLARIDCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay PETSMART     AURORA              IL"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "AplPay CEDAR PALACE CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay FAMILY PRIDE LOMBARD             IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay UBER EATS    help.uber.com       CA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay APPLE.COM/BILINTERNET CHARGE     CA"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay OBERWEIS     NAPERVILLE          IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay FAMILY PRIDE LOMBARD             IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "UNITED AIRLINES     HOUSTON             TX"}, {"role": "assistant", "content": "Travel-Airline"}]}
+{"messages": [{"role": "user", "content": "AplPay NYCT PAYGO   NEW YORK            NY"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay UBER TRIP    HTTPS://HELP.UBER.COCA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "THE ORIGINALS HAIR SCHICAGO             IL"}, {"role": "assistant", "content": "Personal"}]}
+{"messages": [{"role": "user", "content": "EMBRACE PET INSURANCCLEVELAND           OH"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "TST* LIZZIE MCNEILL'CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "LA FAVORITE DE S 75 PARIS               FR"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "SPICE MANTRA 1808118NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "QUERETACO ANDANDO 05CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay TRADER JOE S CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "AplPay JEWEL OSCO 32CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "TST* MALIBU FARM LIDNEWPORT BEACH       CA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay NYCT PAYGO   NEW YORK            NY"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay CULVERS OF AUAURORA              IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay PETSMART # 22CHICAGO             IL"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "CSC SERVICEWORK 0000BOLINGBROOK         IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "TST* EDUARDOS ENOTECCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "CASEYS #4081 0000040OKLAHOMA CITY       OK"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "Manyavar Mohey      Chicago             IL"}, {"role": "assistant", "content": "Clothes"}]}
+{"messages": [{"role": "user", "content": "LOWE'S              MICHIGAN CITY       IN"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay NYCT PAYGO   NEW YORK            NY"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "UBER TRIP           HTTPS://HELP.UBER.COCA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay JEWEL OSCO 32CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "TST* HEADQUARTERS BECHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AMAZON MARKEPLACE NA PA"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "SHOREHAM HOTEL 06888NEW YORK            NY"}, {"role": "assistant", "content": "Travel-Lodging"}]}
+{"messages": [{"role": "user", "content": "AplPay TUCKER PUPS PCHICAGO             IL"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "AplPay UBER EATS    help.uber.com       CA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay SMOVENGO     VILLENEUVE LA GARENNFR"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "JUST SALAD 0000     NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AMEXTRAVEL.COM      800-297-2977        WA"}, {"role": "assistant", "content": "Travel-Lodging"}]}
+{"messages": [{"role": "user", "content": "AplPay JEWEL OSCO 32CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "AplPay TUCKER PUPS PCHICAGO             IL"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "UBER ONE            help.uber.com       CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "DIVVYBI*1 RIDE 0000 855-865-9553        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "BALTARD             BEAUNE              FR"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay UBER TRIP    HTTPS://HELP.UBER.COCA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "UBER ONE            help.uber.com       CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "ADOBE Adobe Systems SAN JOSE            CA"}, {"role": "assistant", "content": "Subscriptions"}]}
+{"messages": [{"role": "user", "content": "VENTRA MOBILE APP   CHICAGO             IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay BWSBEVERAGE2 CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "AplPay ZARA MALAGA CMALAGA              ES"}, {"role": "assistant", "content": "Clothes"}]}
+{"messages": [{"role": "user", "content": "AplPay HAPPY MOUTH LChicago             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay TST* SERENA'SCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "SHELL SERVICE STATIOSCHAUMBURG          IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay UBER EATS    help.uber.com       CA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay TST* JENI'S SCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay PY *THE HALALCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay CULVERS SPRINSPRINGFIELD         IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "TST* LARDON UNION MECHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "LE CHALET           ANNECY              HT"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay JC LICHT - 13CHICAGO             IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "AplPay PINIPICO BRAZChicago             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "BALTARD             BEAUNE              FR"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "UNITED AIRLINES     HOUSTON             TX"}, {"role": "assistant", "content": "Travel-Airline"}]}
+{"messages": [{"role": "user", "content": "SPOTIFY USA         NEW YORK            NY"}, {"role": "assistant", "content": "Subscriptions"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "WISHBONE CHICAGO    CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "SHELL SERVICE STATIONAPERVILLE          IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "ARTHUS ET JEAN      PARIS               FR"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "Off Color Brewing   Chicago             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "TST* NINE PIES PIZZESEATTLE             WA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "CAFE TOLA LTD.      Chicago             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay PHILZ COFFEE Chicago             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "STARBUCKS           800-782-7282        WA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay JEWEL OSCO 32CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "AplPay RELAY 323154 PARIS"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "CLUTTER             CULVER CITY         CA"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "POINTS FOR AMEX TRVL"}, {"role": "assistant", "content": "Travel-Lodging"}]}
+{"messages": [{"role": "user", "content": "AplPay LA COLOMBE - Chicago             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "PRIME VIDEO CHANNELSAMZN.COM/BILL       WA"}, {"role": "assistant", "content": "Entertainment"}]}
+{"messages": [{"role": "user", "content": "AplPay PINIPICO BRAZChicago             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "052 TORCHYS EDMOND 6EDMOND              OK"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "MODERN INTIMACY     BEVERLY HILLS       CA"}, {"role": "assistant", "content": "Medical"}]}
+{"messages": [{"role": "user", "content": "Interest Charge on Pay Over Time Purchases"}, {"role": "assistant", "content": "Financial"}]}
+{"messages": [{"role": "user", "content": "HOPSMITH TAVERN CHICCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "TST* SPILT MILK 0010CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "UNITED AIRLINES     HOUSTON             TX"}, {"role": "assistant", "content": "Travel-Airline"}]}
+{"messages": [{"role": "user", "content": "AplPay GOLD COAST DECHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "BOARDGAMEARENA      GUYANCOURT          HA"}, {"role": "assistant", "content": "Subscriptions"}]}
+{"messages": [{"role": "user", "content": "VENTRA MOBILE APP   CHICAGO             IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay FIVE SQUARED Chicago             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "UBER EATS           help.uber.com       CA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "ARTHUS ET JEAN      PARIS               FR"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "052 TORCHYS EDMOND 6EDMOND              OK"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay FAMILY PRIDE LOMBARD             IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "AplPay APPLE.COM/BILINTERNET CHARGE     CA"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay FAMILY PRIDE LOMBARD             IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "TST* EASY DOES IT 30CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "MOGLI MARBELLA 35783MARBELLA            ES"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay WINGSTOP 1501CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "PRIME VIDEO CHANNELSAMZN.COM/BILL       WA"}, {"role": "assistant", "content": "Subscriptions"}]}
+{"messages": [{"role": "user", "content": "AplPay FAMILY PRIDE LOMBARD             IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "DIVVYBI*1 RIDE 0000 855-865-9553        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "HARPER & RYE 2210000SAN FRANCISCO       CA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "HYATT REG LAKE WASHNRENTON              WA"}, {"role": "assistant", "content": "Travel-Lodging"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "LA CUISINE DES AMIS ANNECY              HT"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "DIVVYBI*1 RIDE 0000 855-865-9553        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AMEXTRAVEL.COM      800-297-2977        WA"}, {"role": "assistant", "content": "Travel-Lodging"}]}
+{"messages": [{"role": "user", "content": "AplPay DUNKIN #35018SCHAUMBURG          IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "FANATICS BN COLLEGE JACKSONVILLE        FL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "JUST SALAD 0000     NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "TUCKER PUPS PET RESOCHICAGO             IL"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "AplPay LS BENTLEYS PCHICAGO             IL"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "AplPay GOFUNDME*SUPPSAN DIEGO           CA"}, {"role": "assistant", "content": "Personal"}]}
+{"messages": [{"role": "user", "content": "AplPay NAYAX VENDINGHUNT VALLEY         MD"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "CHEWY.COM           (800)672-4399       FL"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "ANANTARA VILLA PADIEANGELES LOS,        ES"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "LINKEDIN PRE*P489258LNKD.IN/BILL        CA"}, {"role": "assistant", "content": "Subscriptions"}]}
+{"messages": [{"role": "user", "content": "PARK CHICAGO MOBILE CHICAGO             IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay FAMILY PRIDE LOMBARD             IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "KEY BAR 0000        AUSTIN              TX"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "EMBRACE PET INSURANCCLEVELAND           OH"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "SAM'S CLUB FUEL 4741CRESTWOOD           MO"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay BUFFALO WILD NAPERVILLE          IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay NAPPA CAR WASCHICAGO             IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "ZOLA.COM*REGISTRY   NEW YORK            NY"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay DUNKIN #35773BOLINGBROOK         IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay 3CPAYMENT*STAPARIS               FR"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "PY *KINGSTON MINES 9CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay TRADER JOE S CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "DD/BR #346517 Q35 34MICHIGAN CITY       IN"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "UBER EATS           help.uber.com       CA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "3CPAYMENT*ANANTARA VMADRID              ES"}, {"role": "assistant", "content": "Travel-Lodging"}]}
+{"messages": [{"role": "user", "content": "TST* HAPPY CAMPER PICHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "HYATT REG LKE WSHGTNRENTON              WA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay FAMILY PRIDE LOMBARD             IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "Liberty Mutual Insur8883988924          MA"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "OPENAI *CHATGPT SUBSSAN FRANCISCO       CA"}, {"role": "assistant", "content": "Subscriptions"}]}
+{"messages": [{"role": "user", "content": "THE ORIGINALS HAIR SCHICAGO             IL"}, {"role": "assistant", "content": "Personal"}]}
+{"messages": [{"role": "user", "content": "PRIME VIDEO CHANNELSAMZN.COM/BILL       WA"}, {"role": "assistant", "content": "Entertainment"}]}
+{"messages": [{"role": "user", "content": "MILTON              ANNECY              FR"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay JEWEL OSCO 00NAPERVILLE          IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "THE AM-THAI         BROOKLYN            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "OPENAI              SAN FRANCISCO       CA"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "BURKES PUBLIC HOUSE CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AMEXTRAVEL.COM      800-297-2977        WA"}, {"role": "assistant", "content": "Travel-Lodging"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "TST* ESTEREO 3005611CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "UNITED AIRLINES     HOUSTON             TX"}, {"role": "assistant", "content": "Travel-Airline"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AIRBNB * HMYNSH45ZS SAN FRANCISCO       CA"}, {"role": "assistant", "content": "Travel-Lodging"}]}
+{"messages": [{"role": "user", "content": "MODERN INTIMACY     BEVERLY HILLS       CA"}, {"role": "assistant", "content": "Medical"}]}
+{"messages": [{"role": "user", "content": "AplPay LA COLOMBE - Chicago             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "SUMUP*SAS OASIS     FLAINE"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "ANIMAL MEDICAL CENTECHICAGO             IL"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "AplPay TRADER JOE S CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "DIVVYBI*1 RIDE 0000 855-865-9553        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "ADOBE Adobe Systems SAN JOSE            CA"}, {"role": "assistant", "content": "Subscriptions"}]}
+{"messages": [{"role": "user", "content": "AplPay LIME*RIDE ADKSAN FRANCISCO       CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "TST* PIES N THIGHS 0BROOKLYN            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "OPENAI *CHATGPT SUBSSAN FRANCISCO       CA"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "TST* SPARROW 0010953CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay BLUE BOTTLE CChicago             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay BSC CAFE 2 LLCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "BARANAAN            PARIS               FR"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "GOLD DOME 9416012003OKLAHOMA CITY       OK"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "TENNIS LEAGUE NETWORLEXINGTON           MA"}, {"role": "assistant", "content": "Entertainment"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay LA COLOMBE - Chicago             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "JUST SALAD 0000     NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "BP#9173782DIVISION BCHICAGO             IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "THE NUDGE           SAN FRANCISCO       CA"}, {"role": "assistant", "content": "Subscriptions"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay FESTIVAL FOODFOND DU LAC         WI"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "AplPay APPLE.COM/BILINTERNET CHARGE     CA"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "EMBRACE PET INSURANCCLEVELAND           OH"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "PARK CHICAGO MOBILE CHICAGO             IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay JEWEL OSCO 32CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "TST* LIZZIE MCNEILL'CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AMEX FINE HOTELS RESCHICAGO"}, {"role": "assistant", "content": "Travel-Lodging"}]}
+{"messages": [{"role": "user", "content": "TST* THE PATRIARCH EEDMOND              OK"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "ADOBE Adobe Systems SAN JOSE            CA"}, {"role": "assistant", "content": "Subscriptions"}]}
+{"messages": [{"role": "user", "content": "AplPay CHOCOLATERIE BRUSSEL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "CSP*TGER CHICAGO    CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "STARBUCKS STORE 2300SCHAUMBURG          IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay TARGET       SCHAUMBURG          IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "LIDO BOTTLE WORKS 18NEWPORT BEACH       CA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay SUPER VENDINGCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay TRADER JOE S CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "AplPay FAMILY PRIDE LOMBARD             IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "OOINK               Seattle             WA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Medical"}]}
+{"messages": [{"role": "user", "content": "SP BLUELAND         NEW YORK            NY"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "AplPay FAMILY PRIDE LOMBARD             IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "AplPay UNIQLO USA LLNEW YORK            NY"}, {"role": "assistant", "content": "Clothes"}]}
+{"messages": [{"role": "user", "content": "AplPay OOINK        Seattle             WA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "TRADER JOE S #696 00CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "AplPay TRADER JOE S CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "PAYPAL *RRUE866     4029357733          OK"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay WHOLEFDS GOC CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "SPOTHERO 844-356-805CHICAGO             IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "TST* OLD PUEBLO CANTCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AMAZON MARKEPLACE NA PA"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "BLVD   *CHI MALE SALCHICAGO             IL"}, {"role": "assistant", "content": "Personal"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "PELOTON* MEMBERSHIP NEW YORK CITY       NY"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "PARK CHICAGO MOBILE CHICAGO             IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "SPOTIFY USA         NEW YORK            NY"}, {"role": "assistant", "content": "Subscriptions"}]}
+{"messages": [{"role": "user", "content": "BARANAAN            PARIS               FR"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay CMT CHICAGO ICHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "PELOTON* MEMBERSHIP NEW YORK CITY       NY"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Medical"}]}
+{"messages": [{"role": "user", "content": "AplPay AIRBNB * HMNNSAN FRANCISCO       CA"}, {"role": "assistant", "content": "Travel-Lodging"}]}
+{"messages": [{"role": "user", "content": "AplPay ARCO#82941ARCTUKWILA             WA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "PARK CHICAGO MOBILE CHICAGO             IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "HYATT REG LKE WSHGTNRENTON              WA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay 811060 CDG1 SROISSY CDG CEDEX    FR"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "PwP    AMEXTRAVEL.CO800-297-2977        WA"}, {"role": "assistant", "content": "Travel-Lodging"}]}
+{"messages": [{"role": "user", "content": "STARBUCKS           800-782-7282        WA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "OPENAI *CHATGPT SUBSSAN FRANCISCO       CA"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AIRBNB * HMYNSH45ZS SAN FRANCISCO       CA"}, {"role": "assistant", "content": "Travel-Lodging"}]}
+{"messages": [{"role": "user", "content": "AplPay PHILLIPS 66- BRANSON             MO"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay LYFT         855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay VIVA*BRASSERIBRUXELLES           BE"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "TST* MOODY TONGUE BRCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay AGP LA MANON MALAGA              ES"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "TST* SPARROW 0010953CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "NMH FEINBERG MEZZANICHICAGO             IL"}, {"role": "assistant", "content": "Medical"}]}
+{"messages": [{"role": "user", "content": "SNCF MOBILE RESTE DUPARIS               FR"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay TST* CAL'S ATCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "DIVVYBI*1 RIDE 0000 855-865-9553        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "VENTRA MOBILE APP   CHICAGO             IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "HBO DSI INC / STRIPENEW YORK"}, {"role": "assistant", "content": "Subscriptions"}]}
+{"messages": [{"role": "user", "content": "TRACFONE SERVICE    800-867-7183        FL"}, {"role": "assistant", "content": "Subscriptions"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay ONCUE 129 094EDMOND              OK"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AMAZON MARKEPLACE NA PA"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay APPLE.COM/BILINTERNET CHARGE     CA"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay 342169 RELAY ANNECY              HT"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "CSC SERVICEWORK 0000BOLINGBROOK         IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay CULVERS OF CRST LOUIS            MO"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "MAIS. DU COLOMBI    BEAUNE              FR"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "CHEWY.COM           (800)672-4399       FL"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "AplPay FAMILY PRIDE LOMBARD             IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "AplPay MKT ORF 15514Norfolk             VA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "JUST SALAD 0000     NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "SARAH MART 000000001CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "EMBRACE PET INSURANCCLEVELAND           OH"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "THE ELGIN 0000      NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay TRADER JOE S CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "AMAZON MARKEPLACE NA PA"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AMC 9640 ONLINE*9640LEAWOOD             KS"}, {"role": "assistant", "content": "Entertainment"}]}
+{"messages": [{"role": "user", "content": "PARK & FIELD        CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay STARBUCKS STOCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay DOLLY PARTON'Branson             MO"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay UBER TRIP    HTTPS://HELP.UBER.COCA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay SHELL SERVICEBOLINGBROOK         IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay WALGREENS    NAPERVILLE          IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "FAMILY PRIDE LAUNDRYLOMBARD             IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "LE ROYAL CAMBRONNE  PARIS"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay HYATT REG LKERENTON              WA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay FESTIVAL FOODFOND DU LAC         WI"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "AL'S SUPERMARKET-FRAMICHIGAN CITY       IN"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "CHANSON PERES ET FILBEAUNE              FR"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "LAZARE CARNOT       BEAUNE              FR"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay NYCT PAYGO   NEW YORK            NY"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "MODERN INTIMACY     BEVERLY HILLS       CA"}, {"role": "assistant", "content": "Medical"}]}
+{"messages": [{"role": "user", "content": "AplPay DARK STONE COSpringfield         MO"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay FAMILY PRIDE LOMBARD             IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "AplPay JC LICHT - 13CHICAGO             IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "PHARMACIE DU VIEUX BBEAUNE              FR"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "TST* FORMENTO'S 3006CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AMAZON.COM          AMZN.COM/BILL       WA"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "MAX                 NEW YORK            NY"}, {"role": "assistant", "content": "Subscriptions"}]}
+{"messages": [{"role": "user", "content": "AplPay JEWEL OSCO 32CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "ADOBE Adobe Systems SAN JOSE            CA"}, {"role": "assistant", "content": "Subscriptions"}]}
+{"messages": [{"role": "user", "content": "AplPay FAMILY PRIDE LOMBARD             IL"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "GEORGETOWN TAPROOM 6SEATTLE             WA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "CLUTTER             CULVER CITY         CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay JC LICHT - 13CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "CLUTTER             CULVER CITY         CA"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "JUST SALAD 0000     NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "BP#2176600WEBER'S EXMOUNT CALVARY       WI"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AMEX Fine Hotels andAmexTravel.com      IL"}, {"role": "assistant", "content": "Travel-Lodging"}]}
+{"messages": [{"role": "user", "content": "AplPay JEWEL OSCO 32CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "AplPay NYCT PAYGO   NEW YORK            NY"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay EXTIME DUTY FTREMBLAY EN FRANCE  FR"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "TRACFONE SERVICE    800-867-7183        FL"}, {"role": "assistant", "content": "Subscriptions"}]}
+{"messages": [{"role": "user", "content": "UBER ONE            help.uber.com       CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "J.C.PENNEY          SCHAUMBURG          IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "WINO TECHNOLOGIES   PARIS               ME"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay HERTZ CAR RENOKLAHOMA CITY       OK"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay FAMILY PRIDE LOMBARD             IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "AplPay TST* THE NORTCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay 7-ELEVEN 2703TUKWILA             WA"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "AplPay FAMILY PRIDE LOMBARD             IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "AplPay TST* SPARROW NAPERVILLE          IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "MARIUS 919256       PARIS"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay CHIPOTLE ONLINEWPORT BEACH       CA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay PETSMART     AURORA              IL"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "SNCF MOBILE RESTE DUPARIS               FR"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay BLUE BOTTLE CChicago             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "OKLAHOMA CTY GRAND WOKLAHOMA CITY       OK"}, {"role": "assistant", "content": "Travel-Lodging"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay BURGER KING  CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay STATE STREET,CHICAGO             IL"}, {"role": "assistant", "content": "Clothes"}]}
+{"messages": [{"role": "user", "content": "TST* BANDIT 30052628CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay APPLE.COM/BILINTERNET CHARGE     CA"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "UBER EATS           help.uber.com       CA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "CASSIDY'S PUB NYC 00NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "UNITEDWHOLESALEMTG  PONTIAC             MI"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "AplPay FAMILY PRIDE LOMBARD             IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "AplPay TST* COFFEE CKEWASKUM            WI"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay WICKER PARK FCHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay TRADER JOE S CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "AplPay LS BENTLEYS PCHICAGO             IL"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "AplPay UBER TRIP    HTTPS://HELP.UBER.COCA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "HYATT REG LKE WSHGTNRENTON              WA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "JUST SALAD 0000     NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay SUMUP*SR.RAULCHICLANA DE LA FRONTAL"}, {"role": "assistant", "content": "Clothes"}]}
+{"messages": [{"role": "user", "content": "AplPay RATP RATPING4PARIS               FR"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay UBER EATS    help.uber.com       CA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "UBER EATS           help.uber.com       CA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "CHEWY.COM           (800)672-4399       FL"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "AplPay WHISPERS AT MChicago             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay WYNDHAM CAFFEOKLAHOMA CITY       OK"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "AplPay APPLE.COM/BILINTERNET CHARGE     CA"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay WASHU CAR WASNAPERVILLE          IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "HOLIDAY INN NYCE    NEW YORK            NY"}, {"role": "assistant", "content": "Travel-Lodging"}]}
+{"messages": [{"role": "user", "content": "AplPay MEIJER # 149 MICHIGAN CITY       IN"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "AplPay CHICK-FIL-A #CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay UBER TRIP    HTTPS://HELP.UBER.COCA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay CAMPBELL POINSHELL KNOB          MO"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay WALGREENS    NAPERVILLE          IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay WWW.SWEETGREELOS ANGELES         CA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay LIME*RIDE    SAN FRANCISCO       CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay WWW.SWEETGREELOS ANGELES         CA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "OPENAI *CHATGPT SUBSSAN FRANCISCO       CA"}, {"role": "assistant", "content": "Subscriptions"}]}
+{"messages": [{"role": "user", "content": "LA CHAPARRITA INC 00CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AMEXTRAVEL.COM      800-297-2977        WA"}, {"role": "assistant", "content": "Travel-Lodging"}]}
+{"messages": [{"role": "user", "content": "AplPay INSOMNIA COOKCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "ANDY'S - NAPERVILLE NAPERVILLE          IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "DD/BR #342310 Q35 34NAPERVILLE          IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "3CPAYMENT*ANANTARA VMARBELLA            ES"}, {"role": "assistant", "content": "Travel-Lodging"}]}
+{"messages": [{"role": "user", "content": "YANDY               PHOENIX             AZ"}, {"role": "assistant", "content": "Clothes"}]}
+{"messages": [{"role": "user", "content": "AplPay TST* CALS CORCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "JUST SALAD 0000     NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "PELOTON* MEMBERSHIP NEW YORK CITY       NY"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "AplPay SUMUP*POP UP MONTREUIL"}, {"role": "assistant", "content": "Clothes"}]}
+{"messages": [{"role": "user", "content": "AplPay JENIS SPLENDICHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay JC LICHT - 13CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AMAZON MARKETPLACE PAMZN.COM/BILL       WA"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "AplPay POPEYES 13057CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "EMBRACE PET INSURANCCLEVELAND           OH"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "ANIMAL MEDICAL CENTECHICAGO             IL"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "TOCK AT*CANLIS      CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "HELADERIA SAN MARINOESTEPONA            ES"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay HYATT REG LKERENTON              WA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "TERRASSE DE MME     Paris               FR"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay RELAY 340679 LYON                RH"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "NEW BUFFALO INN & SPNew Buffalo         MI"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "UNITED AIRLINES     HOUSTON             TX"}, {"role": "assistant", "content": "Travel-Airline"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "SPOTIFY USA         NEW YORK            NY"}, {"role": "assistant", "content": "Subscriptions"}]}
+{"messages": [{"role": "user", "content": "CLUTTER             CULVER CITY         CA"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay JEWEL OSCO 32CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "THE ORIGINALS HAIR SCHICAGO             IL"}, {"role": "assistant", "content": "Personal"}]}
+{"messages": [{"role": "user", "content": "AplPay TRADER JOE S CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "AplPay APPLE STORE RCHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay WHOLEFDS STV CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "OPENAI *CHATGPT SUBSSAN FRANCISCO       CA"}, {"role": "assistant", "content": "Subscriptions"}]}
+{"messages": [{"role": "user", "content": "UNION PIER MARKET 00UNION PIER          MI"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "AplPay JEWEL OSCO 00NAPERVILLE          IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "CHICAGO INDEPENDENTSCHICAGO             IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "BT*MYEYEDR.         VIENNA              VA"}, {"role": "assistant", "content": "Medical"}]}
+{"messages": [{"role": "user", "content": "GROOMIES            CHICAGO             IL"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay PRET A MANGERLYON                RH"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AMEX Airline Fee Reimbursement"}, {"role": "assistant", "content": "Travel-Airline"}]}
+{"messages": [{"role": "user", "content": "ORSOS RESTAURANT 039CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "BAR ANCHOITA 3251996MALAGA              ES"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "VENTRA MOBILE APP   CHICAGO             IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "JUST SALAD 0000     NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "BOOTH CAMPUS GROUPS CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay PETTABLE.COM WILMINGTON          DE"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "AplPay TST* JENI'S SCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "BWSBEVERAGE 22835703CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "METRA MOBILE 0000000CHICAGO             IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "UNITED AIRLINES     HOUSTON             TX"}, {"role": "assistant", "content": "Travel-Airline"}]}
+{"messages": [{"role": "user", "content": "AplPay LYFT         855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "JUST SALAD 0000     NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "TST* CALS CORNER - WCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay JEWEL OSCO 32CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "AplPay KRISERS RIVERCHICAGO             IL"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "AMEXTRAVEL.COM      800-297-2977        WA"}, {"role": "assistant", "content": "Travel-Lodging"}]}
+{"messages": [{"role": "user", "content": "METRA MOBILE 0000000CHICAGO             IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay TST* TILLY BACHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AMAZON MARKEPLACE NA PA"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "CKE*GROUND FLOOR CAFOKLAHOMA CITY       OK"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "BWSBEVERAGE2 2283539CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "BELLE EPOQUE        BEAUNE              FR"}, {"role": "assistant", "content": "Travel-Lodging"}]}
+{"messages": [{"role": "user", "content": "MODERN INTIMACY     BEVERLY HILLS       CA"}, {"role": "assistant", "content": "Medical"}]}
+{"messages": [{"role": "user", "content": "AplPay DSW SHOE WARENAPERVILLE          IL"}, {"role": "assistant", "content": "Clothes"}]}
+{"messages": [{"role": "user", "content": "UNIQLO USA LLC      NEW YORK            NY"}, {"role": "assistant", "content": "Clothes"}]}
+{"messages": [{"role": "user", "content": "AplPay WHOLEFDS GOC CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "MED*UNIVERSITY OF CHCHICAGO             IL"}, {"role": "assistant", "content": "Medical"}]}
+{"messages": [{"role": "user", "content": "AMAZON MARKEPLACE NA PA"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "TST* MIDWEST COAST BCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "BP#9204355ROCK N ROLCHICAGO             IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AMAZON SHOP WITH POINTS CREDIT"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "AMOCO#1263500VILLAGEMICHIGAN CITY       IN"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "ZETTLE *S & D TAXI GMUNCHEN             DE"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "UBER ONE            help.uber.com       CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AVKAR GROCER & TOBACNaperville          IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "AplPay TIME OUT MARKCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay DSW SHOE WARENAPERVILLE          IL"}, {"role": "assistant", "content": "Clothes"}]}
+{"messages": [{"role": "user", "content": "AplPay TST* DISTRICTCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "TUCKER PUPS PET RESOCHICAGO             IL"}, {"role": "assistant", "content": "Dante"}]}
+{"messages": [{"role": "user", "content": "AplPay APPLE.COM/BILINTERNET CHARGE     CA"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "THE IO THEATER      CHICAGO             IL"}, {"role": "assistant", "content": "Entertainment"}]}
+{"messages": [{"role": "user", "content": "TOCK AT*CANLIS      CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "TRACFONE SERVICE    800-867-7183        FL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "Interest Charge on Pay Over Time Purchases"}, {"role": "assistant", "content": "Financial"}]}
+{"messages": [{"role": "user", "content": "CULVERS OF AURORA 55AURORA              IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay TST* THE BAD CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay TST* BROWN BACHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "PRIME VIDEO *RU1VZ4S888-802-3080        WA"}, {"role": "assistant", "content": "Entertainment"}]}
+{"messages": [{"role": "user", "content": "AMEXTRAVEL.COM      800-297-2977        WA"}, {"role": "assistant", "content": "Travel-Lodging"}]}
+{"messages": [{"role": "user", "content": "AplPay TST* BOMBAY WCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "UBER EATS           help.uber.com       CA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "CFH Penta France SASRoissy-en-France    FR"}, {"role": "assistant", "content": "Travel-Lodging"}]}
+{"messages": [{"role": "user", "content": "AplPay AMC 9640 ONLILEAWOOD             KS"}, {"role": "assistant", "content": "Entertainment"}]}
+{"messages": [{"role": "user", "content": "AplPay FAMILY PRIDE LOMBARD             IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "UBER"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay TST* CALS AT CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "SNCF MOBILE RESTE DUPARIS               FR"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "DR ADJ REDIST CADV PRIN"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "LYFT                855-280-0278        CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "VTS Sun Taxi VTS SunNEW YORK            NY"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay DICK'S SPORTICORAOPOLIS          PA"}, {"role": "assistant", "content": "Clothes"}]}
+{"messages": [{"role": "user", "content": "AplPay WALGREENS    CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "PRIME VIDEO CHANNELSAMZN.COM/BILL       WA"}, {"role": "assistant", "content": "Entertainment"}]}
+{"messages": [{"role": "user", "content": "TST* SB PIZZA 300618NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay PHILZ COFFEE Chicago             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "UNITED AIRLINES     HOUSTON             TX"}, {"role": "assistant", "content": "Travel-Airline"}]}
+{"messages": [{"role": "user", "content": "AplPay TST* SIP AND NEW YORK            NY"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "TRADER JOE S #696 00CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "MODERN INTIMACY     BEVERLY HILLS       CA"}, {"role": "assistant", "content": "Medical"}]}
+{"messages": [{"role": "user", "content": "AplPay VTS FLASH CABCHICAGO             IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay HYATT REG LKERENTON              WA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay SDM MARKETS  Chicago             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay TST* NAANSENSNAPERVILLE          IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "PRIME VIDEO CHANNELSAMZN.COM/BILL       WA"}, {"role": "assistant", "content": "Entertainment"}]}
+{"messages": [{"role": "user", "content": "AplPay CHIPOTLE ONLINEWPORT BEACH       CA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay ANDY'S - NAPENAPERVILLE          IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "SPOTIFY USA         NEW YORK            NY"}, {"role": "assistant", "content": "Subscriptions"}]}
+{"messages": [{"role": "user", "content": "PRIME VIDEO *ZT31L8K888-802-3080        WA"}, {"role": "assistant", "content": "Entertainment"}]}
+{"messages": [{"role": "user", "content": "METRA MOBILE 0000000CHICAGO             IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "PY *KINGSTON MINES 9CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "UBER ONE            help.uber.com       CA"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay FAMILY PRIDE LOMBARD             IL"}, {"role": "assistant", "content": "Home"}]}
+{"messages": [{"role": "user", "content": "AplPay CVS PHARMACY CHICAGO             IL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay LA COLOMBE - Chicago             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "STARBUCKS           800-782-7282        WA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay PY *THE HALALCHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay PRET A MANGERLYON                RH"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay ABM NU MEMORICHICAGO             IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "AplPay CHIPOTLE ONLINEWPORT BEACH       CA"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "VENTRA MOBILE APP   CHICAGO             IL"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "HOLIDAY INN NYCE    NEW YORK            NY"}, {"role": "assistant", "content": "Travel-Lodging"}]}
+{"messages": [{"role": "user", "content": "ANNECY SNCF746008651ANNECY              FR"}, {"role": "assistant", "content": "Transportation"}]}
+{"messages": [{"role": "user", "content": "PY *KINGSTON MINES 9CHICAGO             IL"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "EURL LE VIEUX BELLEVPARIS"}, {"role": "assistant", "content": "Food & Drink"}]}
+{"messages": [{"role": "user", "content": "AplPay JEWEL OSCO 32CHICAGO             IL"}, {"role": "assistant", "content": "Groceries"}]}
+{"messages": [{"role": "user", "content": "SPOTIFY USA         NEW YORK            NY"}, {"role": "assistant", "content": "Subscriptions"}]}
+{"messages": [{"role": "user", "content": "ADJ REDIST PURCHASE BAL"}, {"role": "assistant", "content": "Misc"}]}
+{"messages": [{"role": "user", "content": "AplPay FAMILY PRIDE LOMBARD             IL"}, {"role": "assistant", "content": "Home"}]}
