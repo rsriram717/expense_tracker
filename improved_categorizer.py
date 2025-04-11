@@ -19,7 +19,7 @@ import pickle
 from transaction_categorizer import TransactionCategorizer
 from model_training import train_model as train_rf_model
 from model_training import find_latest_model_file as find_latest_rf_file
-from llm_service import LlamaAPI
+from llm_service import client, get_llama_category, get_llama_categories_batch, test_llama_connection
 from config import (
     MODELS_DIR, 
     TO_CATEGORIZE_DIR, 
@@ -28,16 +28,20 @@ from config import (
     INFERENCE_API_KEY_ENV_VAR
 )
 
-# Global LLM client
-client = None
+# Global LLM client check
+llm_available = False
 try:
     from dotenv import load_dotenv
     load_dotenv()
     api_key = os.environ.get(INFERENCE_API_KEY_ENV_VAR)
-    if api_key:
-        client = LlamaAPI(api_key)
+    if api_key and client is not None:
+        llm_available = test_llama_connection(max_retries=1)
+        if llm_available:
+            print("LLM API connection successful - Llama model available.")
+        else:
+            print("LLM API connection failed - Llama model unavailable.")
     else:
-        print(f"Warning: No {INFERENCE_API_KEY_ENV_VAR} environment variable found for LLM API.")
+        print(f"Warning: No {INFERENCE_API_KEY_ENV_VAR} environment variable found or client not initialized for LLM API.")
 except Exception as e:
     print(f"Error initializing LLM client: {e}")
 
@@ -99,11 +103,19 @@ def categorize_transactions(input_dir=TO_CATEGORIZE_DIR, output_dir=OUTPUT_DIR, 
         model_filename = "random_forest_model"  # Placeholder - would come from the model
     elif model_type == "llama":
         # Use LLM API for categorization
-        if client is None:
-            print(f"Cannot use LLM model: API client not initialized")
+        if not llm_available:
+            print(f"Cannot use LLM model: API client not initialized or connection failed")
             return None, None, None
         model_version = "llama_3.1"
         model_filename = "llama_3.1_api"
+    elif model_type == "hybrid":
+        # Use both models
+        categorizer = TransactionCategorizer()
+        if not llm_available:
+            print(f"Cannot use hybrid model: LLM API client not initialized or connection failed")
+            return None, None, None
+        model_version = "hybrid_v1"
+        model_filename = "rf_llama_hybrid"
     else:
         print(f"Unsupported model type: {model_type}")
         return None, None, None
@@ -154,11 +166,55 @@ def categorize_transactions(input_dir=TO_CATEGORIZE_DIR, output_dir=OUTPUT_DIR, 
                 categorized_df['category'] = None
                 categorized_df['confidence'] = None
                 
-                # This is a placeholder - would call LLM API through client
-                print("Using LLM API for categorization")
-                # Placeholder logic - would be replaced with actual LLM calls
-                categorized_df['category'] = "Misc"  # Default category
-                categorized_df['confidence'] = 0.5  # Default confidence
+                # Prepare transactions for batch processing
+                transactions = [(row['description'], 
+                                row.get('extended_details') if 'extended_details' in row else None) 
+                               for _, row in df.iterrows()]
+                
+                # Process in batches using the LLM service
+                results_list = get_llama_categories_batch(transactions)
+                
+                # Update the DataFrame with results
+                for idx, (category, confidence) in enumerate(results_list):
+                    if idx < len(categorized_df):
+                        categorized_df.loc[idx, 'category'] = category
+                        categorized_df.loc[idx, 'confidence'] = confidence
+                
+            elif model_type == "hybrid":
+                # Use a hybrid approach - RF first, then LLM for low confidence items
+                categorized_df = df.copy()
+                categorized_df['category'] = None
+                categorized_df['confidence'] = None
+                categorized_df['model_used'] = None
+                
+                # First use RandomForest for all
+                transactions_for_llm = []
+                rf_indices = []
+                
+                for idx, row in df.iterrows():
+                    result = categorizer.categorize(row['description'], row['amount'])
+                    categorized_df.loc[idx, 'category'] = result['category'] 
+                    categorized_df.loc[idx, 'confidence'] = result['confidence']
+                    categorized_df.loc[idx, 'model_used'] = 'rf'
+                    
+                    # If confidence is below threshold, add to LLM batch
+                    if result['confidence'] < 0.7:  # Threshold for LLM backup
+                        transactions_for_llm.append((row['description'], 
+                                                   row.get('extended_details') if 'extended_details' in row else None))
+                        rf_indices.append(idx)
+                
+                # Process low-confidence items with LLM
+                if transactions_for_llm:
+                    llm_results = get_llama_categories_batch(transactions_for_llm)
+                    
+                    # Update only those rows where LLM was needed
+                    for batch_idx, (category, confidence) in enumerate(llm_results):
+                        df_idx = rf_indices[batch_idx]
+                        # Only use LLM result if confidence is higher than RF
+                        if confidence > categorized_df.loc[df_idx, 'confidence']:
+                            categorized_df.loc[df_idx, 'category'] = category
+                            categorized_df.loc[df_idx, 'confidence'] = confidence
+                            categorized_df.loc[df_idx, 'model_used'] = 'llama'
                 
             # Store the categorized DataFrame in results
             results[filename] = categorized_df
@@ -203,15 +259,43 @@ def evaluate_model_on_holdout(model_type="local"):
             "evaluation_time": datetime.now().isoformat()
         }
         
-        # Placeholder for evaluation logic
-        # This would be replaced with actual evaluation code
-        
+        # Evaluate based on model type
         if model_type == "local":
             # Evaluate RandomForest model
-            metrics["accuracy"] = 0.85  # Placeholder
+            categorizer = TransactionCategorizer()
+            correct = 0
+            total = 0
+            
+            for idx, row in holdout_df.iterrows():
+                result = categorizer.categorize(row['description'], row['amount'])
+                if result['category'] == row['category']:
+                    correct += 1
+                total += 1
+            
+            if total > 0:
+                metrics["accuracy"] = correct / total
+            
         elif model_type == "llama":
-            # Evaluate LLM
-            metrics["accuracy"] = 0.80  # Placeholder
+            # Evaluate LLM model
+            if not llm_available:
+                return {"error": "LLM API not available for evaluation"}
+                
+            # Prepare transactions for batch processing
+            transactions = [(row['description'], 
+                            row.get('extended_details') if 'extended_details' in row else None) 
+                           for _, row in holdout_df.iterrows()]
+            
+            # Get predictions
+            llm_results = get_llama_categories_batch(transactions)
+            
+            # Calculate accuracy
+            correct = 0
+            for idx, (category, _) in enumerate(llm_results):
+                if idx < len(holdout_df) and category == holdout_df.iloc[idx]['category']:
+                    correct += 1
+            
+            if len(holdout_df) > 0:
+                metrics["accuracy"] = correct / len(holdout_df)
             
         return metrics
     except Exception as e:
